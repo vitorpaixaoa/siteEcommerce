@@ -4,8 +4,8 @@ import Layout from '../components/Layout';
 import Cabecalho from '../containers/Cabecalho';
 import Banners from '../containers/Banners';
 import Beneficios from '../containers/Beneficios';
-import ProdutosPaginaInicial from '../containers/Lista/ProdutosPaginaInicial';
-import Rodape from '../containers/Rodape';
+// import ProdutosPaginaInicial from '../containers/Lista/ProdutosPaginaInicial';
+// import Rodape from '../containers/Rodape';
 
 
 export default class Index extends Component {
@@ -14,10 +14,13 @@ export default class Index extends Component {
         return(
             <Layout title="Zellus - Moda e estilo">
                 <Cabecalho />
+                <br/>
                 <Banners />
                 <Beneficios />
-                <ProdutosPaginaInicial />
-                <Rodape />
+                <br/>
+                {/* <ProdutosPaginaInicial />
+                </br>
+                <Rodape /> */}
             </Layout>
         )
     }

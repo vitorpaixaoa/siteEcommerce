@@ -12,6 +12,7 @@ const Layout = ({ children, title, description, url, ogImage }) => (
         <div className="body">
             { children }
         </div>
+        <br/>
         <footer>
             <div className="flex flex-center">
                 <small>

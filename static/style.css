@@ -1,0 +1,117 @@
+.Header {
+    max-height: 150px;
+}
+.header-wrapper, .categorias {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+}
+
+@media screen and (max-width: 720px){
+    .header-wrapper{
+        flex-direction: column; }
+    .categorias{
+        overflow-x: scroll;
+    }
+    .Header {
+        max-height: 250px;
+    }
+}
+
+.logo {
+    max-width: 230px;
+    cursor: pointer;
+}
+
+.input-pesquisa {
+    font-size: 1rem;
+    color: #333;
+    padding: 10px 25px;
+    width: 90%;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+.button-pesquisa {
+    margin-left: -55px;
+    font-size: 1.2rem;
+    color: #333;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.item-cabecalho {
+    padding: 20px 0;
+}
+
+.item-cabecalho {
+    cursor: pointer;
+}
+
+.item-cabecalho i {
+    color: black;
+    font-size: 2rem;
+    margin: 0 5px;
+}
+
+.item-cabecalho span {
+    color: #3d3d3d;
+    font-size: 14px;
+}
+.item-cabecalho.cart {
+    margin-left: 15px;
+}
+.item-cabecalho.cart span {
+    font-size: 1rem;
+    background-color: #555;
+    color: #fff;
+    border-radius: 100px;
+    padding: 0 5px;
+    margin-left: -15px;
+    position: relative;
+    top: -15px;
+
+}
+
+
+/* // CATEGORIA---- */
+
+.categorias-wrapper {
+    background-color: #000000;
+    color: #fff;
+}
+.categoria-item {
+    padding: 10px 5px;
+    border-right: 1px solid #ccc;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.categoria-item:hover {
+    background-color: #fff;
+    color: #000000;
+    cursor: pointer;
+    border-right: 0;
+}
+
+.categoria-item:last-child { border-right: 0; }
+
+
+
+/* BENEFICIOS */
+.Beneficios {
+    padding: 25px 0;
+    background: #000000;
+    margin-top: -10px;
+    
+}
+.Beneficios i {
+    color: #fff
+}
+.Beneficios span {
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
