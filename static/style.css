@@ -15,7 +15,7 @@
         overflow-x: scroll;
     }
     .Header {
-        max-height: 250px;
+        max-height: 260px;
     }
 }
 
@@ -114,4 +114,48 @@
     font-size: 0.75rem;
     font-weight: bold;
     margin-top: 10px;
+}
+
+
+/* Produtos */
+.Produtos-Pagina-Inicial {
+    margin: 30px auto;
+}
+.Produtos-Pagina-Inicial > h2 {
+    font-size: 2rem;
+    color: #000000;
+    font-weight: bold;
+}
+.produto {
+    cursor: pointer;
+    margin: 10px;
+    box-shadow: 0 0 4px rgb(148, 148, 148) ;
+    flex-basis: calc(25% - 20px);
+    padding: 15px;
+    border-radius: 10px;
+}
+.produto:hover{
+    box-shadow: 0 0 10px rgb(59, 59, 59) ;
+}
+.produto-image { height: 250px ;}
+.produto-title {
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+}
+.produto-preco h2, .produto-preco-promocao h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+.produto-preco-produto-por h2 {
+    font-size: 1.1rem;
+    text-decoration: line-through;
+    color: #a19f9f;
+    margin: 0;
+}
+.produto-preco-parcelado h4 {
+    color: #1a1a1a;
+    font-size: 0.95rem;
 }

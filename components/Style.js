@@ -21,6 +21,29 @@ export default() => (
         max-width: 1440px;
     }
 
+    .wrap { flex-wrap: wrap;}
+
+    .wrap-1 { 
+        flex-basis: 100%;
+        max-width: 100%
+    }
+    .wrap-2 { 
+        flex-basis: calc(50% - 20px);
+        max-width:  calc(50% - 20px);
+    }
+    .wrap-3 { 
+        flex-basis: calc(32% -20px);
+        max-width: calc(32% -20px);
+    }
+    .wrap-4 { 
+        flex-basis: calc(25% -20px);
+        max-width:  calc(25% -20px);
+    }
+    .wrap-5 { 
+        flex-basis: calc(20% - 20px);
+        max-width: calc(20% - 20px);
+    }
+
     .flex { display: flex }
     .flex-1 { flex: 1; }
     .flex-2 { flex: 2; }
@@ -43,12 +66,17 @@ export default() => (
     }
 
     @media screen and (max-width: 720px){
-        .wrap-mb { flex-wrap: wrap;}
-        .wrap-2-mv {
+        .wrap-mb { flex-wrap: wrap; }
+        .wrap-2-mb {
             flex-basis: calc(50% - 20px);
-            max-width: 50%;
+            max-width: calc(50% - 20px);
         }
-        .horizontal-mb { flex-direction: row;}
+        .produto.wrap-2-mb {
+            flex-basis: calc(50% - 50px);
+            max-width: calc(50% - 50px);
+        }
+        .horizontal-mb { flex-direction: row; }
+        
     }
     
 
