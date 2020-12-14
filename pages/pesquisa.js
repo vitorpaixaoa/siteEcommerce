@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import Link from 'next/link'
+import Layout from '../components/Layout';
+import Cabecalho from '../containers/Cabecalho';
+import ProdutosPesquisa from '../containers/Lista/ProdutosPesquisa';
+import Rodape from '../containers/Rodape';
+
+
 
 export default class Pesquisa extends Component {
 
     render(){
         return(
-            <div>
-                <h2> LOJA TI pesquisa </h2>
-            </div>
+            <Layout title="Resultados para Vestido ">
+                <Cabecalho />
+                <ProdutosPesquisa />
+                <Rodape />
+            </Layout>
         )
     }
 }

@@ -6,7 +6,7 @@ const formatMoney = (value) => "R$ " + (value || 0).toFixed(2).replace(".",",");
 
 class Produto extends Component {
     render(){
-        const { item, key, porLinha } = this.props;
+        const { item, porLinha } = this.props;
         const { id, titulo, preco, promocao, fotos } = item;
         const temPromo = promocao && preco !== promocao;
         return(
@@ -16,7 +16,7 @@ class Produto extends Component {
                         <img 
                             src={fotos[0]}
                             alt={titulo}
-                            style={{ maxWidth: "95%" }} />
+                            style={{ maxWidth: "100%" }} />
                     </div>
                     <div className="produto-title flex flex-center">
                         <h3> {titulo} </h3>

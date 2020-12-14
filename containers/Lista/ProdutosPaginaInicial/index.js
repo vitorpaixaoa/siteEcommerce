@@ -11,7 +11,7 @@ const PRODUTOS = [
     },
     {
         id: 23213333,
-        fotos: ["/static/imgProduto/conjunto-roso.jpg"],
+        fotos: ["/static/conjunto-roso-semfundo.png"],
         titulo: "Conjunto Roso Bonito confia",
         preco: 278,
         promocao: 250

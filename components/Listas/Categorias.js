@@ -20,7 +20,7 @@ class Categorias extends Component {
     render(){
         const { categorias } = this.state;
         return(
-            <div className="categorias flex horizontal">
+            <div className="categorias flex  horizontal-mb">
                 {
                     categorias.map(categoria => (
                         <Link href={`/categoria/${categoria.nome}?id=${categoria.id}`} key={categoria.id}>

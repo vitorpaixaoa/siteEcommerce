@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 
-export default class Produto extends Component {
+import Layout from '../../components/Layout';
+import Cabecalho from '../../containers/Cabecalho';
+import Produto from '../../containers/Produto';
+import Rodape from '../../containers/Rodape';
+
+
+export default class ProdutoPage extends Component {
 
     render(){
         return(
-            <div>
-                <h2> LOJA TI Produto </h2>
-            </div>
+            <Layout title="Conjunto Roso TOP | Zellus - Moda e estilo">
+                <Cabecalho />
+                <Produto />
+                <Rodape />
+            </Layout>
         )
     }
 }

@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import Link from 'next/link'
+
+import Layout from '../../components/Layout';
+import Cabecalho from '../../containers/Cabecalho';
+import ProdutosCategoria from '../../containers/Lista/ProdutosCategoria';
+import Rodape from '../../containers/Rodape';
+
 
 export default class Categoria extends Component {
 
     render(){
         return(
-            <div>
-                <h2> LOJA TI categoria </h2>
-            </div>
+            <Layout title="Vestidos | Zellus - Moda e estilo">
+                <Cabecalho />
+                <ProdutosCategoria />
+                <Rodape />
+            </Layout>
         )
     }
 }
