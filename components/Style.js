@@ -5,11 +5,9 @@ export default () => (
     
     body { 
         margin: 0;
-        padding: 0;
-        backgroud-color: #fff; }
+        padding: 0; }
     body, * {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
     }
     .container,
     .container-big {

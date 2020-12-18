@@ -14,7 +14,7 @@ class Pesquisa extends Component {
                     name="pesquisa"
                     value={this.state.termo}
                     onChange={ e => this.setState({ termo: e.target.value })} 
-                    placeholder="Digite aqui a sua pesquisa..." 
+                    placeholder="Proucure aqui o seu produto" 
                     className="input-pesquisa" />
                 <button 
                     onClick={() => this.submitPesquisa()}

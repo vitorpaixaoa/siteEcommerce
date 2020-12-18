@@ -177,6 +177,286 @@
     border: 1px solid #000000;
 }
 
+/* PÁGINA DO PRODUTO */
+.Produto-Hero .titulo {
+    font-size: 2rem;
+    color: #000000;
+}
+.Produto-Hero .titulo h2 {
+    margin-bottom: 0%;
+}
+.Produto-Hero .categoria p {
+    margin-top: 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+.Produto-Hero .categoria-link {
+    cursor: pointer;
+    color: rgb(11, 0, 160);
+}
+.Produto-Hero .preco-original,
+.Produto-Hero .preco-promocao {
+    font-size: 2rem;
+    color: #434343;
+    margin: 0 ;
+}
+
+.Produto-Hero .preco-original.preco-por {
+    color: #777777;
+    font-size: 0.9rem;
+    font-weight: normal;
+    text-decoration: line-through;
+}
+.Produto-Hero .preco-parcelado{
+    margin: 0;
+    color: #555;
+    font-size: 1rem;
+    font-weight: normal;
+}
+.Produto-Hero .variacao {
+    max-width: 40px;
+    border: 1px solid #999999;
+    padding: 10px 5px;
+    font-size: 1rem;
+    margin: 5px  10px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+.Produto-Hero .variacao:hover,
+.Produto-Hero .variacao.variacao-active{
+    background-color: #000000;
+    color: #fff;
+}
+
+.Produto-Hero .opcoes {
+    margin-top: 20px;
+}
+.Produto-Hero .opcao-tab{
+    font-size: 0.9rem;
+    color: #444444;
+}
+.Produto-Hero .opcao-input {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border: 1px solid #000000 ;
+    max-width: 50px ;
+}
+
+/* IMAGENS PRODUTO  */
+.foto-principal img {
+    min-width: 550px;
+}
+.foto-principal img {
+    max-width: 555px;
+}
+.mini-foto {
+    margin-top: 10px;
+    border: 1px solid #999999;
+    max-width: 100px;
+    margin-right: 10px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.mini-foto:hover{
+    opacity: 1;
+}
+
+.Descricao {
+    margin-top: 50px;
+    max-width: 800px;
+    
+}
+.Descricao h2{
+    width: 300px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #222222;
+    margin-left: 10px;
+}
+.Descricao p {
+    margin-left: 10px;
+}
+.Avaliacoes h2{
+    width: 300px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #222222;
+    margin-left: 10px;
+}
+.Avaliacoes {
+    margin-left: 10px;
+    margin-top: 50px;
+}
+.avaliacao {
+    
+    margin: 10px 20px 10px 0px;
+    box-shadow: 0 0 4px rgb(207, 207, 207);
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+.avaliacao i.fa-star{
+    color: rgb(230, 187, 0);
+    margin-right: 2px;
+}
+.avaliacoes-form {
+    margin-top: 15px;
+}
+.avaliacoes-form h4 {
+    color: #3b3b3b;
+    font-size: 1.2rem;
+}
+.avaliacoes-form label {
+    font-size: 0.9rem;
+    color: #474747;
+    margin: 10px 10px 5px 0 ;
+}
+.avaliacoes-form select {
+    font-size: 1rem;
+    width: 120px;
+    border: 1px solid #fff;
+    box-shadow: 0 0 6px rgb(185, 185, 185);
+}
+.avaliacoes-form textarea {
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    box-shadow: 0 0 6px rgb(155, 155, 155);
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+.Produtos-Relacionados {
+    width: 300px;
+    margin-right: -50px;
+    font-size: 1.2rem;
+    color: #222222;
+    margin-left: 10px;
+}
+.container-relacionados {
+    width: calc(100% - 20px);
+    padding: 0 40px;
+    max-width: 1200px;
+    margin-left: -50px;
+}
+
+
+
+/* CARRINHO */
+
+/* .dados-do-carrinho-container {
+    padding-left: calc(60% - 20px);
+} */
+
+.dados-do-carrinho-container h4 {
+    padding-left: 10px;
+
+}
+.Carrinho>h2 {
+    font-size: 2rem;
+}
+.Carrinho  .produto-image {
+    height: auto;
+
+}
+.Carrinho .produto-quantidade {
+    font-size: 1rem;
+    padding: 10px 15px;
+    width: 60px;
+    border: 1px solid #aaaaaa;
+}
+
+.Carrinho .btn-remover {
+    color: rgb(82, 0, 0);
+    font-size: 0.85rem ;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.Carrinho .btn-remover:hover {
+    color: rgb(184, 3, 3);
+}
+.Carrinho .carrinho-item {
+    padding-top:10px;
+    margin: 10px;
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 10px;
+    box-shadow: 0 0 10px rgb(136, 136, 136) ;
+}
+.Carrinho .carrinho-item:last-child {
+    border-bottom: 0;
+}
+.Carrinho .carrinho-cabecalho {
+    background-color: black ;
+    color: #fff;
+}
+
+.dados-do-carrinho-container{
+    margin-top: 20px;
+}
+
+.dados-do-carrinho-item{
+    padding: 10px 0;
+    border-top: 1px solid #aaa;
+}
+.Carrinho select {
+    font-size: 1rem;
+    padding: 5px 10px;
+}
+.Carrinho valor-frete{
+    margin: 0;
+}
+.Carrinho .limpar-CEP {
+    color: rgb(82, 0, 0);
+    font-size: 0.85rem ;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.campo-frete {
+    width: 130px;
+    margin-top: 19px;
+}
+
+
+
+/* BOTÕES */
+.btn {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: 1px solid #999999;
+    background: transparent;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-primary {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    border: none;
+    margin: 18px 0;
+    font-size: 1.4rem;
+}
+.btn-primary:hover{
+    background-color: rgb(71, 71, 71);
+}
+.btn-small {
+    font-size: 0.6rem;
+}
+
+.btn-success {
+    background-color: rgb(3,123,17);
+    color: #fff;
+    border: none;
+    margin: 18px 0;
+    font-size: 1.4rem;
+}
+
+.btn-success:hover{
+    background-color: rgb(0, 211, 25);
+}
+.btn-cta {
+    padding: 15px 25px;
+    font-size: #ffffff;
+}
+
 /* RODAPE */
 .Rodape {
     background: #000000;
@@ -196,3 +476,59 @@
     color: #fff;
     font-weight: bold;
 }
+
+.LayoutSupremo{
+    background-color: rgb(231, 231, 231);
+}
+.Layout {
+    border-radius: 5px;
+    margin: 20px;
+    margin-top: 5px;
+    box-shadow: 0 0 10px rgb(153, 153, 153) ;
+    background-color: #fff;
+    margin-bottom: -10px;
+}
+
+@media screen and (max-width: 720px){
+    .Layout {
+        overflow-x: hidden;
+        margin-top: 0px;
+        box-shadow:none;
+        background-color: #fff;
+    }
+    .layout-supremo-mb{
+        margin: 0;
+        margin-top: -19px;
+        margin-right: -15px;
+        
+        background-color: #fff;
+    }
+    .input-pesquisa{
+        max-width: 70%;
+        margin-left: -10px;
+    }
+    /* .dados-do-carrinho-container {
+        padding-left: 0;
+    } */
+    .Carrinho {
+        font-size: 0.5rem;
+    }
+    .Carrinho select {
+        font-size: 0.8rem;
+        max-width: 60%;
+    }
+    .Carrinho .produto-quantidade {
+        font-size: 0.7rem;
+        width: 40px;
+        border: 1px solid #aaaaaa;
+    }
+    .inpt-quantidade-mb{
+        width: 20px;
+    }
+    .Rodape {
+        text-align: center;
+    }
+
+
+}
+

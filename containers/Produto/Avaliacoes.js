@@ -80,8 +80,8 @@ class Avaliacoes extends Component{
                         </select>
                     </div>
                     <div className="flex vertical">
-                        <label>Avaliação:&nbsp;</label><br/>
-                        <textarea rows="4" style={{ resize: "none", width: "100%", maxWidth:"500px" }}
+                        <label>Avaliação:&nbsp;</label> 
+                        <textarea rows="3" style={{ resize: "none", width: "100%", maxWidth:"500px" }}
                         placeholder="Digite aqui sua avaliação..." />
                     </div>
                     <div>
@@ -96,9 +96,8 @@ class Avaliacoes extends Component{
 
     render(){
         return(
-            <div className="Avaliacoes flex vertical">
-                <h2>Avaliações</h2>
-                <br/>
+            <div className="Avaliacoes flex  vertical">
+                <h2 >Avaliações</h2>
                 { this.renderAvaliacoes() }
                 <br/>
                 { this.renderFormularioAvaliacoes() }

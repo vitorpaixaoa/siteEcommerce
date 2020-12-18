@@ -2,7 +2,10 @@ import Head from './Head';
 import Style from './Style';
 
 const Layout = ({ children, title, description, url, ogImage }) => (
-    <div>
+    <div className="layout-supremo-mb LayoutSupremo">
+        <br/>
+        <div className="Layout">
+            <br/>
         <Head
             title={title}
             description={description}
@@ -20,6 +23,8 @@ const Layout = ({ children, title, description, url, ogImage }) => (
                 </small>
             </div>
         </footer>
+    </div>
+    <br/>
     </div>
 );
 

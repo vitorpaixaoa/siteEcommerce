@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 const PHOTOS = [
     "/static/conjunto-roso-semfundo.png",
     "/static/imgProduto/vestido-branco.jpg",
+    "/static/imgProduto/cacacao-verde.jpg",
+    "/static/imgProduto/cacacao-verde.jpg",
+    "/static/imgProduto/cacacao-verde.jpg",
     "/static/imgProduto/cacacao-verde.jpg"
 ];
 
@@ -13,7 +16,8 @@ class Hero extends Component {
 
     renderPhotos(){
         return(
-            <div className="fotos flex-2 flex vertical">
+            <div className="fotos flex-2 flex-center flex vertical">
+                
                 <div className="foto-principal flex-6 flex flex-center">
                     <img src={this.state.foto} width="95%" />
                 </div>
@@ -71,24 +75,24 @@ class Hero extends Component {
                     <h2>Vestido Roso Top</h2>
                 </div>
                 <div className="categoria">
-                    <p>Categoria:&nbsp;Vestidos</p>
-                </div>
+                    <p>Categoria:&nbsp;<span className="categoria-link">Vestidos</span></p>
+                </div><br/>
                 <div className="precos">
                     <h2 className="preco-original preco-por" >
                         R$ 180,00
                     </h2>
-                    <h2 className="preco-promocao preco-por" >
+                    <h2 className="preco-promocao" >
                         R$ 130,00
                     </h2>
-                    <h2 className="preco-promocao preco-por" >
+                    <h4 className="preco-parcelado " >
                         Ou em 6x de R$ 30,00 sem juros
-                    </h2>
+                    </h4>
                 </div>
                 <br/>
                 { this.renderVariacoes() }
                 <div className="opcoes">
-                    <div className="opcao">
-                        <label className="opcao-tab">Quantidade</label>
+                    <div className="opcao flex vertical">
+                        <label className="opcao-tab">Quantidade:</label>
                         <input className="opcao-input"
                         type="number" 
                         name="quantidade"
@@ -106,7 +110,7 @@ class Hero extends Component {
 
     render(){
         return(
-            <div className="flex horizontal">
+            <div className="Produto-Hero flex horizontal">
                 { this.renderPhotos() }
                 { this.renderDetalhes() }
             </div>

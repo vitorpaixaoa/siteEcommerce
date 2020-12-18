@@ -29,13 +29,13 @@ const PRODUTOS = [
         titulo: "Vestido Vermelho",
         preco: 670,
         promocao: 800
-    }
+    },
 ]
 
 class ProdutosRelacionados extends Component {
     render(){
         return(
-            <div className="container Produtos-Relacionados flex flex vertical">
+            <div className=" Produtos-Relacionados container-relacionados flex flex vertical">
                 <h2>Produtos Relacionados</h2>
                 <br/>
                 <Produtos
