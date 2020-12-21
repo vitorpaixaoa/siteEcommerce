@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import Link from 'next/link'
+import Layout from '../components/Layout';
+
+import Cabecalho from '../containers/Cabecalho';
+import CheckoutContainer from '../containers/Checkout';
+import Rodape from '../containers/Rodape'
 
 export default class Checkout extends Component {
 
     render(){
         return(
-            <div>
-                <h2> LOJA TI checkout </h2>
-            </div>
+            <Layout title="Checkout | Loja Zellus - Moda e Estilo" >
+                <Cabecalho simples />
+                <CheckoutContainer />
+                <Rodape />
+            </Layout>
         )
     }
 }

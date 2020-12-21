@@ -354,7 +354,8 @@
 .Carrinho>h2 {
     font-size: 2rem;
 }
-.Carrinho  .produto-image {
+.Carrinho  .produto-image,
+.Checkout .produto-image {
     height: auto;
 
 }
@@ -415,7 +416,75 @@
     margin-top: 19px;
 }
 
+/* CHECKOUT */
 
+.form-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input label {
+    margin: 10px 0 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.form-input input {
+    max-width: 400px;
+    font-size: 1rem;
+    margin: 0px 5px 5px 0;
+    padding: 5px 8px;
+    border: 1px solid #aaa;
+    box-shadow: 0 0 2px rgb(153, 153, 153) ;
+    border-radius: 4px;
+}
+.Checkout .select {
+    max-width: 300px;
+    font-size: 1rem;
+    margin: 0 5px 5px 0;
+}
+.form-check label {
+    margin: 0;
+    margin-top: -3px;
+    }
+.Checkout .slash-pagamento {
+    display: flex;
+    align-items: flex-end;
+    margin: 10px;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+    font-weight:  bold;
+}
+
+.Checkout  h2 {
+    border-top: 1px solid #aaa;
+    margin-top: 80px;
+    padding-top: 30px ;
+}
+
+.Checkout >  h2 {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0 ;
+    margin-bottom: 0;
+}
+.Checkout .carrinho-item{
+    padding-top:10px;
+    margin: 10px;
+    border-bottom: 1px solid rgb(202, 202, 202);
+    padding-bottom: 10px;
+    box-shadow: 0 0 6px rgb(185, 185, 185) ;
+}
+.Checkout .form-check{
+    flex-direction: row;
+    align-items: center;
+}
+input[type="radio"] {
+    -ms-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+    border: 0;
+}
 
 /* BOTÕES */
 .btn {
@@ -462,6 +531,7 @@
     background: #000000;
     padding: 60px 0;
     color: rgb(255, 255, 255);
+    margin-top: 100px ;
 }
 .Rodape a {
     color: rgb(185, 185, 185);
