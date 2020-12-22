@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import Link from 'next/link'
+import Layout from '../components/Layout';
+import Rodape from '../containers/Rodape';
+import Cabecalho from '../containers/Cabecalho';
+
+import SucessoContainer from '../containers/Sucesso';
 
 export default class Sucesso extends Component {
 
     render(){
         return(
-            <div>
-                <h2> LOJA TI sucesso </h2>
-            </div>
+            <Layout title="Loja Zellus - Moda e estilo." > 
+                <Cabecalho simples />
+                <SucessoContainer />
+                <Rodape />
+            </Layout>
         )
     }
 }
