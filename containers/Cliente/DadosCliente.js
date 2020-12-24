@@ -12,6 +12,8 @@ export default class DadosClienteContainer extends Component {
         dataDeNascimento:"",
         
     }
+
+    onChange =(field, e) =>  this.setState({ [field]: e.target.value });
     
     renderDadosRegistro(){
         const { email, senha } = this.state;

@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import Link from 'next/link'
+import Layout from '../../components/Layout';
+import Cabecalho from '../../containers/Cabecalho';
+import DadosContainer from '../../containers/AreaDoCliente/Dados';
+import Rodape from '../../containers/Rodape';
 
 export default class DadosDoCliente extends Component {
 
     render(){
         return(
-            <div>
-                <h2> LOJA TI DadosDoCliente </h2>
-            </div>
+            <Layout title="Meus Dados | Loja Zellus - Moda e estilo">
+                <Cabecalho />
+                <DadosContainer />
+                <Rodape/>
+            </Layout>
         )
     }
 }

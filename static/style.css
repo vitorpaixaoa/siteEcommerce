@@ -486,6 +486,131 @@ input[type="radio"] {
     border: 0;
 }
 
+
+/* MINHA CONTA  */
+.Acesso-Container {
+    margin: 50px auto 10px;
+    width: calc(100% - 20px);
+    padding: 20px ;
+    max-width: 500px;
+    border: 1px solid #aaa;
+    box-shadow: 0 0 6px rgb(185, 185, 185) ;
+}
+.Acesso-Container .form-input input{
+    max-width: 100%;
+}
+.Acesso-Container .link-acesso {
+    margin: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #070049;
+}
+.Acesso-Container .link-acesso:hover{
+    color: #1000a5;
+    text-decoration: underline;
+}
+.Acesso-Container select {
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* MENU LATERAL */
+
+.Pedidos-Container,
+.Dados-Container,
+.Senha-Container,
+.Pedido-Container {
+    margin-top: 30px !important ; 
+}
+.menu-lateral {
+    border-top: 4px solid #000000;
+    margin-top: 30px;
+}
+.menu-lateral-item{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 1px solid #aaa;
+    border-top: 0;
+    cursor: pointer;
+}
+.menu-lateral-item-active,
+.menu-lateral-item:hover {
+    background-color: #000000;
+    color: #fff;
+}
+
+.conteudo-area-cliente {
+    margin: 10px 10px 10px 40px;
+    box-shadow: 0 0 6px rgb(185, 185, 185) ;
+    padding: 20px;
+    border-radius: 3px;
+}
+
+.menu-pedidos {
+    background-color: #000000;
+    color: #fff;
+}
+.Pedido-Card {
+    padding: 15px 0;
+    border-bottom: 1px solid #aaa ;
+}
+
+.menu-pedidos > div,
+.Pedido-Card> div {
+    padding: 0 15px;
+}
+
+.form-dados {
+    max-width: 700px ;
+}
+.form-dados,
+.form-dados input {
+    max-width: 700px;
+    margin-top: 5px;
+}
+
+table.simples {
+    border-collapse: collapse;
+}
+table.simples th,
+table.simples td {
+    padding: 10px 15px ;
+}
+table.simples th {
+    background-color: #000000;
+    color: #fff;
+}
+table.simples td {
+    border-bottom: 1px solid rgba(190, 190, 190, 0.867);
+}
+
+.Status-Item {
+    border-left: 3px solid rgb(1, 78, 1);
+    padding: 5px 10px;
+    margin: 3px 0;
+    border-bottom: 1px solid rgba(190, 190, 190, 0.867);
+    width: 90%;
+}
+
+
+/* ALERTA  */
+.alert {
+    margin: 10px 0;
+    padding: 10px 15px;
+    border: 2px solid #dddd;
+    background-color: #eee;
+    color: #555;
+    font-size: 0.9rem;
+    border-radius: 2px;
+}
+.alert-danger {
+    border: 2px solid rgb(100, 0, 0);
+    background-color: rgb(255, 203, 203);
+    color: rgb(115, 0, 0);
+}
+
+
 /* BOTÕES */
 .btn {
     font-size: 1.1rem;
@@ -508,6 +633,11 @@ input[type="radio"] {
 }
 .btn-small {
     font-size: 0.6rem;
+}
+.btn-sm{
+    font-size: 0.85rem;
+    padding: 5px 8px;
+    
 }
 
 .btn-success {
