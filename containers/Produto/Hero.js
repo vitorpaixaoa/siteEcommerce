@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
-
-const PHOTOS = [
-    "/static/conjunto-roso-semfundo.png",
-    "/static/imgProduto/vestido-branco.jpg",
-    "/static/imgProduto/cacacao-verde.jpg",
-    "/static/imgProduto/cacacao-verde.jpg",
-    "/static/imgProduto/cacacao-verde.jpg",
-    "/static/imgProduto/cacacao-verde.jpg"
-];
+import { connect } from 'react-redux';
+import  Link  from 'next/link';
+import {formatMoney} from '../../utils';
+import { baseImg } from '../../config';
 
 class Hero extends Component {
 
-    state ={ foto: PHOTOS[0] }
+    constructor(props){
+        super();
+        const{ produto, variacoes }  = props;
+        this.state = {
+            foto: produto ? ( produto.fotos[0] || null ) : null,
+            fotos: produto ? ( produto.fotos || [] ) : [],
+            qtd: 1,
+            variacao: variacoes  && variacoes.lengh >=1 ? variacoes[0]._id : null,
+            variacaoCompleta: variacoes  && variacoes.lengh >=1 ? variacoes[0] : null,
+        };
+    }
+
+    componentDidUpdate(prevProps){
+        if( !prevProps.produto && this.props.produto ){
+            const { fotos } = this.props.produto;
+            this.setState({ foto: fotos[0], fotos })
+        }
+        if(!prevProps.variacoes && this.props.variacoes){
+            const variacao = this.props.variacoes[0];
+            if(!variacao) return null;
+            this.setState({ variacao: variacao._id, variacaoCompleta: variacao })
+        }
+    }
 
 
     renderPhotos(){
@@ -19,16 +36,16 @@ class Hero extends Component {
             <div className="fotos flex-2 flex-center flex vertical">
                 
                 <div className="foto-principal flex-6 flex flex-center">
-                    <img src={this.state.foto} width="95%" />
+                    <img src={ baseImg +  this.state.foto} width="95%" />
                 </div>
                 <div className="mini-fotos flex-1 flex">
                     {
-                        PHOTOS.map((foto, index) => (
+                        this.state.fotos.map((foto, index) => (
                             <div 
                                 key={index} 
                                 className="mini-foto flex-1 flex flex-center"
                                 onClick={() => this.setState({ foto })} >
-                                <img src={foto} width="90%"/>
+                                <img src={ baseImg +foto} width="90%"/>
                             </div>
                         ))
                     }
@@ -69,25 +86,61 @@ class Hero extends Component {
     }
 
     renderDetalhes(){
+        
+        const { produto } = this.props;
+        const { variacaoCompleta } = this.state;
+        if(!produto) return null;
+        console.log(produto)
         return(
             <div className="flex-2 produto-detalhes">
                 <div className="titulo">
-                    <h2>Vestido Roso Top</h2>
+                    <h2>{produto.titulo}</h2>
                 </div>
                 <div className="categoria">
-                    <p>Categoria:&nbsp;<span className="categoria-link">Vestidos</span></p>
+                    <p>
+                        Categoria:&nbsp;
+                        <Link href={`/categoria?id=${produto.categoria._id}`}>
+                            <span className="categoria-link">
+                                {produto.categoria.nome}
+                            </span>
+                        </Link>
+                    </p>
                 </div><br/>
-                <div className="precos">
-                    <h2 className="preco-original preco-por" >
-                        R$ 180,00
-                    </h2>
-                    <h2 className="preco-promocao" >
-                        R$ 130,00
-                    </h2>
-                    <h4 className="preco-parcelado " >
-                        Ou em 6x de R$ 30,00 sem juros
-                    </h4>
-                </div>
+                {
+                    variacaoCompleta ? (
+                        <div className="precos">
+                            <h2 className="preco-original preco-por" >
+                                {formatMoney(variacaoCompleta.preco)}
+                            </h2>
+                            {
+                                variacaoCompleta.promocao && variacaoCompleta.promocao !== variacaoCompleta.preco && (
+                                    <h2 className="preco-promocao" >
+                                        {formatMoney(variacaoCompleta.promocao)}
+                                    </h2>
+                                )
+                            }
+                            <h4 className="preco-parcelado " >
+                            Ou em até 6x de {formatMoney((variacaoCompleta.promocao || variacaoCompleta.preco)/6 )} sem júros
+                            </h4>
+                        </div>
+                    ): (
+                        <div className="precos">
+                            <h2 className="preco-original preco-por" >
+                                {formatMoney(produto.preco)}
+                            </h2>
+                            {
+                                produto.promocao && produto.promocao !== produto.preco && (
+                                    <h2 className="preco-promocao" >
+                                        {formatMoney(produto.promocao)}
+                                    </h2>
+                                )
+                            }
+                            <h4 className="preco-parcelado " >
+                            Ou em até 6x de {formatMoney((produto.promocao || produto.preco)/6)} sem júros
+                            </h4>
+                        </div>
+                    )
+                }
                 <br/>
                 { this.renderVariacoes() }
                 <div className="opcoes">
@@ -96,7 +149,8 @@ class Hero extends Component {
                         <input className="opcao-input"
                         type="number" 
                         name="quantidade"
-                        defaultValue={1} />
+                        value={this.state.qtd}
+                        onChange={(e) =>( Number(e.target.value) >= 1) && this.setState({ qtd: e.target.value }) } />
                     </div>
                 </div>
                 <div className="comprar">
@@ -118,4 +172,9 @@ class Hero extends Component {
     }
 }
 
-export default Hero;
+const mapStateToProps = state => ({
+    produto: state.produto.produto,
+    variacos: state.produto.variacoes
+})
+
+export default connect(mapStateToProps)(Hero);
