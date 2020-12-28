@@ -25,7 +25,7 @@ class Produtos extends Component {
                 {
                     produtos.map( item => (
                         <Produto item={item} 
-                        key={item.id} 
+                        key={item._id} 
                         porLinha={itensPorLinha} />
                     ))
                 }

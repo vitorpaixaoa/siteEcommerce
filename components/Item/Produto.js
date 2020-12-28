@@ -6,14 +6,15 @@ import { formatMoney } from '../../utils';
 class Produto extends Component {
     render(){
         const { item, porLinha } = this.props;
-        const { id, titulo, preco, promocao, fotos } = item;
+        const { _id, titulo, preco, promocao, fotos } = item;
         const temPromo = promocao && preco !== promocao;
         return(
-            <Link href={`/produto/${titulo}?produto=${id}`}>
+            <Link href={`/produto/${titulo}?produto=${_id}`}>
                 <div className={`produto flex-1 flex vertical wrap-${porLinha} wrap-2-mb`}>
                     <div className="produto-image flex flex-center">
-                        <img 
-                            src={fotos[0]}
+                        <img
+
+                            src={`${baseImg}${fotos[0]}`}
                             alt={titulo}
                             style={{ maxWidth: "100%" }} />
                     </div>

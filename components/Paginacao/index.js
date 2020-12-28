@@ -8,11 +8,11 @@ class Paginacao extends React.Component {
             <div className="Paginacao flex horizontal flex-center">
                 {
                     [...Array(numeroPaginas).keys()].map((numero, index) => {
-                        const numeroAtualDaPagina = numero * limite;
+                        const numeroAtual = numero * limite;
                         return(
                             <div
-                                key={index} onClick={() => onClick(numeroAtualDaPagina) }
-                                className={`paginacao-item ${numeroAtualDaPagina === atual ? "paginacao-item-active" : "" }`}>
+                                key={index} onClick={() => onClick(numeroAtual) }
+                                className={`paginacao-item ${numeroAtual === atual ? "paginacao-item-active" : "" }`}>
                                 { numero + 1 }
                             </div>
                         )
