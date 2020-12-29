@@ -4,8 +4,10 @@ import { FETCH_PRODUTOS,
     FETCH_PESQUISA,
     FETCH_PRODUTO,
     FETCH_PRODUTO_AVALIACOES,
-    FETCH_PRODUTO_VARIACOES, } from '../types';
+    FETCH_PRODUTO_VARIACOES,
+    NOVA_AVALIACAO  } from '../types';
 import { API, versao, loja } from '../../config';
+import {getHeaders} from './helpers';
 
 
 export const fetchProdutosPaginaInicial = () => (dispatch) => {
@@ -39,13 +41,25 @@ export const fetchVariacoes = ( id ) => dispatch => {
     .catch(e => console.log(e));
 }
 
+export const novaAvaliacao = ({ nome, token, produto, texto, pontuacao },cb) => dispatch => {
+    axios.post(
+        `${API}/${versao}/api/avaliacoes?loja=${loja}&produto=${produto}`,
+        { nome, texto, pontuacao },
+        getHeaders(token)
+    ).then(response => {
+        dispatch({ type: NOVA_AVALIACAO, payload: response.data });
+        cb(null)
+    }).catch(e => cb(e));
+} 
+
 export default  {
     fetchProdutosPaginaInicial,
     fetchTermo,
     fetchProdutosPesquisa,
     fetchProduto,
     fetchAvaliacoes,
-    fetchVariacoes
+    fetchVariacoes,
+    novaAvaliacao
 };
 
 

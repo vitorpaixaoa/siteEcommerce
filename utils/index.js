@@ -1,4 +1,10 @@
-export const formatMoney = (value) => "R$ " + (value || 0).toFixed(2).replace(".",",");
+export const formatMoney = (value) => "R$ " + Number(value || 0).toFixed(2).replace(".",",");
+
+export const codigosCorreios = {
+    "04510": "PAC",
+    "04014": "Sedex"
+};
+
 
 export const ESTADOS = {
 

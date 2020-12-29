@@ -1,30 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import actions from '../../redux/actions';
 import { formatMoney } from '../../utils';
-
-
-const PRODUTOS = [
-    {     
-        id: 1234567890,
-        fotos: ["/static/imgProduto/cacacao-verde.jpg"],
-        titulo: "Macacão Verde - M ",
-        precoUnitario: 180,
-        quantidade:1
-    },
-    {
-        id: 23213333,
-        fotos: ["/static/conjunto-roso-semfundo.png"],
-        titulo: "Conjunto Roso Bonito confia",
-        precoUnitario: 278,
-        quantidade: 1
-    },
-    {     
-        id: 123456789220,
-        fotos: ["/static/imgProduto/cacacao-verde.jpg"],
-        titulo: "Macacão Verde - M ",
-        precoUnitario: 180,
-        quantidade:1
-    }
-]
+import { baseImg } from '../../config';
+import { addCart } from '../../utils/cart';
 
 
 class ListaDeProdutos extends Component {
@@ -47,15 +26,44 @@ class ListaDeProdutos extends Component {
         )
     }
 
-    renderProduto(item, semAlteracoes){
-        const foto = item.fotos[0];
-        const nome = item.titulo;
+    changeQuantidade = ( e, quantidade, item, index ) => {
+        if(Number(e.target.value) < 1 ) return;
+        let novaQuantidade = Number(e.target.value);
+        let change = novaQuantidade - quantidade;
+        if( novaQuantidade >= item.variacao.quantidade){
+            return alert("Não temos essa quantidade disponível em estoque.");
+        }
+        addCart({
+            produto: item.produto._id,
+            variacao: item.variacao._id,
+            quantidade: change,
+            precoUnitario: item.precoUnitario
+        }, false);
+        this.props.updateQuantidade(change, index)
+    }
+
+
+    removeProdutoCarrinho = (index) => {
+        if(window.confirm("Você realmente deseja remover esse produto?")){
+            this.props.removerProduto(index);
+        }
+    }
+    
+
+    renderProduto(item, semAlteracoes, index){
+        if(
+            !item.variacao || !item.variacao._id 
+            || !item.produto || !item.produto._id) return null;
+        const foto = item.variacao.fotos && item.variacao.fotos.length >=0 ? 
+                                                            item.variacao.fotos[0] : 
+                                                            item.produto.fotos[0];
+        const nome = item.produto.titulo + " - " + item.variacao.nome ;
         const { quantidade, precoUnitario } = item;
         return(
             <div key={item.id} className="carrinho-item flex">
                 <div className="flex-4 flex ">
                     <div className="produto-image flex-2 flex flex-center">
-                        <img src={foto} alt={nome} width="100px" />
+                        <img src={ baseImg + foto} alt={nome} width="100px" />
                     </div>
                     <div className="produto-titulo flex-4 flex flex-start">
                         <h3 className="text-center"> {nome} </h3>
@@ -64,7 +72,10 @@ class ListaDeProdutos extends Component {
                         {
                             semAlteracoes ? 
                                 (<span>{quantidade}</span>) :
-                                <input type="number" defaultValue={quantidade} className="produto-quantidade" />
+                                <input type="number" 
+                                value={quantidade} 
+                                className="produto-quantidade" 
+                                onChange={(e) => this.changeQuantidade(e, quantidade, item, index) } />
                         }
                     </div>
                     <div className="flex-1 flex flex-center">
@@ -73,27 +84,34 @@ class ListaDeProdutos extends Component {
                     <div className="flex-1 flex flex-center">
                         <span>{ formatMoney(precoUnitario * quantidade)}</span>
                     </div>
-                    { !semAlteracoes &&  (<div className="flex-1 flex flex-center">
-                        <span className="btn-remover">Remover</span>
+                    { !semAlteracoes &&  (
+                        <div 
+                            className="flex-1 flex flex-center"
+                            onClick={() => this.removeProdutoCarrinho(index)}>
+                                <span className="btn-remover">Remover</span>
                     </div>)}
                 </div>
             </div>
         )
     }
 
-    renderProdutos(semAlteracoes){
-       return PRODUTOS.map((item) => this.renderProduto(item, semAlteracoes))
+   renderProdutos(semAlteracoes){
+        return this.props.carrinho.map((item, index) => this.renderProduto(item, semAlteracoes, index))
     }
 
     render(){
-        const { semAlteracoes } = this.props;
-        return(
+        const { semAlteracoes, carrinho } = this.props;
+        return (
             <div className="Lista-De-Produtos flex vertical">
                 { this.renderCabecalhoCarrinho(semAlteracoes) }
-                { this.renderProdutos(semAlteracoes) }
+                { carrinho && this.renderProdutos(semAlteracoes) }
             </div>
         )
     }
 }
 
-export default ListaDeProdutos;
+const mapStateToProps = state => ({
+    carrinho: state.carrinho.carrinho
+});
+
+export default connect(mapStateToProps, actions)(ListaDeProdutos);

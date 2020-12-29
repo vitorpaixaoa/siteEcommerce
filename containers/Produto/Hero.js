@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import  Link  from 'next/link';
 import {formatMoney} from '../../utils';
 import { baseImg } from '../../config';
-
+import { addCart } from '../../utils/cart';
 class Hero extends Component {
 
     constructor(props){
@@ -13,8 +13,8 @@ class Hero extends Component {
             foto: produto ? ( produto.fotos[0] || null ) : null,
             fotos: produto ? ( produto.fotos || [] ) : [],
             qtd: 1,
-            variacao: variacoes  && variacoes.lengh >=1 ? variacoes[0]._id : null,
-            variacaoCompleta: variacoes  && variacoes.lengh >=1 ? variacoes[0] : null,
+            variacao: variacoes  && variacoes.length >=1 ? variacoes[0]._id : null,
+            variacaoCompleta: variacoes  && variacoes.length >=1 ? variacoes[0] : null,
         };
     }
 
@@ -55,32 +55,48 @@ class Hero extends Component {
     }
 
     addCart(){
-        alert("Adicionado ao carrinho");
+        const { variacao, qtd, variacaoCompleta } = this.state;
+        const { produto } = this.props;
+        addCart({
+            produto: produto._id,
+            variacao,
+            quantidade: qtd,
+            precoUnitario: 
+                        variacaoCompleta ? variacaoCompleta.promocao || variacaoCompleta.preco : 
+                        produto.promocao || produto.preco
+        }, true);
+    }
+
+    setVariacao= (produto,variacao) => {
+        this.setState({ variacao: variacao._id, variacaoCompleta: variacao});
+        if(variacao.fotos && variacao.fotos.length > 0){
+            this.setState({ fotos: variacao.fotos, foto: variacao.fotos[0] });
+        } else {
+            this.setState({ fotos: produto.fotos, foto: produto.fotos[0] });
+        }
     }
 
     renderVariacoes(){
+        const { variacoes, produto } = this.props;
+        if(!produto || !variacoes || !variacoes.length === 0 ) return null;
         return (
             <div>
                 <div>
                 <label>Selecione uma opção:</label>
             </div>
-            <div className={`variacoes flex wrap`}>
-                <div className="variacao flex-1 flex flex-center wrap-4">
-                    <span className="variacao-item">
-                        P
-                    </span>
+                <div className={`variacoes flex wrap`}>
+                    {
+                        variacoes.map((variacao, index) => (
+                                <div className={`variacao ${variacao._id === this.state.variacao ? "variacao-active" : ""} flex-1 flex flex-center wrap-4 `}
+                                                                    key={variacao._id}
+                                                                        onClick={() => this.setVariacao(produto,variacao) }>
+                                    <span className="variacao-item">
+                                        { variacao.nome } 
+                                    </span>
+                            </div>
+                        ))
+                    }
                 </div>
-                <div className="variacao flex-1 flex flex-center wrap-4">
-                    <span className="variacao-item">
-                        M
-                    </span>
-                </div>
-                <div className="variacao flex-1 flex flex-center wrap-4">
-                    <span className="variacao-item">
-                        G
-                    </span>
-                </div>
-            </div>
             </div>
         )
     }
@@ -90,7 +106,6 @@ class Hero extends Component {
         const { produto } = this.props;
         const { variacaoCompleta } = this.state;
         if(!produto) return null;
-        console.log(produto)
         return(
             <div className="flex-2 produto-detalhes">
                 <div className="titulo">
@@ -99,7 +114,7 @@ class Hero extends Component {
                 <div className="categoria">
                     <p>
                         Categoria:&nbsp;
-                        <Link href={`/categoria?id=${produto.categoria._id}`}>
+                        <Link href={`/categoria/${produto.categoria.nome}?id=${produto.categoria._id}`}>
                             <span className="categoria-link">
                                 {produto.categoria.nome}
                             </span>
@@ -174,7 +189,7 @@ class Hero extends Component {
 
 const mapStateToProps = state => ({
     produto: state.produto.produto,
-    variacos: state.produto.variacoes
+    variacoes: state.produto.variacoes
 })
 
 export default connect(mapStateToProps)(Hero);

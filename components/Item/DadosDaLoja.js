@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 class DadosDaLoja  extends React.Component {
     render(){
 
-        console.log(this.props.loja);
 
         if(!this.props.loja) return (<div></div>)
         const { nome, cnpj, email, endereco, telefones  } = this.props.loja;

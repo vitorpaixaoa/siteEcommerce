@@ -1,13 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const DESC = "Ótimo produto, o material é excelente .\n\nAlta disponibilidade e segurança.\n\nGarantia de entrega em todo o país"
 
-const Descricao = () => (
-    <div className="Descricao flex vertical">
-        <h2>Descrição</h2>
-        <div>
-            { DESC.split("\n").map((item, idx) => <p key={idx}> {item} </p>) }
-        </div>
-    </div>
-)
-export default Descricao;
+ class  Descricao extends React.Component {
+     render(){
+         const { produto } = this.props;
+         return(
+            <div className="Descricao flex vertical">
+                <h2>Descrição</h2>
+                <div>
+                    { produto.descricao
+                    .split("\n")
+                    .map((item, idx) => <p key={idx}> {item} </p>) }
+                </div>
+            </div>
+        )
+     }
+ }
+
+const mapStateToProps = state => ({
+    produto:  state.produto.produto
+})
+
+
+export default connect(mapStateToProps)(Descricao);

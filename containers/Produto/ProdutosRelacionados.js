@@ -1,49 +1,42 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Produtos from '../../components/listas/Produtos';
+import actions from '../../redux/actions';
 
-const PRODUTOS = [
-    {
-        id: 1234567890,
-        fotos: ["/static/imgProduto/cacacao-verde.jpg"],
-        titulo: "Macacão Verde",
-        preco: 180
-    },
-    {
-        id: 23213333,
-        fotos: ["/static/conjunto-roso-semfundo.png"],
-        titulo: "Conjunto Roso Bonito confia",
-        preco: 278,
-        promocao: 250
-    },
-    {
-        id: 2132134455,
-        fotos: ["/static/imgProduto/vestido-branco.jpg"],
-        titulo: "Vestido Branco Bonitim",
-        preco: 3766,
-        promocao: 10
-    },
-    {
-        id: 666644444,
-        fotos: ["/static/imgProduto/vestido-branco.jpg"],
-        titulo: "Vestido Vermelho",
-        preco: 670,
-        promocao: 800
-    },
-]
+
 
 class ProdutosRelacionados extends Component {
+
+    componentDidMount(){
+        if(this.props.produto){
+            this.props.fetchProdutosCategoria(this.props.produto.categoria._id, 0, 4);
+        }
+    }
+
+    componentDidUpdate(prevProps){
+        if( !prevProps.produto && this.props.produto ){
+            this.props.fetchProdutosCategoria(this.props.produto.categoria._id, 0, 4);
+        }
+    }
+
     render(){
+        const { produtosCategoria } = this.props;
         return(
             <div className=" Produtos-Relacionados container-relacionados flex flex vertical">
                 <h2>Produtos Relacionados</h2>
-                <br/>
+                <br/> 
                 <Produtos
-                    produtos={PRODUTOS}
+                    produtos={ produtosCategoria ? produtosCategoria.docs : [] }
                     itensPorLinha={4} />
             </div>
         )
     }
 }
 
-export default ProdutosRelacionados;
+const mapStateToProps = state => ({
+    produtosCategoria: state.categoria.produtosCategoria,
+    produto: state.produto.produto
+})
+
+export default connect(mapStateToProps,actions)(ProdutosRelacionados);

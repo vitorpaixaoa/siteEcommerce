@@ -6,7 +6,7 @@ import {
 import { API, versao } from '../../config';
 
 
-const getHeaders = (token) => ({ headers: {"Authorization":` Ecommerce ${token}` } });
+import {getHeaders} from './helpers';
 
 export const reauthenticate = token => ({ type: AUTENTICAR_TOKEN, payload: token });
 

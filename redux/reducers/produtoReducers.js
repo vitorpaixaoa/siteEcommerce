@@ -5,6 +5,7 @@ import {
     FETCH_PRODUTO,
     FETCH_PRODUTO_AVALIACOES,
     FETCH_PRODUTO_VARIACOES,
+    NOVA_AVALIACAO 
 } from '../types';
 
 const initialState ={
@@ -46,6 +47,11 @@ export default ( state = initialState, action ) => {
             return {
                 ...state,
                 avaliacoes: action.payload.avaliacoes
+            }
+        case NOVA_AVALIACAO:
+            return{
+                ...state,
+                avaliacoes: state.avaliacoes.concat([action.payload.avaliacao])
             }
         default:
             return state;

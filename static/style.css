@@ -214,7 +214,6 @@
     font-weight: normal;
 }
 .Produto-Hero .variacao {
-    max-width: 40px;
     border: 1px solid #999999;
     padding: 10px 5px;
     font-size: 1rem;
@@ -413,7 +412,12 @@
 }
 .campo-frete {
     width: 130px;
-    margin-top: 19px;
+    margin-top: 17px;
+}
+.Carrinho .campo-frete {
+    padding: 5px 8px;
+    font-size: 1rem ;
+    
 }
 
 /* CHECKOUT */
