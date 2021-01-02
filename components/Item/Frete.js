@@ -14,7 +14,7 @@ class Frete extends Component {
         }
     }
 
-    
+
 
     componentDidUpdate(prevProps){
         if(!prevProps.fretes  && this.props.fretes && !this.props.freteSelecionado){
@@ -56,7 +56,7 @@ class Frete extends Component {
 
     renderOpcaoSelecionada(){
         const { freteSelecionado, cleanFretes } = this.props;
-        if(!freteSelecionado) return null;
+        if(!freteSelecionado || !freteSelecionado.Valor ) return null;
         return(
             <div className="flex vertical flex-right">
                 <h4 className="valor-frete">
@@ -70,7 +70,7 @@ class Frete extends Component {
     selectFrete(codigo,fretes){
         const frete = fretes.reduce(
             (all, frete ) => 
-            frete.Codigo === codigo ? item : all, {}
+            frete.Codigo.toString() === codigo ? frete : all, {}
         );
         this.props.selecionarFrete(frete);
     }
@@ -84,16 +84,19 @@ class Frete extends Component {
                 onChange={(e)=> this.selectFrete(e.target.value, fretes )} >
                     {
                         fretes.map((frete, index )=> (
+                            
                             <option value={frete.Codigo} key={frete.Codigo}>
-                                { codigosCorreios[frete.Codigo]} 
+                                { codigosCorreios[frete.Codigo]} &nbsp; 
                                 ({ frete.PrazoEntrega} dias úteis) 
                                 - {formatMoney(frete.Valor.replace(",","."))}
                             </option>
                         ))
+                        
                     }
                 </select>
             </div>
         )
+        
     }
 
     render(){

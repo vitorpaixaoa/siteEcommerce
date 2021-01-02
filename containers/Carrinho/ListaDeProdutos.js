@@ -60,8 +60,8 @@ class ListaDeProdutos extends Component {
         const nome = item.produto.titulo + " - " + item.variacao.nome ;
         const { quantidade, precoUnitario } = item;
         return(
-            <div key={item.id} className="carrinho-item flex">
-                <div className="flex-4 flex ">
+            <div className="carrinho-item flex" key={item.variacao._id} >
+                <div className="flex-4 flex " >
                     <div className="produto-image flex-2 flex flex-center">
                         <img src={ baseImg + foto} alt={nome} width="100px" />
                     </div>

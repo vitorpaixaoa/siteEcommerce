@@ -6,25 +6,52 @@ import SubmitDadosCliente from './SubmitDadosCliente';
 import DadosFrete from './DadosFrete';
 import DadosPagamento from './DadosPagamento';
 import DadosPedido from './DadosPedido';
-import CheckoutButton from './CheckoutButton';;
+import CheckoutButton from './CheckoutButton';import { connect } from 'react-redux';
+import actions from '../../redux/actions';
+;
 
 class CheckoutContainer extends Component {
+
+    state={
+        permissaoInicial: false,
+        permissaoCheckout: false
+    };
+
     render(){
+        const { permissaoCheckout, permissaoInicial} = this.state;
+        const { usuario, freteSelecionado } = this.props;
         return(
             <div className="Checkout container">
                 <h2>
                     CONCLUINDO SEU PEDIDO
                 </h2>
                 <br/>
-                <DadosCliente />
-                 <DadosEntrega />
-                <SubmitDadosCliente />
-                <DadosFrete />
-                <DadosPagamento />
-                <DadosPedido />
-                <CheckoutButton /> 
+                <DadosCliente 
+                    usuario={usuario} 
+                    permissaoInicial={permissaoInicial}
+                    permitir={() => this.setState({ permissaoInicial: true })} />
+
+                 { ( permissaoInicial || usuario )  && <DadosEntrega />}
+
+                {
+                    ( permissaoInicial || usuario )  && 
+                    <SubmitDadosCliente permitir={() => this.setState({ permissaoCheckout: true  })} />
+                
+                }
+                {  permissaoCheckout && <DadosFrete />}
+                
+                {  permissaoCheckout && freteSelecionado && <DadosPagamento />}
+                {  permissaoCheckout && freteSelecionado && <DadosPedido />}
+                {  permissaoCheckout && freteSelecionado && <CheckoutButton />}
+                
             </div>
         )
     }
 }
-export default CheckoutContainer;
+
+const mapStateToProps = state => ({
+    usuario: state.auth.usuario,
+    freteSelecionado: state.carrinho.freteSelecionado
+})
+
+export default connect(mapStateToProps, actions)(CheckoutContainer);

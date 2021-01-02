@@ -5,11 +5,15 @@ import categoriaReducer from './categoriaReducer';
 import lojaReducer from './lojaReducer';
 import produtoReducers from './produtoReducers';
 import carrinhoReducer from './carrinhoReducer';
+import clienteReducer from './clienteReducer';
+import checkoutReducer from './checkoutReducer';
 
 export default combineReducers({
     auth: authReducer,
     categoria: categoriaReducer,
     loja: lojaReducer,
     produto: produtoReducers,
-    carrinho: carrinhoReducer
+    carrinho: carrinhoReducer,
+    cliente: clienteReducer,
+    checkout: checkoutReducer
 });

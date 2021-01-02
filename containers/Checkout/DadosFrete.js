@@ -1,39 +1,62 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import FormRadio from '../../components/Inputs/FormRadio';
+import actions from '../../redux/actions';
+import { getCart } from '../../utils/cart';
+import { formatMoney, codigosCorreios } from '../../utils';
 
 class DadosFrete extends Component {
-    state = {
-        frete_selecionado: "PAC"
+    
+    componentDidMount(){
+        const { form } = this.props;
+        if(form){
+            this.props.calcularFrete(form.CEP, getCart())
+        }
     }
+
+    componentDidUpdate(prevProps){
+        if(prevProps.form.CEP !== this.props.form.CEP && this.props.form.CEP.length === 9){
+            this.props.calcularFrete(this.props.form.CEP, getCart())
+        }
+    }
+
+    selecionarFrete(frete){
+        this.props.selecionarFrete(frete);
+    }
+
+
     render(){
-        const { frete_selecionado } = this.state;
+        const { fretes, freteSelecionado } = this.props;
         return(
             <div className="Dados-Frete">
                 <h2>MÉTODOS DE ENTREGA</h2>
                 <br/>
                 <div className="flex horizontal">
-                    <div className="flex-1">
+                    {
+                        (fretes || []).map((frete, index) => (
+                            <div className="flex-1" key={index}>
                         <FormRadio name="frete_selecionado"  
-                        checked={frete_selecionado === "PAC"}
-                        onChange={()=> this.setState({ frete_selecionado: "PAC" })}
-                        label="PAC (8 dias úteis) - R$ 20,00 "/> 
-                    </div>
-                    <div className="flex-1">
-                    <FormRadio 
-                        name="frete_selecionado"  
-                        checked={frete_selecionado === "SEDEX"}
-                        onChange={()=> this.setState({ frete_selecionado: "SEDEX" })}
-                        label="SEDEX (3 dias úteis) - R$ 50,00 "/> 
-                    </div>
-                    <div className="flex-1">
-                        <FormRadio name="frete_selecionado"  
-                        checked={frete_selecionado === "SLZ"}
-                        onChange={()=> this.setState({ frete_selecionado: "SLZ" })}
-                        label="Entrega Imediata ( São Luís - MA) - R$ 25,00 "/> 
-                    </div>
+                            checked={freteSelecionado ? freteSelecionado.Codigo === frete.Codigo : false }
+                            onChange={()=> this.selecionarFrete(frete)}
+                            label={`${codigosCorreios[frete.Codigo]} 
+                            (${frete.PrazoEntrega} dias úteis)
+                            ${formatMoney(frete.Valor.replace(",","."))}` }/> 
+                        </div>
+                        ))
+                    }
                 </div>
             </div>
         )
     }
 }
-export default DadosFrete;
+
+const mapStateToProps = state => ({
+    usuario: state.auth.usuario,
+    carrinho: state.carrinho.carrinho,
+    cliente: state.cliente.cliente,
+    form: state.checkout.form,
+    fretes: state.carrinho.fretes,
+    freteSelecionado: state.carrinho.freteSelecionado
+})
+
+export default connect(mapStateToProps, actions)(DadosFrete);

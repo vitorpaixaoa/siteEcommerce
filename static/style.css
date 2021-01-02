@@ -518,6 +518,11 @@ input[type="radio"] {
     border-radius: 4px;
 }
 
+.form-input .erro{
+    color: red;
+    font: 13px;
+}
+
 /* MENU LATERAL */
 
 .Pedidos-Container,

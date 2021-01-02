@@ -1,8 +1,8 @@
 export const formatMoney = (value) => "R$ " + Number(value || 0).toFixed(2).replace(".",",");
 
 export const codigosCorreios = {
-    "04510": "PAC",
-    "04014": "Sedex"
+    "4510": "PAC",
+    "4014": "Sedex"
 };
 
 

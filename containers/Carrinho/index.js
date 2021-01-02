@@ -19,8 +19,9 @@ class CarrinhoContainer extends Component {
             carrinho[0].produto && !carrinho[0].produto._id ){
             carrinho.forEach((item, idx) => {
                 this.props.fetchProdutoCarrinho(item.produto, idx);
-                this.props.fetchVariacoesCarrinho(item.variacao, item.produto, idx);
-            });
+                this.props.fetchVariacoesCarrinho(item.variacao._id || item.variacao, item.produto, idx);
+                
+            }); 
         }
     }
 

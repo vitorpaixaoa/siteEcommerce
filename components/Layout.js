@@ -1,7 +1,7 @@
 import Head from './Head';
 import Style from './Style';
 
-const Layout = ({ children, title, description, url, ogImage }) => (
+const Layout = ({ children, title, description, url, ogImage, pagSeguro }) => (
     <div className="layout-supremo-mb LayoutSupremo">
         <br/>
         <div className="Layout">
@@ -10,7 +10,8 @@ const Layout = ({ children, title, description, url, ogImage }) => (
             title={title}
             description={description}
             url={url}
-            ogImage={ogImage} ></Head>
+            ogImage={ogImage}
+            pagSeguro ={pagSeguro} ></Head>
         <Style />
         <div className="body">
             { children }
