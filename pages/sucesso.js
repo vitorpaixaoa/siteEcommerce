@@ -10,7 +10,9 @@ export default class Sucesso extends Component {
     render(){
         return(
             <Layout title="Loja Zellus - Moda e estilo." > 
-                <Cabecalho simples />
+                <Cabecalho  />
+            <br/>
+            <br/>
                 <SucessoContainer />
                 <Rodape />
             </Layout>

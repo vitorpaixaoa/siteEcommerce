@@ -3,11 +3,13 @@ import MenuAreaDoCliente from '../Menu/AreaDoCliente';
 import PedidoDetalhes from './PedidoDetalhes'
 
 class PedidoContainer extends Component {
+    
     render(){
+        const { query } = this.props;
         return(
             <div className="Pedido-Container container-big flex horizontal">
                 <MenuAreaDoCliente />
-                <PedidoDetalhes />
+                <PedidoDetalhes query={query} />
             </div>
         )
     }

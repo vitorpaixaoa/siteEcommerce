@@ -1,5 +1,6 @@
 import {
-    FETCH_CLIENTE
+    FETCH_CLIENTE,
+    LOGOUT_CLIENTE
 } from "../types";
 
 
@@ -12,6 +13,8 @@ export default ( state = initialState, action ) => {
                 ...state, 
                 cliente: action.payload.cliente
             }
+            case LOGOUT_CLIENTE:
+                return initialState;
         default:
             return state;
     }

@@ -5,6 +5,7 @@ import produtoActions from './produtoActions';
 import carrinhoActions from './carrinhoActions';
 import clienteActions from './clienteActions';
 import checkoutActions from './checkoutActions';
+import pedidoAction from './pedidoActions'
 export default {
     ...authActions,
     ...categoriaActions,
@@ -12,5 +13,6 @@ export default {
     ...produtoActions,
     ...carrinhoActions,
     ...clienteActions,
-    ...checkoutActions
+    ...checkoutActions,
+    ...pedidoAction
 }

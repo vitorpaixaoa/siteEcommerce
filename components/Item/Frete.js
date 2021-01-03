@@ -30,7 +30,6 @@ class Frete extends Component {
         const { cep } = this.state;
         if(!cep || cep.length !== 9 ) return alert("Digite o CEP corretamente.");
         this.props.calcularFrete(cep, getCart());
-        console.log(this.props.carrinho)
     }
 
     renderFormularioCEP(){
@@ -62,7 +61,7 @@ class Frete extends Component {
                 <h4 className="valor-frete">
                     {formatMoney(freteSelecionado.Valor.replace(",","."))}
                 </h4>
-                <span onClick={()=> this.cleanFretes()} className="limpar-CEP">Limpar CEP</span>
+                <span onClick={()=> cleanFretes()} className="limpar-CEP">Limpar CEP</span>
             </div>
         )
     }

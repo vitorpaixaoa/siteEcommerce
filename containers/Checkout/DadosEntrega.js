@@ -3,7 +3,7 @@ import FormSimples from '../../components/Inputs/FormSimples';
 
 import { connect } from 'react-redux';
 import actions from '../../redux/actions';
-import moment from 'moment';
+import axios from 'axios';
 
 import { ESTADOS } from '../../utils';
 import { formatNumber, formatCEP } from '../../utils/format';
@@ -29,7 +29,6 @@ class DadosEntregaContainer extends Component {
         if(!local) erros.local = "Preencha aqui com seu endereço";
         if(!numero) erros.numero = "Preencha aqui com seu numero";
         if(!bairro) erros.bairro = "Preencha aqui com seu bairro";
-        if(!complemento) erros.complemento = "Preencha aqui com o complemento";
         if(!cidade) erros.cidade = "Preencha aqui com sua cidade";
         if(!estado) erros.estado = "Preencha aqui com seu estado";
         if(!CEP || CEP.length !== 9 ) erros.CEP = "Preencha aqui com seu CEP";
@@ -49,6 +48,24 @@ class DadosEntregaContainer extends Component {
     }
 
     onChange =(field, value, prefix ) =>  this.props.setForm({ [field]: value }, prefix).then(() => this.validate());
+
+    onChangeCEP =(field, value, prefix ) =>  {
+        this.props.setForm({ [field]: value }, prefix).then(() =>{
+            this.validate();
+            if(value.length === 9){
+                axios.get(`https://viacep.com.br/ws/${value.replace("-","")}/json/unicode`)
+                .then((response) => {
+                    this.props.setForm({
+                        "local": response.data["logradouro"],
+                        "bairro": response.data["bairro"],
+                        "cidade": response.data["localidade"],
+                        "estado": response.data["uf"]
+                    }, prefix).then(() => this.validate());
+                })
+                .catch(e => console.log(e))
+            }
+        });
+    }
 
 
     fetchCliente(){
@@ -100,7 +117,7 @@ class DadosEntregaContainer extends Component {
                         erro={erros.CEP}
                         label="CEP" 
                         placeholder="12345-678" 
-                        onChange={(e) => this.onChange("CEP", formatCEP(e.target.value) )} />
+                        onChange={(e) => this.onChangeCEP("CEP", formatCEP(e.target.value) )} />
                 </div>
                 <div className="flex-1 flex horizontal ">
                     <div className="flex-1 flex">
@@ -166,7 +183,7 @@ class DadosEntregaContainer extends Component {
                 <br/>
                 <div>
                     <input 
-                    checked={dadosEntregaIgualCobranca  || ""} 
+                    checked={dadosEntregaIgualCobranca  || true} 
                     type="checkbox"
                     onChange={(e) => this.props.setForm({"dadosEntregaIgualCobranca": !dadosEntregaIgualCobranca})}/>
                     <label>&nbsp;Os dados de entrega são iguais aos de cobrança.</label>
@@ -200,7 +217,7 @@ class DadosEntregaContainer extends Component {
                         erro={erros.dadosCobranca.CEP}
                         label="CEP" 
                         placeholder="12345-678" 
-                        onChange={(e) => this.onChange("CEP", formatCEP(e.target.value), 'dadosCobranca')} />
+                        onChange={(e) => this.onChangeCEP("CEP", formatCEP(e.target.value), 'dadosCobranca')} />
                 </div>
                 <div className="flex-1 flex horizontal">
                     <div className="flex-1 flex">

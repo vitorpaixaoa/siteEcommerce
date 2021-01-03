@@ -12,7 +12,7 @@ const Layout = ({ children, title, description, url, ogImage, pagSeguro }) => (
             url={url}
             ogImage={ogImage}
             pagSeguro ={pagSeguro} ></Head>
-        <Style />
+            <Style />
         <div className="body">
             { children }
         </div>

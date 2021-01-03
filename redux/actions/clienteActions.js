@@ -1,13 +1,14 @@
 import axios from 'axios';
 import {
-    FETCH_CLIENTE
+    FETCH_CLIENTE,
+    LOGOUT_CLIENTE
  } from '../types';
 import { API, versao, loja} from '../../config';
 import { setCookie } from '../../utils/cookie';
 import errorHandling from './errorHandling';
 import {getHeaders} from './helpers';
 import Router from 'next/router';
-import { autenticar } from './authActions';
+import { autenticar, desautenticar } from './authActions';
 
 export const fetchCliente = (id, token) => dispatch => {
     axios.get(`${API}/${versao}/api/clientes/${id}?loja=${loja}`, getHeaders(token))
@@ -48,7 +49,7 @@ export const newCliente = (form, cb) => dispatch => {
     })
     .then((response) => {
         dispatch({ type: FETCH_CLIENTE, payload: response.data });
-        dispatch(autenticar({email: form.email, password: form.senha}), null, cb);
+        dispatch(autenticar({email: form.email, password: form.senha}, null, cb));
         cb(null)
     })
     .catch(e => cb(errorHandling(e)));
@@ -78,8 +79,14 @@ export const updateCliente = (form, id, token, cb) => dispatch => {
     .catch(e => cb(errorHandling(e)));
 }
 
+export const logoutCliente = () => dispatch =>  {
+    dispatch(desautenticar());
+    dispatch({type: LOGOUT_CLIENTE})
+}
+
 export default {
     fetchCliente,
     newCliente,
-    updateCliente
+    updateCliente,
+    logoutCliente
 }

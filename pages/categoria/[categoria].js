@@ -22,7 +22,6 @@ class Categoria extends Component {
 
     render(){
         const { categoria } = this.props;
-        console.log(categoria)
         return(
             <Layout title={`${categoria ? categoria.nome : "-"} | Loja Zellus - Moda e Estilo`}>
                 <Cabecalho />

@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 
 import PedidosContainer from './Pedidos';
 import AcessoContainer from './Acesso'
+import { connect } from 'react-redux';
+import actions from '../../redux/actions';
 
-
-export default class AreaDoClienteContainer extends Component {
-    state={ estaLogado: true };
+class AreaDoClienteContainer extends Component {
     render(){
-        return this.state.estaLogado ? <PedidosContainer/> : <AcessoContainer />
+        return this.props.usuario ? <PedidosContainer/> : <AcessoContainer />
     }
 }
+
+const mapStateToProps = state=> ({
+    usuario: state.auth.usuario
+})
+
+export default connect(mapStateToProps,actions)(AreaDoClienteContainer)

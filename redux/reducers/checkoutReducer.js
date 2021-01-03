@@ -45,16 +45,14 @@ export default ( state = initialState, action ) => {
                 senderHash: action.senderHash
             }
         case NOVO_PEDIDO:
-            console.log('pedido',action.payload)
             return{
                 ...state,
                 novoPedido: action.payload.pedido
             }
         case PAGAR_PEDIDO:
-            console.log('pagamento',action.payload)
             return{
                 ...state,
-                novoPedido: action.payload.pagamento
+                novoPagamento: action.payload.pagamento
             }
         default:
             return state;

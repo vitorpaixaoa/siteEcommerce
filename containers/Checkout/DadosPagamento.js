@@ -27,7 +27,6 @@ class DadosPagamento extends Component {
             bandeira_cartao,
             parcelasCartao
         } = this.props.form;
-
         if(!bandeira_cartao && numeroCartao && numeroCartao.split(' ').join('').length === 16){
             this.getBrand();
         }
@@ -126,10 +125,8 @@ class DadosPagamento extends Component {
     }
     validate(){
         const { tipoPagamentoSelecionado } = this.props;
-        const { CPF, CPFboleto,numeroCartao, nomeCartao, mesCartao, anoCartao, parcelasCartao, parcelasCartaoSelecionada, CVVCartao } = this.props.form;
+        const { CPF, CPFboleto,numeroCartao, nomeCartao, mesCartao, anoCartao,  parcelasCartaoSelecionada, CVVCartao } = this.props.form;
         const erros = {};
-
-        console.log(tipoPagamentoSelecionado)
 
         if(tipoPagamentoSelecionado === "boleto"){
             if(!CPFboleto && !CPF) erros.CPFboleto = "Preencha aqui com seu CPF";
@@ -159,7 +156,7 @@ class DadosPagamento extends Component {
                     <FormSimples 
                         name="CPF"
                         erro={erros.CPFboleto}
-                        value={ CPFboleto || CPF} 
+                        value={CPFboleto || ""} 
                         label="CPF" 
                         placeholder="CPF" 
                         onChange={(e) => this.onChange("CPFboleto", formatCPF(e.target.value) )} />
@@ -177,7 +174,7 @@ class DadosPagamento extends Component {
                 <div className="flex-1">
                     <FormSimples 
                         name={"nomeCartao"} 
-                        value={nomeCartao} 
+                        value={nomeCartao || ''} 
                         erro={erros.nomeCartao}
                         label="Nome do Titular" 
                         placeholder="Nome como escrito no cartão" 
@@ -187,7 +184,7 @@ class DadosPagamento extends Component {
                         <FormSimples 
                             name={"numeroCartao"} 
                             erro={erros.numeroCartao}
-                            value={numeroCartao} 
+                            value={numeroCartao || ''} 
                             label="Número do Cartão" 
                             placeholder="XXXX XXXX XXXX XXXX" 
                             onChange={(e) => this.onChange("numeroCartao", formatCartao(e.target.value) )} />
@@ -196,7 +193,7 @@ class DadosPagamento extends Component {
                         <FormSimples 
                             name={"CVVCartao"} 
                             erro={erros.CVVCartao}
-                            value={CVVCartao} 
+                            value={CVVCartao || ''} 
                             label="Código de segurança" 
                             placeholder="XXX" 
                             onChange={(e) => this.onChange("CVVCartao", formatNumber(e.target.value, 3) )} />
@@ -209,7 +206,7 @@ class DadosPagamento extends Component {
             <div className="flex ">
                 <FormSimples 
                     name={"mesCartao"} 
-                    value={mesCartao} 
+                    value={mesCartao || ''} 
                     erro={erros.mesCartao}
                     label="Mês " 
                     placeholder="MM" 
@@ -218,7 +215,7 @@ class DadosPagamento extends Component {
                     <FormSimples 
                     name={"anoCartao"} 
                     erro={erros.anoCartao}
-                    value={anoCartao} 
+                    value={anoCartao || ''} 
                     label="Ano " 
                     placeholder="AAAA" 
                     onChange={(e) => this.onChange("anoCartao", formatNumber(e.target.value, 4) )} />

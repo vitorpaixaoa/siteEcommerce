@@ -523,6 +523,10 @@ input[type="radio"] {
     font: 13px;
 }
 
+.p-sucesso {
+    text-align: center;
+}
+
 /* MENU LATERAL */
 
 .Pedidos-Container,

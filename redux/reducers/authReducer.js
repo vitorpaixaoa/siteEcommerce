@@ -2,7 +2,8 @@ import actions from '../actions';
 import { 
     AUTENTICAR_TOKEN,
     USER,
-    AUTENTICAR
+    AUTENTICAR,
+    DESAUTENTICAR
  } from '../types';
 
 const initialState = { token: null, usuario: null }; 
@@ -20,8 +21,11 @@ export default ( state = initialState, action ) => {
                 return {
                     ...state,
                     token: action.payload.usuario ? action.payload.usuario.token : null,
-                    usuario: action.payload.usuario,
+                    usuario: action.payload.usuario
                 } 
+            case DESAUTENTICAR:
+                return initialState;
+
         default: return state 
     }
 }

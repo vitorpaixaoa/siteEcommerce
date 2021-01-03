@@ -13,6 +13,7 @@ import Router from 'next/router';
 import { fetchCliente } from './clienteActions';
 
 import errorHandling from './errorHandling';
+import { get } from 'js-cookie';
 
 export const reauthenticate = token => ({ type: AUTENTICAR_TOKEN, payload: token });
 
@@ -33,8 +34,25 @@ export const autenticar = ({ email, password }, goTo = false, cb) => dispatch =>
     .catch(e => cb(errorHandling(e)));
 }
 
+export const desautenticar = () => dispatch => {
+    removeCookie('token');
+    Router.push('/');
+    dispatch({ type: DESAUTENTICAR})
+}
+
+export const updateSenha = (data, token, cb) => dispatch => {
+    axios.put(`${API}/${versao}/api/usuarios/login`, {password: data.novaSenha},getHeaders(token))
+    .then((response) => {
+        dispatch({ type: USER, payload: response.data.usuario});
+        cb(null)
+    })
+    .catch(e => cb(errorHandling(e)));
+}
+
 export default {
     reauthenticate,
     getUser,
-    autenticar
+    autenticar,
+    desautenticar,
+    updateSenha
 };
