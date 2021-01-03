@@ -41,7 +41,7 @@ export const desautenticar = () => dispatch => {
 }
 
 export const updateSenha = (data, token, cb) => dispatch => {
-    axios.put(`${API}/${versao}/api/usuarios/login`, {password: data.novaSenha},getHeaders(token))
+    axios.put(`${API}/${versao}/api/usuarios`, {password: data.novaSenha},getHeaders(token))
     .then((response) => {
         dispatch({ type: USER, payload: response.data.usuario});
         cb(null)

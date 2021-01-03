@@ -20,10 +20,10 @@ class MenuAreaDoCliente extends Component{
     }
 
     renderCabecalho(){
-        const { usuario } = this.props;
+        const { cliente } = this.props;
         return(
             <div>
-                <h3>Oi, {usuario ? usuario.nome : "Cliente" } <br/>Seja bem-vindo a Área do Cliente.</h3>
+                <h3>Oi, {cliente ? cliente.nome : "Cliente" } <br/>Seja bem-vindo a Área do Cliente.</h3>
                 <p>Por aqui você pode acompanhar seus pedidos e também alterar seus dados de acesso e senha.</p>
             </div>
         )

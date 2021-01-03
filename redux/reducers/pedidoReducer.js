@@ -8,7 +8,8 @@ import {
 
 const initialState ={
     pedidos: null,
-    pedido: null
+    pedido: null,
+    pedidoRegistros: null
 }
 
 export default ( state = initialState, action) => {

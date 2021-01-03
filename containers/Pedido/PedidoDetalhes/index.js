@@ -12,7 +12,6 @@ class PedidoDetalhes extends Component {
 
     componentDidMount(){
         this.fetchPedido();
-        console.log(this.props.pedido)
     }
 
     componentDidUpdate(){
@@ -26,8 +25,16 @@ class PedidoDetalhes extends Component {
     fetchPedido(){
         const { token, fetchPedido } = this.props;
         const  {pedido}  = this.props.query;
-        console.log(pedido)
         if( pedido && token ) fetchPedido(pedido, token)
+    }
+
+    cancelarPedido (){
+        const { token, pedido } = this.props;
+        if(window.confirm("Você realmente deseja cancelar seu pedido ?")){
+            this.props.cancelarPedido(pedido._id, token, (error) => {
+                if(error) alert("Ocorreu um erro ao cancelar o pedido, tente novamente.")
+            });
+        }
     }
 
     render(){
@@ -36,7 +43,11 @@ class PedidoDetalhes extends Component {
             <div className="flex-4 conteudo-area-cliente">
                 <div className="flex flex-start">
                     <h2>PEDIDO #{ pedido ? pedido._id.slice(18) : ""}&nbsp;</h2>
-                    <button className="btn btn-sm btn-primary">CANCELAR PEDIDO</button>
+                    <button className="btn btn-sm btn-primary"
+                    disabled={pedido && pedido.cancelado}
+                    onClick={() => this.cancelarPedido()} >
+                        { pedido && pedido.cancelado ? "CANCELADO" : "CANCELAR PEDIDO"}
+                    </button>
                 </div>
                 <br/>
                 <div>

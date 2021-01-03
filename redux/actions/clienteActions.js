@@ -61,6 +61,7 @@ export const updateCliente = (form, id, token, cb) => dispatch => {
         nome: form.nome,
         cpf: form.CPF,
         telefones: [form.telefone],
+        dataDeNascimento: getRawData(form.dataDeNascimento),
         endereco: {
             local: form.local,
             numero: form.numero,
@@ -69,8 +70,8 @@ export const updateCliente = (form, id, token, cb) => dispatch => {
             cidade: form.cidade,
             estado: form.estado,
             CEP: form.CEP,
-        },
-        dataDeNascimento: getRawData(form.dataDeNascimento)
+        }
+        
     }, getHeaders(token))
     .then((response) => {
         dispatch({ type: FETCH_CLIENTE, payload: response.data });
