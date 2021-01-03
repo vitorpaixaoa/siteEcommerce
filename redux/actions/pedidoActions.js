@@ -18,7 +18,7 @@ export const fetchPedidos = ({ offset, limit, token }) => dispatch => {
     .then(response => dispatch({ type: FETCH_PEDIDOS, payload: response.data}))
     .catch(e => console.log(e))
 }
-export const fetchPedido = ({id, token }) => dispatch => {
+export const fetchPedido = (id, token ) => dispatch => {
     axios.get(`${API}/${versao}/api/pedidos/${id}?loja=${loja}`,
     getHeaders(token)
 )
@@ -26,7 +26,7 @@ export const fetchPedido = ({id, token }) => dispatch => {
 .catch(e => console.log(e))
 }
 
-export const cancelarPedido = ({id, token, cb }) => dispatch => {
+export const cancelarPedido = (id, token, cb ) => dispatch => {
     axios.delete(`${API}/${versao}/api/pedidos/${id}?loja=${loja}`,
     getHeaders(token)
 )
