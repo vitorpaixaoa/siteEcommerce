@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Layout from '../components/Layout';
 
 import Cabecalho from '../containers/Cabecalho';
 import Banners from '../containers/Banners';
@@ -9,9 +8,9 @@ import Rodape from '../containers/Rodape';
 
 import initialize from '../utils/initialize';
 import callBaseData from '../utils/callBaseData';
-
 import { connect } from 'react-redux';
 import actions from '../redux/actions';
+import {Container, Content} from './styles/Home/styles'
 
 
 class Index extends Component {
@@ -29,16 +28,14 @@ class Index extends Component {
 
     render(){
         return(
-            <Layout title="Zellus - Moda e estilo">
+                <Container>
+             
                 <Cabecalho />
-                <br/>
                 <Banners />
                 <Beneficios />
-                <br/>
                 <ProdutosPaginaInicial />
-                <br/>
                 <Rodape />
-            </Layout>
+                </Container>
         )
     }
 }

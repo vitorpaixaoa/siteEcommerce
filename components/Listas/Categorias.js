@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import { connect } from 'react-redux';
-
+import {CategoryItem, Container} from './styles'
 class Categorias extends Component {
-
     render(){
         const { categorias } = this.props;
         return(
-            <div className="categorias flex  horizontal-mb">
+            <Container>
                 {
                     categorias.map(categoria => (
+                        <>
                         <Link  href={`/categoria/${categoria.nome}?id=${categoria._id}`} key={categoria._id}>
-                            <div  className="categoria-item flex-1 flex flex-center">
+                        <CategoryItem>
                                 <span className="text-center" key={categoria.id}>{categoria.nome}</span>
-                            </div>
+                        </CategoryItem>
                         </Link>
+                        </>
                     ))
                 }
-            </div>
+            </Container>
         )
     }
 }
