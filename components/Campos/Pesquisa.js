@@ -6,7 +6,7 @@ import { SearchImage, Container, Icon, InputDiv } from "./styles"
 class Pesquisa extends Component {
   state = {
     termo: "",
-    isOpenSearchBar: false
+    isOpenSearchBar: true
   }
 
   submitPesquisa() {
@@ -20,34 +20,19 @@ class Pesquisa extends Component {
     const { isOpenSearchBar } = this.state
     return (
       <Container isOpenSearchBar={isOpenSearchBar}>
-        {isOpenSearchBar ? (
-          <InputDiv isOpenSearchBar={isOpenSearchBar}>
-            <SearchImage
-              onClick={() => this.submitPesquisa()}
-              src={"/static/img-site/search.svg"}
-            />
-            <input
-              name="pesquisa"
-              value={this.state.termo}
-              onChange={(e) => this.setState({ termo: e.target.value })}
-              placeholder="Proucure aqui o seu produto"
-              className="input-pesquisa"
-            />
-            <Icon>
-              <i
-                onClick={() =>
-                  this.setState({ isOpenSearchBar: !isOpenSearchBar })
-                }
-                class="fas fa-times fa-1x"
-              ></i>
-            </Icon>
-          </InputDiv>
-        ) : (
+        <InputDiv isOpenSearchBar={isOpenSearchBar}>
           <SearchImage
-            onClick={() => this.setState({ isOpenSearchBar: !isOpenSearchBar })}
+            onClick={() => this.submitPesquisa()}
             src={"/static/img-site/search.svg"}
           />
-        )}
+          <input
+            name="pesquisa"
+            value={this.state.termo}
+            onChange={(e) => this.setState({ termo: e.target.value })}
+            placeholder="Proucure aqui o seu produto"
+            className="input-pesquisa"
+          />
+        </InputDiv>
       </Container>
     )
   }
