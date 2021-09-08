@@ -1,47 +1,42 @@
-import React, { Component } from 'react';
+import React, { Component } from "react"
 
-import Cabecalho from '../containers/Cabecalho';
-import Banners from '../containers/Banners';
-import Beneficios from '../containers/Beneficios';
-import ProdutosPaginaInicial from '../containers/Lista/ProdutosPaginaInicial';
-import Rodape from '../containers/Rodape';
+import Cabecalho from "../containers/Cabecalho"
+import Banners from "../containers/Banners"
+import Beneficios from "../containers/Beneficios"
+import ProdutosPaginaInicial from "../containers/Lista/ProdutosPaginaInicial"
+import Rodape from "../containers/Rodape"
 
-import initialize from '../utils/initialize';
-import callBaseData from '../utils/callBaseData';
-import { connect } from 'react-redux';
-import actions from '../redux/actions';
-import {Container, Content} from './styles/Home/styles'
-
+import initialize from "../utils/initialize"
+import callBaseData from "../utils/callBaseData"
+import { connect } from "react-redux"
+import actions from "../redux/actions"
+import { Container, Content } from "./styles/Home/styles"
 
 class Index extends Component {
+  static async getInitialProps(ctx) {
+    initialize(ctx)
+    return callBaseData([actions.fetchProdutosPaginaInicial], ctx)
+  }
 
-    static async getInitialProps(ctx){
-        initialize(ctx);
-        return callBaseData([
-            actions.fetchProdutosPaginaInicial   
-        ], ctx);
-    }
+  async componentDidMount() {
+    await this.props.getUser({ token: this.props.token })
+  }
 
-    async componentDidMount(){
-        await this.props.getUser({ token: this.props.token });
-    }
-
-    render(){
-        return(
-                <Container>
-             
-                <Cabecalho />
-                <Banners />
-                <Beneficios />
-                <ProdutosPaginaInicial />
-                <Rodape />
-                </Container>
-        )
-    }
+  render() {
+    return (
+      <Container>
+        <Cabecalho />
+        <Banners />
+        <Beneficios />
+        <ProdutosPaginaInicial />
+        <Rodape />
+      </Container>
+    )
+  }
 }
 
 const mapStateToProps = (state) => ({
-    token: state.auth.token
-});
+  token: state.auth.token
+})
 
-export default connect(mapStateToProps, actions)(Index);
+export default connect(mapStateToProps, actions)(Index)

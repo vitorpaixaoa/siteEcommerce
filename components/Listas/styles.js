@@ -31,4 +31,8 @@ export const SocialMediaContainer = styled.div`
 export const SocialMediaContent = styled.nav`
   display: flex;
   justify-content: space-between;
+  a,
+  i {
+    cursor: pointer;
+  }
 `

@@ -7,6 +7,13 @@ export const Container = styled.footer`
   font-size: 12px;
   display: flex;
   padding: 10px 0px;
+  a {
+    text-decoration: none;
+    color: ${colors.darkGrey};
+  }
+  span {
+    cursor: pointer;
+  }
 `
 export const Content = styled.div`
   display: flex;

@@ -24,7 +24,7 @@ export const GroupComponent = styled.div`
   border-bottom-width: ${({ borderBottomWidth = 0 }) =>
     borderBottomWidth + "px"};
   border-bottom-color: ${({ borderColor = "white" }) => borderColor};
-  padding: ${({ padding = 0 }) => padding + "px"};
+  padding: ${({ padding = 0 }) => padding};
   opacity: ${({ opacity = 1 }) => opacity};
   flex-wrap: ${({ flexWrap = "nowrap" }) => flexWrap};
   display: flex;
@@ -49,11 +49,17 @@ export const Container = styled.div`
   flex-direction: ${({ flexDirection = "column" }) => flexDirection};
   align-items: ${({ alignItem = "flex-start" }) => alignItem};
   justify-content: ${({ justifyContent = "flex-start" }) => justifyContent};
-  p,
-  span,
-  a {
+  /* a {
     cursor: pointer;
     text-decoration: none;
     color: ${colors.darkGrey};
   }
+  p {
+    cursor: default;
+  }
+  span {
+    cursor: pointer;
+    text-decoration: none;
+    color: ${colors.darkGrey};
+  } */
 `
