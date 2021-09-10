@@ -49,17 +49,4 @@ export const Container = styled.div`
   flex-direction: ${({ flexDirection = "column" }) => flexDirection};
   align-items: ${({ alignItem = "flex-start" }) => alignItem};
   justify-content: ${({ justifyContent = "flex-start" }) => justifyContent};
-  /* a {
-    cursor: pointer;
-    text-decoration: none;
-    color: ${colors.darkGrey};
-  }
-  p {
-    cursor: default;
-  }
-  span {
-    cursor: pointer;
-    text-decoration: none;
-    color: ${colors.darkGrey};
-  } */
 `

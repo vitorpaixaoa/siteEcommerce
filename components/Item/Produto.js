@@ -1,43 +1,46 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { baseImg } from '../../config';
+import React, { Component } from "react"
+import Link from "next/link"
+import { baseImg } from "../../config"
 
-import { formatMoney } from '../../utils';
+import { formatMoney } from "../../utils"
 class Produto extends Component {
-    render(){
-        const { item, porLinha } = this.props;
-        const { _id, titulo, preco, promocao, fotos } = item;
-        const temPromo = promocao && preco !== promocao;
-        return(
-            <Link href={`/produto/${titulo}?id=${_id}`}>
-                <div className={`produto flex-1 flex vertical wrap-${porLinha} wrap-2-mb`}>
-                    <div className="produto-image flex flex-center">
-                        <img
-
-                            src={`${baseImg}${fotos[0]}`}
-                            alt={titulo}
-                            style={{ maxWidth: "100%" }} />
-                    </div>
-                    <div className="produto-title flex flex-center">
-                        <h3> {titulo} </h3>
-                    </div>
-                    <br/>
-                    <div className={`produto-preco-${promocao ? "produto-por" : ""} flex flex-center`}>
-                        <h2> { formatMoney(preco) } </h2>
-                    </div>
-                    { temPromo && (
-                            <div className={`produto-preco-promocao flex flex-center`}>
-                        <h2> { formatMoney(promocao) } </h2></div> 
-                    )}
-
-                    <div className={`produto-preco-parcelado ${ promocao ? "produto-por" : ""} flex flex-center`}>
-                        <h4> ou até 6x de { formatMoney((temPromo ? promocao : preco) /6 ) } sem juros </h4>
-                    </div>
-                </div>
-            </Link>
-        )
-    }
-
+  render() {
+    const { item, porLinha } = this.props
+    const { _id, titulo, preco, promocao, fotos } = item
+    const temPromo = promocao && preco !== promocao
+    console.log("foto: ", fotos)
+    return (
+      <div
+        key={_id}
+        className="row justify-content-center text-center product-holder h-100"
+      >
+        <div>
+          <div className="produto-title flex flex-center">
+            <h3> {titulo} </h3>
+          </div>
+          <div
+            className={`produto-preco-${
+              promocao ? "produto-por" : ""
+            } flex flex-center`}
+          >
+            <h2> {formatMoney(preco)} </h2>
+          </div>
+          <div className="links-wrapper">
+            <ul>
+              <li>
+                <Link href={`/produto/${titulo}?id=${_id}`}>Veja mais</Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div className="prodict-image">
+              <img src={`${baseImg}${fotos[0]}`} />
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
-export default Produto;
+export default Produto

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components"
 //'Comfortaa', cursive;
 export const GlobalStyles = createGlobalStyle`
 *{
@@ -25,4 +25,6 @@ button {
 a {
     text-decoration: none;
 }
+
+
 `
