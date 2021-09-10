@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 const IMAGES = [
     "/static/banners/bannerRoso.png",
-    "/static/banners/bannerVerde.png",
-    "/static/banners/bannerVermelho.png"
+    "/static/banners/BannerVerde.png",
+    "/static/banners/BannerVermelho.png"
 ];
 
 class Banners extends Component {

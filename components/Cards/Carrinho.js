@@ -1,32 +1,29 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { getCountItemsCart } from '../../utils/cart';
+import React, { Component } from "react"
+import Link from "next/link"
+import { getCountItemsCart } from "../../utils/cart"
+import { Container, Image, Icon } from "./styles"
 
 class CardCarrinho extends Component {
-    state = { cardQtd: 0 }
+  state = { cardQtd: 0 }
 
-    componentDidMount(){
-        this.setState({ cardQtd: getCountItemsCart() })
-    }
+  componentDidMount() {
+    this.setState({ cardQtd: getCountItemsCart() })
+  }
 
-    render(){
-        return(
-            <div className="itens-cabecalho flex-2 flex flex-center">
-                <Link href="/area-cliente">
-                    <div className="item-cabecalho">
-                        <i className=" fa fa-user"></i>
-                        <span>Minha Conta</span>
-                    </div>
-                </Link>
-                <Link href="/carrinho">
-                    <div className="item-cabecalho cart">
-                        <i className=" fa fa-shopping-bag"></i>
-                        <span>{ this.state.cardQtd || 0 }</span>
-                    </div>
-                </Link>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <Container>
+        <Link href="/area-cliente">
+          <Icon>
+            <i class="far fa-user fa-1x"></i>
+          </Icon>
+        </Link>
+        <Link href="/carrinho">
+          <Image alt="bag" src="/static/img-site/bag.svg" />
+        </Link>
+      </Container>
+    )
+  }
 }
 
-export default CardCarrinho;
+export default CardCarrinho

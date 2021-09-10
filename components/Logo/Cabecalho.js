@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-
+import {Img} from './styles'
 const LogoCabecalho = () => (
     <div className="flex-2 flex flex-center">
         <Link href="/">
-            <img src="/static/Logo.png" className="logo" width="90%" />
+            <Img src="/static/Logo.png"/>
         </Link>
     </div>
 )

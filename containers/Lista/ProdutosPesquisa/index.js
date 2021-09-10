@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Produtos from '../../../components/listas/Produtos';
+import Produtos from '../../../components/Listas/Produtos';
 import Paginacao from '../../../components/Paginacao'
 import actions from '../../../redux/actions';
 import { connect } from 'react-redux'

@@ -1,25 +1,24 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react"
+import { connect } from "react-redux"
 
-import Produtos from '../../../components/listas/Produtos';
-
-
-
+import Produtos from "../../../components/Listas/Produtos"
+import { Container } from "../../../pages/styles/Components/Components"
+import { TitlePage } from "./styles"
 class ProdutosPaginaInicial extends Component {
-    render(){
-        return(
-            <div className="container Produtos-Pagina-Inicial flex flex vertical">
-                <h2>Lançamentos</h2>
-                <br/>
-                <Produtos
-                    produtos={this.props.produtos ? this.props.produtos.docs : [] }
-                    itensPorLinha={4} />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <Container alignItem="center">
+        <TitlePage>Lançamentos</TitlePage>
+        <Produtos
+          produtos={this.props.produtos ? this.props.produtos.docs : []}
+          itensPorLinha={4}
+        />
+      </Container>
+    )
+  }
 }
 
-const mapStateToProps = state => ({
-    produtos: state.produto.produtos
+const mapStateToProps = (state) => ({
+  produtos: state.produto.produtos
 })
-export default connect(mapStateToProps)(ProdutosPaginaInicial);
+export default connect(mapStateToProps)(ProdutosPaginaInicial)
