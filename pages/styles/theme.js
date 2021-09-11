@@ -14,7 +14,8 @@ export const colors = {
   secondaryBlue: "#B4C2E7",
   tertiaryBlue: "#D8E0F3",
   lightGrey: "#f5f5f7",
-  darkGrey: "#3F3D56"
+  darkGrey: "#3F3D56",
+  seeMoreBlue:"#06c"
 }
 
 export const Weight = {

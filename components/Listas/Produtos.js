@@ -19,9 +19,13 @@ class Produtos extends Component {
   render() {
     const { produtos, itensPorLinha } = this.props
     return (
-      <div className="Produtos flex wrap">
-        {produtos.map((item) => (
-          <Produto item={item} key={item._id} porLinha={itensPorLinha} />
+      <div>
+        {produtos.map((item, index) => (
+          index % 2 === 0 ? (
+            <Produto item={item} key={item._id} porLinha={itensPorLinha}  flexDirection={'row'} />  
+            ) : (
+            <Produto item={item} key={item._id} porLinha={itensPorLinha}  flexDirection={'row-reverse'} />
+          )  
         ))}
       </div>
     )

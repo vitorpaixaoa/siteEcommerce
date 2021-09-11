@@ -10,7 +10,6 @@ export default class ProdutoContainer extends Component {
     render(){
         return(
             <div className="container-big Produto">
-                <br/><br/>
                 <Hero />
                 <Descricao/>
                 <Avaliacoes/>

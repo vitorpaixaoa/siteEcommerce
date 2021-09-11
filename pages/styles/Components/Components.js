@@ -43,10 +43,12 @@ export const Container = styled.div`
     }
     return height + "px"
   }};
+  border: 1px solid red;
+  margin: ${({ margin = "0px 0px 0px 0px" }) => margin};
   background-color: ${({ background = colors.white }) => background};
   opacity: ${({ opacity = 1 }) => opacity};
   display: flex;
-  flex-direction: ${({ flexDirection = "column" }) => flexDirection};
+  flex-direction: ${({ flexDirection = "row" }) => flexDirection};
   align-items: ${({ alignItem = "flex-start" }) => alignItem};
   justify-content: ${({ justifyContent = "flex-start" }) => justifyContent};
 `

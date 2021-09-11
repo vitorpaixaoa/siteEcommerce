@@ -12,7 +12,7 @@ class DadosDaLoja extends React.Component {
     const { nome, cnpj, email, endereco, telefones } = this.props.loja
 
     return (
-      <Container background={colors.lightGrey}>
+      <Container flexDirection="column" background={colors.lightGrey}>
         <div>
           <h2>Entre em Contato</h2>
           <br />

@@ -6,7 +6,7 @@ import {
 } from "../../pages/styles/Components/Components"
 import { colors } from "../../pages/styles/theme"
 const Paginas = () => (
-  <Container background={colors.lightGrey}>
+  <Container flexDirection="column" background={colors.lightGrey}>
     <div>
       <h2>Páginas</h2>
       <br />

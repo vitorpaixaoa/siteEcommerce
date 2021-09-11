@@ -2,11 +2,12 @@ import React from "react"
 import { GroupComponent } from "../../pages/styles/Components/Components"
 
 export default ({ icone, texto }) => (
-  <GroupComponent padding={"10px 20px"} alignItem="center">
-    <i className={`fa ${icone} fa-2x`}></i>
+  <GroupComponent padding={"20px 20px"} alignItem="center">
+    <i className={`fa ${icone} fa-1x`}></i>
     <span
       style={{
-        paddingTop: "10px"
+        paddingTop: "10px",
+        fontSize: 14
       }}
       className="text-center"
     >

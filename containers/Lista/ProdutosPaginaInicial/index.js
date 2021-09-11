@@ -7,7 +7,7 @@ import { TitlePage } from "./styles"
 class ProdutosPaginaInicial extends Component {
   render() {
     return (
-      <Container alignItem="center">
+      <Container flexDirection="column" alignItem="center">
         <TitlePage>Lançamentos</TitlePage>
         <Produtos
           produtos={this.props.produtos ? this.props.produtos.docs : []}

@@ -1,44 +1,41 @@
 import React, { Component } from "react"
 import Link from "next/link"
 import { baseImg } from "../../config"
-
+import {Container, Content, ImageContainer, ProductTitle, PromotionalProduct, LinkDiv} from './styles'
 import { formatMoney } from "../../utils"
+import { TextComponent } from "../../pages/styles/Components/Components"
 class Produto extends Component {
   render() {
-    const { item, porLinha } = this.props
+    const { item, porLinha, flexDirection } = this.props
     const { _id, titulo, preco, promocao, fotos } = item
+    console.log('item: ', item)
     const temPromo = promocao && preco !== promocao
-    console.log("foto: ", fotos)
     return (
-      <div
+      <Container
         key={_id}
-        className="row justify-content-center text-center product-holder h-100"
+        flexDirection={flexDirection}
       >
-        <div>
-          <div className="produto-title flex flex-center">
-            <h3> {titulo} </h3>
-          </div>
-          <div
-            className={`produto-preco-${
-              promocao ? "produto-por" : ""
-            } flex flex-center`}
-          >
-            <h2> {formatMoney(preco)} </h2>
-          </div>
-          <div className="links-wrapper">
+        <Content>
+            <ProductTitle> {titulo} </ProductTitle>
+            {temPromo ? (
+              <>
+              <PromotionalProduct> De {formatMoney(preco)} </PromotionalProduct>
+              <TextComponent textAlign="center" > Por {formatMoney(promocao)} </TextComponent>
+              </>
+              ):(
+                <TextComponent textAlign="center" > A partir de {formatMoney(promocao)} </TextComponent>
+              ) } 
+          <LinkDiv>
             <ul>
               <li>
                 <Link href={`/produto/${titulo}?id=${_id}`}>Veja mais</Link>
-              </li>
+                <i class="fas fa-angle-right"></i>           
+                </li>
             </ul>
-          </div>
-          <div>
-            <div className="prodict-image">
-              <img src={`${baseImg}${fotos[0]}`} />
-            </div>
-          </div>
-        </div>
-      </div>
+          </LinkDiv>
+        </Content>
+              <ImageContainer src={`${baseImg}${fotos[0]}`} />
+      </Container>
     )
   }
 }
