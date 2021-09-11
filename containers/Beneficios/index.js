@@ -7,7 +7,12 @@ import {
 } from "../../pages/styles/Components/Components"
 const Beneficios = () => (
   <Container flexDirection="row" justifyContent="space-around">
-    <GroupComponent alignItem="center" flexDirection="row">
+    <GroupComponent
+      alignItem="center"
+      justifyContent="center"
+      flexDirection="row"
+      width="100vw"
+    >
       <ItemBeneficio
         icone="fa-credit-card"
         texto="Em até 6x sem juros para todo o site."

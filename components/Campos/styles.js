@@ -9,6 +9,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   cursor: pointer;
+  border: 1px solid green;
 `
 export const InputDiv = styled.div`
   display: flex;

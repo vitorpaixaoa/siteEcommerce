@@ -4,9 +4,24 @@ import Link from "next/link"
 import { formatMoney } from "../../utils"
 import { baseImg } from "../../config"
 import { addCart } from "../../utils/cart"
-import { Container } from "../../pages/styles/Components/Components"
-import { Img, MiniImageContainer, MiniImageContent } from "./styles"
+import {
+  Container,
+  TextComponent,
+  Divisor
+} from "../../pages/styles/Components/Components"
+import {
+  Img,
+  MiniImageContainer,
+  H1,
+  OptionContainer,
+  OptionContent,
+  H2,
+  PromotionalProduct,
+  CreditPayment,
+  QuantityContainer
+} from "./styles"
 import { colors } from "../../pages/styles/theme"
+import Button from "../../components/Button"
 class Hero extends Component {
   constructor(props) {
     super()
@@ -18,6 +33,11 @@ class Hero extends Component {
       variacao: variacoes && variacoes.length >= 1 ? variacoes[0]._id : null,
       variacaoCompleta: variacoes && variacoes.length >= 1 ? variacoes[0] : null
     }
+  }
+
+  componentDidMount() {
+    const { variacoes, produto } = this.props
+    this.setVariacao(produto, variacoes[0])
   }
 
   componentDidUpdate(prevProps) {
@@ -43,7 +63,7 @@ class Hero extends Component {
             <Img
               border={
                 this.state.foto === foto
-                  ? `1px solid ${colors.seeMoreBlue}`
+                  ? `1px solid ${colors.red}`
                   : `1px solid ${colors.darkGrey}`
               }
               key={index}
@@ -92,19 +112,23 @@ class Hero extends Component {
         <div>
           <label>Selecione uma opção:</label>
         </div>
-        <div className={`variacoes flex wrap`}>
+        <OptionContainer>
           {variacoes.map((variacao, index) => (
-            <div
-              className={`variacao ${
-                variacao._id === this.state.variacao ? "variacao-active" : ""
-              } flex-1 flex flex-center wrap-4 `}
+            <OptionContent
+              border={
+                this.state.fotos[0] === variacao.fotos[0]
+                  ? `2px solid ${colors.red}`
+                  : `1px solid ${colors.darkGrey}`
+              }
+              width="120px"
+              height="100px"
               key={variacao._id}
               onClick={() => this.setVariacao(produto, variacao)}
             >
-              <span className="variacao-item">{variacao.nome}</span>
-            </div>
+              <TextComponent textAlign="center">{variacao.nome}</TextComponent>
+            </OptionContent>
           ))}
-        </div>
+        </OptionContainer>
       </div>
     )
   }
@@ -114,63 +138,75 @@ class Hero extends Component {
     const { variacaoCompleta } = this.state
     if (!produto) return null
     return (
-      <div className="flex-2 produto-detalhes">
+      <Container
+        justifyContent="space-between"
+        alignItem="center"
+        padding="0px 0px 0px 100px "
+        flexDirection="column"
+      >
         <div className="titulo">
-          <h2>{produto.titulo}</h2>
+          <H1 margin="0px 0px 20px 0px">Comprar {produto.titulo}</H1>
         </div>
-        <div className="categoria">
+        {/* <div className="categoria">
           <p>
-            Categoria:&nbsp;
+            Categoria:
             <Link
               href={`/categoria/${produto.categoria.nome}?id=${produto.categoria._id}`}
             >
-              <span className="categoria-link">{produto.categoria.nome}</span>
+              <span className="categoria-link"> {produto.categoria.nome}</span>
             </Link>
           </p>
-        </div>
-        <br />
-        {variacaoCompleta ? (
-          <div className="precos">
-            <h2 className="preco-original preco-por">
-              {formatMoney(variacaoCompleta.preco)}
-            </h2>
-            {variacaoCompleta.promocao &&
-              variacaoCompleta.promocao !== variacaoCompleta.preco && (
-                <h2 className="preco-promocao">
-                  {formatMoney(variacaoCompleta.promocao)}
-                </h2>
-              )}
-            <h4 className="preco-parcelado ">
-              Ou em até 6x de{" "}
-              {formatMoney(
-                (variacaoCompleta.promocao || variacaoCompleta.preco) / 6
-              )}{" "}
-              sem júros
-            </h4>
-          </div>
-        ) : (
-          <div className="precos">
-            <h2 className="preco-original preco-por">
-              {formatMoney(produto.preco)}
-            </h2>
-            {produto.promocao && produto.promocao !== produto.preco && (
-              <h2 className="preco-promocao">
-                {formatMoney(produto.promocao)}
-              </h2>
-            )}
-            <h4 className="preco-parcelado ">
-              Ou em até 6x de{" "}
-              {formatMoney((produto.promocao || produto.preco) / 6)} sem júros
-            </h4>
-          </div>
-        )}
-        <br />
+        </div> */}
         {this.renderVariacoes()}
-        <div className="opcoes">
-          <div className="opcao flex vertical">
+        <Container
+          height="50vh"
+          flexDirection="column"
+          background={colors.lightGrey}
+          margin="40px 0px 0px 0px"
+          padding="25px"
+          justifyContent="space-around"
+        >
+          {variacaoCompleta ? (
+            <div>
+              {variacaoCompleta.promocao &&
+              variacaoCompleta.promocao !== variacaoCompleta.preco ? (
+                <>
+                  <H2>{formatMoney(variacaoCompleta.promocao)}</H2>
+                  <PromotionalProduct>
+                    {formatMoney(variacaoCompleta.preco)}
+                  </PromotionalProduct>
+                </>
+              ) : (
+                <H2>{formatMoney(variacaoCompleta.preco)}</H2>
+              )}
+              <CreditPayment className="preco-parcelado ">
+                Ou em até 6x de
+                {formatMoney(
+                  (variacaoCompleta.promocao || variacaoCompleta.preco) / 6
+                )}
+                sem juros
+              </CreditPayment>
+            </div>
+          ) : (
+            <div>
+              <h2>{formatMoney(produto.preco)}</h2>
+              {produto.promocao && produto.promocao !== produto.preco && (
+                <h2>{formatMoney(produto.promocao)}</h2>
+              )}
+              <CreditPayment>
+                Ou em até 6x de
+                {formatMoney((produto.promocao || produto.preco) / 6)} sem juros
+              </CreditPayment>
+            </div>
+          )}
+          <Divisor
+            margin="20px 0px 40px 0px"
+            height={1}
+            background={colors.secondaryBlue}
+          />
+          <QuantityContainer>
             <label className="opcao-tab">Quantidade:</label>
             <input
-              className="opcao-input"
               type="number"
               name="quantidade"
               value={this.state.qtd}
@@ -179,17 +215,17 @@ class Hero extends Component {
                 this.setState({ qtd: e.target.value })
               }
             />
-          </div>
-        </div>
-        <div className="comprar">
-          <button
-            className="btn btn-success btn-cta"
+          </QuantityContainer>
+          <Button
+            background={colors.red}
+            ColorButton={colors.red}
+            ButtonLabelColor={colors.white}
             onClick={() => this.addCart()}
           >
             COMPRAR
-          </button>
-        </div>
-      </div>
+          </Button>
+        </Container>
+      </Container>
     )
   }
 

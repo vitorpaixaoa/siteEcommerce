@@ -10,7 +10,8 @@ import initialize from "../utils/initialize"
 import callBaseData from "../utils/callBaseData"
 import { connect } from "react-redux"
 import actions from "../redux/actions"
-import { Container, Content } from "./styles/Home/styles"
+import { Container } from "./styles/Components/Components"
+//import { Container, Content } from "./styles/Home/styles"
 
 class Index extends Component {
   static async getInitialProps(ctx) {
@@ -24,7 +25,11 @@ class Index extends Component {
 
   render() {
     return (
-      <Container>
+      <Container
+        alignItem="center"
+        justifyContent="center"
+        flexDirection="column"
+      >
         <Cabecalho />
         <Banners />
         <Beneficios />

@@ -13,6 +13,13 @@ class Rodape extends Component {
           <RedesSociais />
           <DadosDaLoja />
         </Content>
+        <div
+          style={{
+            textAlign: "center"
+          }}
+        >
+          <small>&copy; Loja Zellus - Moda e estilo.</small>
+        </div>
       </Container>
     )
   }

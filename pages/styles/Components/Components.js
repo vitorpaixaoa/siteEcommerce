@@ -28,6 +28,7 @@ export const GroupComponent = styled.div`
   opacity: ${({ opacity = 1 }) => opacity};
   flex-wrap: ${({ flexWrap = "nowrap" }) => flexWrap};
   display: flex;
+  width: ${({ width = "100%" }) => width};
   height: ${({ height = "100%" }) => {
     if (typeof height === "string") {
       return height
@@ -43,12 +44,28 @@ export const Container = styled.div`
     }
     return height + "px"
   }};
-  border: 1px solid red;
+  width: ${({ width = "100%" }) => {
+    width
+  }};
   margin: ${({ margin = "0px 0px 0px 0px" }) => margin};
+  padding: ${({ padding = "0px 0px 0px 0px" }) => padding};
   background-color: ${({ background = colors.white }) => background};
   opacity: ${({ opacity = 1 }) => opacity};
   display: flex;
   flex-direction: ${({ flexDirection = "row" }) => flexDirection};
   align-items: ${({ alignItem = "flex-start" }) => alignItem};
   justify-content: ${({ justifyContent = "flex-start" }) => justifyContent};
+`
+
+export const Divisor = styled.div`
+  height: ${({ height = "100%" }) => {
+    if (typeof height === "string") {
+      return height
+    }
+    return height + "px"
+  }};
+  width: 100%;
+  margin: ${({ margin = "0px 0px 0px 0px" }) => margin};
+  padding: ${({ padding = "0px 0px 0px 0px" }) => padding};
+  background-color: ${({ background = colors.white }) => background};
 `
