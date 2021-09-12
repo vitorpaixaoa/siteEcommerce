@@ -59,11 +59,72 @@ export const PromotionalProduct = styled.span`
 export const CreditPayment = styled.h4`
   font-size: ${fontSizes.base}px;
   color: #a19f9f;
+  font-weight: 500;
 `
 export const QuantityContainer = styled.div`
   display: flex;
-
+  align-items: center;
   input {
     background-color: ${colors.white};
+    margin: 0px 0px 0px 20px;
+    max-width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0.5px solid ${colors.secondaryBlue};
+  }
+  label {
+    font-weight: 500;
+    font-size: ${fontSizes.base}px;
+  }
+`
+export const LinkDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ul {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    color: #06c;
+    text-decoration: none;
+    font-size: 0.8rem;
+    li a {
+      padding-top: 40px;
+      color: #06c;
+      text-decoration: none;
+    }
+    i {
+      margin-left: 5px;
+    }
+  }
+`
+
+export const NoAuthorizedUser = styled.button`
+  width: 100%;
+  padding: 0.5rem 1rem;
+  align-self: center;
+  background-color: ${({ loading, background }) =>
+    loading ? colors.lightGrey : background};
+  color: ${({ ButtonLabelColor, loading }) =>
+    loading ? colors.black : ButtonLabelColor};
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 2px;
+  margin-top: 1.5rem;
+  font-size: 14px;
+  border: 1px solid
+    ${({ ColorButton, loading }) => (loading ? colors.lightGrey : ColorButton)};
+  transition: all 0.25s ease-in;
+  &:active {
+    box-shadow: none;
+  }
+  &:hover {
+    background-color: ${({ loading }) =>
+      loading ? colors.lightGrey : colors.red};
+    border: ${({ loading }) =>
+      loading ? `1px solid ${colors.lightGrey}` : `1px solid ${colors.red}`};
+    transform: ${({ loading }) =>
+      loading ? "translate(0px, 0px)" : "translate(0px, -3px)"};
   }
 `

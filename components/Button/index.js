@@ -5,7 +5,6 @@ class Button extends Component {
   render() {
     const {
       onSubmit,
-      ButtonLabel,
       ButtonBorderColor,
       ColorButton,
       ButtonLabelColor,
@@ -14,7 +13,7 @@ class Button extends Component {
     } = this.props
     return (
       <Container
-        onSubmit={onSubmit}
+        onClick={onSubmit}
         ColorButton={ColorButton}
         ButtonLabelColor={ButtonLabelColor}
         ButtonBorderColor={ButtonBorderColor}

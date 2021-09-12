@@ -13,12 +13,12 @@ class DadosDaLoja extends React.Component {
 
     return (
       <Container flexDirection="column" background={colors.lightGrey}>
-        <div>
+        <GroupComponent alignItem="center">
           <h2>Entre em Contato</h2>
-          <br />
-        </div>
+          <br></br>
+        </GroupComponent>
         <GroupComponent
-          height={150}
+          height={200}
           flexDirection="column"
           justifyContent="space-between"
         >

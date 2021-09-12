@@ -27,10 +27,13 @@ export const Container = styled.div`
 export const SocialMediaContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  align-items: center;
 `
 export const SocialMediaContent = styled.nav`
   display: flex;
   justify-content: space-between;
+  width: 50%;
   a,
   i {
     cursor: pointer;

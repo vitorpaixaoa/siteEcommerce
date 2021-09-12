@@ -4,16 +4,17 @@ import Hero from "./Hero"
 import Descricao from "./Descricao"
 import Avaliacoes from "./Avaliacoes"
 import ProdutosRelacionados from "./ProdutosRelacionados"
+import { Container } from "../../pages/styles/Components/Components"
 
 export default class ProdutoContainer extends Component {
   render() {
     return (
-      <div className="container-big Produto">
+      <Container flexDirection="column" alignItem="center">
         <Hero />
         <Descricao />
         <Avaliacoes />
         <ProdutosRelacionados />
-      </div>
+      </Container>
     )
   }
 }

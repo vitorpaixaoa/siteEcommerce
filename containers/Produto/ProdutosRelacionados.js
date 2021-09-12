@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 
 import Produtos from "../../components/Listas/Produtos"
+import { Container } from "../../pages/styles/Components/Components"
 import actions from "../../redux/actions"
 
 class ProdutosRelacionados extends Component {
@@ -20,14 +21,13 @@ class ProdutosRelacionados extends Component {
   render() {
     const { produtosCategoria } = this.props
     return (
-      <div className=" Produtos-Relacionados container-relacionados flex flex vertical">
+      <Container flexDirection="column" alignItem="center">
         <h2>Produtos Relacionados</h2>
-        <br />
         <Produtos
           produtos={produtosCategoria ? produtosCategoria.docs : []}
           itensPorLinha={4}
         />
-      </div>
+      </Container>
     )
   }
 }

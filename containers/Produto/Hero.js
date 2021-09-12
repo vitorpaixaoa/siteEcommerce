@@ -20,7 +20,7 @@ import {
   CreditPayment,
   QuantityContainer
 } from "./styles"
-import { colors } from "../../pages/styles/theme"
+import { colors, fontSizes } from "../../pages/styles/theme"
 import Button from "../../components/Button"
 class Hero extends Component {
   constructor(props) {
@@ -110,7 +110,13 @@ class Hero extends Component {
     return (
       <div>
         <div>
-          <label>Selecione uma opção:</label>
+          <TextComponent
+            fontSize={fontSizes.large}
+            color={colors.darkGrey}
+            textAlign="center"
+          >
+            Selecione uma opção:
+          </TextComponent>
         </div>
         <OptionContainer>
           {variacoes.map((variacao, index) => (
@@ -118,14 +124,16 @@ class Hero extends Component {
               border={
                 this.state.fotos[0] === variacao.fotos[0]
                   ? `2px solid ${colors.red}`
-                  : `1px solid ${colors.darkGrey}`
+                  : `2px solid ${colors.darkGrey}`
               }
               width="120px"
               height="100px"
               key={variacao._id}
               onClick={() => this.setVariacao(produto, variacao)}
             >
-              <TextComponent textAlign="center">{variacao.nome}</TextComponent>
+              <TextComponent color={colors.darkGrey} textAlign="center">
+                {variacao.nome}
+              </TextComponent>
             </OptionContent>
           ))}
         </OptionContainer>
@@ -140,13 +148,11 @@ class Hero extends Component {
     return (
       <Container
         justifyContent="space-between"
-        alignItem="center"
-        padding="0px 0px 0px 100px "
+        alignItem="flex-start"
+        padding="0px 0px 0px 0px"
         flexDirection="column"
       >
-        <div className="titulo">
-          <H1 margin="0px 0px 20px 0px">Comprar {produto.titulo}</H1>
-        </div>
+        <H1 margin="0px 0px 20px 0px">Comprar {produto.titulo}</H1>
         {/* <div className="categoria">
           <p>
             Categoria:
@@ -164,6 +170,7 @@ class Hero extends Component {
           background={colors.lightGrey}
           margin="40px 0px 0px 0px"
           padding="25px"
+          width="25vw"
           justifyContent="space-around"
         >
           {variacaoCompleta ? (
@@ -171,7 +178,9 @@ class Hero extends Component {
               {variacaoCompleta.promocao &&
               variacaoCompleta.promocao !== variacaoCompleta.preco ? (
                 <>
-                  <H2>{formatMoney(variacaoCompleta.promocao)}</H2>
+                  <H2>
+                    {formatMoney(variacaoCompleta.promocao * this.state.qtd)}
+                  </H2>
                   <PromotionalProduct>
                     {formatMoney(variacaoCompleta.preco)}
                   </PromotionalProduct>
@@ -180,10 +189,12 @@ class Hero extends Component {
                 <H2>{formatMoney(variacaoCompleta.preco)}</H2>
               )}
               <CreditPayment className="preco-parcelado ">
-                Ou em até 6x de
+                Ou em até 6x de{" "}
                 {formatMoney(
-                  (variacaoCompleta.promocao || variacaoCompleta.preco) / 6
-                )}
+                  ((variacaoCompleta.promocao || variacaoCompleta.preco) *
+                    this.state.qtd) /
+                    6
+                )}{" "}
                 sem juros
               </CreditPayment>
             </div>
@@ -205,22 +216,41 @@ class Hero extends Component {
             background={colors.secondaryBlue}
           />
           <QuantityContainer>
-            <label className="opcao-tab">Quantidade:</label>
-            <input
-              type="number"
-              name="quantidade"
-              value={this.state.qtd}
-              onChange={(e) =>
-                Number(e.target.value) >= 1 &&
-                this.setState({ qtd: e.target.value })
-              }
-            />
+            <label className="opcao-tab">Quantidade: </label>
+            {true ? (
+              <input
+                type="number"
+                name="quantidade"
+                value={this.state.qtd}
+                onChange={(e) =>
+                  Number(e.target.value) >= 1 &&
+                  this.setState({ qtd: e.target.value })
+                }
+              />
+            ) : (
+              <select
+                type="number"
+                name="quantidade"
+                value={this.state.qtd}
+                onChange={(e) =>
+                  Number(e.target.value) >= 1 &&
+                  this.setState({ qtd: e.target.value })
+                }
+              >
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                <option value={"+5"}>+5</option>
+              </select>
+            )}
           </QuantityContainer>
           <Button
             background={colors.red}
             ColorButton={colors.red}
             ButtonLabelColor={colors.white}
-            onClick={() => this.addCart()}
+            onSubmit={() => this.addCart()}
           >
             COMPRAR
           </Button>
@@ -231,7 +261,7 @@ class Hero extends Component {
 
   render() {
     return (
-      <Container justifyContent="center" margin="50px 0px">
+      <Container width="70vw" margin="50px 0px">
         {this.renderPhotos()}
         {this.renderDetalhes()}
       </Container>

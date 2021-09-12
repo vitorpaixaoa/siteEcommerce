@@ -23,8 +23,6 @@ export const Content = styled.div`
   flex-direction: row;
   width: 50%;
   justify-content: space-between;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
   color: ${colors.darkGrey};

@@ -45,7 +45,7 @@ export const Container = styled.div`
     return height + "px"
   }};
   width: ${({ width = "100%" }) => {
-    width
+    return width
   }};
   margin: ${({ margin = "0px 0px 0px 0px" }) => margin};
   padding: ${({ padding = "0px 0px 0px 0px" }) => padding};

@@ -6,16 +6,18 @@ import {
 } from "../../pages/styles/Components/Components"
 import { colors } from "../../pages/styles/theme"
 const Paginas = () => (
-  <Container flexDirection="column" background={colors.lightGrey}>
-    <div>
-      <h2>Páginas</h2>
-      <br />
-    </div>
+  <Container
+    alignItem="center"
+    flexDirection="column"
+    background={colors.lightGrey}
+  >
+    <h2>Páginas</h2>
+    <br />
     <GroupComponent
       height={100}
       flexDirection="column"
       justifyContent="space-between"
-      flexDirection="column"
+      alignItem="center"
     >
       <Link href="/">
         <span>Página Inicial</span>

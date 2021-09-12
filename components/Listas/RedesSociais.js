@@ -15,11 +15,9 @@ const RedesSociais = () => (
     </div>
     <SocialMediaContent>
       {REDES_SOCIAIS.map((item, index) => (
-        <div className="flex-1 flex" key={item.nome}>
-          <Link href={item.url}>
-            <i className={`fa fa-${item.nome} fa-lg`}></i>
-          </Link>
-        </div>
+        <Link href={item.url}>
+          <i className={`fa fa-${item.nome} fa-lg`}></i>
+        </Link>
       ))}
     </SocialMediaContent>
   </SocialMediaContainer>
