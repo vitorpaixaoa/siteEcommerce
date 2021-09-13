@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import LoginContainer from './Login';
 import CadastroContainer from './Cadastro'
 
+import {AcessoBox} from './styles'
+
 export default class AcessoContainer extends Component {
     state={
         paraLogar: true
@@ -10,10 +12,10 @@ export default class AcessoContainer extends Component {
     changeAcesso =() => this.setState({ paraLogar: !this.state.paraLogar })
     render(){
         return (
-            <div className="Acesso-Container">
+            <AcessoBox>
                 { this.state.paraLogar ? <LoginContainer changeAcesso={this.changeAcesso} /> : 
                                          <CadastroContainer changeAcesso={this.changeAcesso} />}
-            </div>
+            </AcessoBox>
         )
     }
 }
