@@ -7,6 +7,7 @@ import actions from '../../../redux/actions';
 
 import AlertGeral from '../../../components/Alert/Geral';
 
+import {LoginBox, Title, Button, ForgotPassword, LinkAcesso, Separator, CenterBox, FormBox} from './styles'
 
 class LoginContainer extends Component {
     state ={
@@ -41,11 +42,11 @@ class LoginContainer extends Component {
     render(){
         const { email, senha, erros, aviso} = this.state;
         return(
-            <div className="Login-Container">
-                <h2 className="text-center">Minha Conta</h2>
-                <br/><hr/><br/>
-                <div className="form-login">
+            <LoginBox>
+                <Title>Inicie sessão em sua conta</Title>
+                <FormBox>
                     <FormSimples 
+                        borderRadius="8px 8px 0 0"
                         value={email} 
                         erro={erros.email}
                         name="email" 
@@ -54,31 +55,31 @@ class LoginContainer extends Component {
                         onChange ={(e) => this.onChange( "email", e.target.value)}  />
 
                     <FormSimples 
+                        borderRadius="0 0 8px 8px"
                         value={senha} 
                         name="Senha" 
                         erro={erros.senha}
                         type="password" 
                         onChange ={(e) => this.onChange( "senha", e.target.value)}
                         placeholder="Senha" />
-                    <div className="flex flex-right">
-                        <a href={`${API}/${versao}/api/usuarios/recuperar-senha`}>
-                            <small>Esqueceu sua senha? </small>
-                        </a>
-                    </div>
-                    <br/>
+                    <br/><br/>
                     <AlertGeral aviso={aviso} />
-                    <div className="flex flex-center">
-                        <button 
-                            className="btn btn-primary"
-                            onClick={() => this.handleSubmit()} >ENTRAR</button>
-                    </div> 
-                    <hr/> 
-                    <div className="text-center link-acesso">
-                        <span onClick={this.props.changeAcesso}>Ainda não tem uma conta? Clique aqui para cadastrar.</span>
-                    </div>  
-                </div>  
+                    <CenterBox>
+                        <Button onClick={() => this.handleSubmit()} >Entrar</Button>
+                    </CenterBox>
 
-            </div>
+                    <Separator/>
+
+                    <CenterBox>
+                        <ForgotPassword href={`${API}/${versao}/api/usuarios/recuperar-senha`}>
+                            <span>Esqueceu sua senha?</span>
+                        </ForgotPassword>
+                    </CenterBox>
+                    <LinkAcesso>
+                        <span onClick={this.props.changeAcesso}>Ainda não tem uma conta? <span className="click-text" >Clique aqui para criar.</span></span>
+                    </LinkAcesso>  
+                </FormBox>
+            </LoginBox>
         )
     }
 }
