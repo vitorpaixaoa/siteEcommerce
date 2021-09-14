@@ -1,24 +1,28 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+`;
+
+export const ErrorMessage = styled.small`
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    color: red;
 `
 
 export const Input = styled.input`
     width: 100%;
-    max-width: 400px;
     font-size: 1rem;
     margin: 0px 5px 0 0;
     padding: 12px 8px;
     border: 1px solid #d6d6d6;
-    border-radius: ${props => props.borderRadius ? props.borderRadius : '8px'};
-    transition: .2s;
+    border-radius: ${(props) =>
+        props.borderRadius ? props.borderRadius : "8px"};
+    transition: 0.2s;
+    outline: none;
 
     &:focus {
-        outline: none;
-        border: 1px solid #0070c9
+        border: 1px solid #0070c9;
     }
-`
+`;
