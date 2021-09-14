@@ -37,7 +37,7 @@ class Hero extends Component {
 
   componentDidMount() {
     const { variacoes, produto } = this.props
-    this.setVariacao(produto, variacoes[0])
+    this.setVariacao(produto, variacoes[0] || 0)
   }
 
   componentDidUpdate(prevProps) {
@@ -56,7 +56,19 @@ class Hero extends Component {
     return (
       <Container flexDirection="column" alignItem="center">
         <div className="foto-principal flex-6 flex flex-center">
-          <Img src={baseImg + this.state.foto} width="400px" height="450px" />
+          {console.log(
+            `LEgal?`,
+            (baseImg + this.state.foto).includes("undefined")
+          )}
+          <Img
+            src={
+              (baseImg + this.state.foto).includes("undefined")
+                ? "/static/img-site/SemImagem.jpg"
+                : baseImg + this.state.foto
+            }
+            width="400px"
+            height="450px"
+          />
         </div>
         <MiniImageContainer>
           {this.state.fotos.map((foto, index) => (
@@ -106,7 +118,7 @@ class Hero extends Component {
 
   renderVariacoes() {
     const { variacoes, produto } = this.props
-    if (!produto || !variacoes || !variacoes.length === 0) return null
+    if (!produto || !variacoes || variacoes.length === 0) return null
     return (
       <div>
         <div>

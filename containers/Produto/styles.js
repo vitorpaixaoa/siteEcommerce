@@ -99,6 +99,36 @@ export const LinkDiv = styled.div`
   }
 `
 
+export const Dropdown = styled.select`
+  padding: 0rem 3rem 0.5rem 0rem;
+  background-color: ${colors.white};
+  width: 100%;
+  border: 0px solid ${colors.darkGrey};
+  border-bottom: 2px solid ${colors.darkGrey};
+  color: ${colors.darkGrey};
+`
+export const TextArea = styled.textarea`
+  background-color: ${colors.white};
+  width: 100%;
+  border: 0px solid ${colors.darkGrey};
+  border-bottom: 2px solid ${colors.darkGrey};
+  color: ${colors.darkGrey};
+`
+
+export const Label = styled.label`
+  font-size: ${fontSizes.base}px;
+  font-weight: 700;
+  color: ${colors.darkGrey};
+  margin: 0px 0px 16px 0px;
+`
+
+export const TitleSubmitFeedback = styled.h4`
+  font-size: ${fontSizes.large}px;
+  font-weight: 700;
+  color: ${colors.darkGrey};
+  margin: 0px 0px 24px 0px;
+`
+
 export const NoAuthorizedUser = styled.button`
   width: 100%;
   padding: 0.5rem 1rem;

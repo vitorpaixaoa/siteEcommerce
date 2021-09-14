@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Container } from "../../pages/styles/Components/Components"
 
 const IMAGES = [
   "/static/banners/iphone11-gallery1-2019.jpeg",
@@ -33,14 +34,14 @@ class Banners extends Component {
   renderBanners() {
     const { img } = this.state
     return (
-      <div className="flex-1 banner">
+      <Container>
         <img src={img} className="banner" alt="banner" width="100%" />
-      </div>
+      </Container>
     )
   }
 
   render() {
-    return <div className="Banners flex">{this.renderBanners()}</div>
+    return <Container width="100vw">{this.renderBanners()}</Container>
   }
 }
 export default Banners

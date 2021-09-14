@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import Produtos from "../../components/Listas/Produtos"
 import { Container } from "../../pages/styles/Components/Components"
 import actions from "../../redux/actions"
+import { H2 } from "./styles"
 
 class ProdutosRelacionados extends Component {
   componentDidMount() {
@@ -22,8 +23,9 @@ class ProdutosRelacionados extends Component {
     const { produtosCategoria } = this.props
     return (
       <Container flexDirection="column" alignItem="center">
-        <h2>Produtos Relacionados</h2>
+        <H2 margin="0px 0px 50px 0px">Produtos Relacionados</H2>
         <Produtos
+          isSimpleProductShowcase={true}
           produtos={produtosCategoria ? produtosCategoria.docs : []}
           itensPorLinha={4}
         />

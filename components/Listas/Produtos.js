@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Container } from "../../pages/styles/Components/Components"
 
 import Produto from "../Item/Produto"
 
@@ -17,17 +18,37 @@ class Produtos extends Component {
   }
 
   render() {
-    const { produtos, itensPorLinha } = this.props
+    const { produtos, itensPorLinha, isSimpleProductShowcase } = this.props
+
     return (
-      <div>
-        {produtos.map((item, index) => (
-          index % 2 === 0 ? (
-            <Produto item={item} key={item._id} porLinha={itensPorLinha}  flexDirection={'row'} />  
-            ) : (
-            <Produto item={item} key={item._id} porLinha={itensPorLinha}  flexDirection={'row-reverse'} />
-          )  
-        ))}
-      </div>
+      <Container
+        flexDirection={isSimpleProductShowcase ? "row" : "column"}
+        width={isSimpleProductShowcase ? "80%" : "60%"}
+        alignItem="center"
+        isScrollDiv={isSimpleProductShowcase}
+      >
+        {produtos.map((item, index) => {
+          //Apenas itens com foto aparecerao na home
+          if (item.fotos.length === 0 && !isSimpleProductShowcase) return null
+          return index % 2 === 0 ? (
+            <Produto
+              item={item}
+              key={item._id}
+              porLinha={itensPorLinha}
+              isSimpleProductShowcase={isSimpleProductShowcase}
+              flexDirection={"row"}
+            />
+          ) : (
+            <Produto
+              item={item}
+              key={item._id}
+              porLinha={itensPorLinha}
+              isSimpleProductShowcase={isSimpleProductShowcase}
+              flexDirection={"row-reverse"}
+            />
+          )
+        })}
+      </Container>
     )
   }
 }
