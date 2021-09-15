@@ -18,7 +18,8 @@ class Produtos extends Component {
   }
 
   render() {
-    const { produtos, itensPorLinha, isSimpleProductShowcase } = this.props
+    const { produtos, itensPorLinha, isSimpleProductShowcase, emptyArray } =
+      this.props
 
     return (
       <Container

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import Link from "next/link"
+import router, { withRouter } from "next/router"
 import { formatMoney } from "../../utils"
 import { baseImg } from "../../config"
 import { addCart } from "../../utils/cart"
@@ -26,6 +26,7 @@ class Hero extends Component {
   constructor(props) {
     super()
     const { produto, variacoes } = props
+    this.myRef = React.createRef()
     this.state = {
       foto: produto ? produto.fotos[0] || null : null,
       fotos: produto ? produto.fotos || [] : [],
@@ -40,26 +41,38 @@ class Hero extends Component {
     this.setVariacao(produto, variacoes[0] || 0)
   }
 
+  handleBackClick() {
+    this.myRef.current.scrollIntoView({ behavior: "smooth" })
+  }
   componentDidUpdate(prevProps) {
-    if (!prevProps.produto && this.props.produto) {
-      const { fotos } = this.props.produto
-      this.setState({ foto: fotos[0], fotos })
+    const { produto, variacoes } = this.props
+    if (router.query.id !== prevProps.router.query.id) {
+      if (!prevProps.produto && this.props.produto) {
+        const { fotos } = this.props.produto
+        this.setState({ foto: fotos[0], fotos })
+      }
+      if (!prevProps.variacoes && this.props.variacoes) {
+        const variacao = this.props.variacoes[0]
+        if (!variacao) return null
+        this.setState({ variacao: variacao._id, variacaoCompleta: variacao })
+      }
+      this.setState({
+        foto: produto ? produto.fotos[0] || null : null,
+        fotos: produto ? produto.fotos || [] : [],
+        qtd: 1,
+        variacao: variacoes && variacoes.length >= 1 ? variacoes[0]._id : null,
+        variacaoCompleta:
+          variacoes && variacoes.length >= 1 ? variacoes[0] : null
+      })
+      this.setVariacao(produto, variacoes[0] || 0)
     }
-    if (!prevProps.variacoes && this.props.variacoes) {
-      const variacao = this.props.variacoes[0]
-      if (!variacao) return null
-      this.setState({ variacao: variacao._id, variacaoCompleta: variacao })
-    }
+    this.handleBackClick()
   }
 
   renderPhotos() {
     return (
       <Container flexDirection="column" alignItem="center">
         <div className="foto-principal flex-6 flex flex-center">
-          {console.log(
-            `LEgal?`,
-            (baseImg + this.state.foto).includes("undefined")
-          )}
           <Img
             src={
               (baseImg + this.state.foto).includes("undefined")
@@ -212,9 +225,9 @@ class Hero extends Component {
             </div>
           ) : (
             <div>
-              <h2>{formatMoney(produto.preco)}</h2>
+              <H2>{formatMoney(produto.preco)}</H2>
               {produto.promocao && produto.promocao !== produto.preco && (
-                <h2>{formatMoney(produto.promocao)}</h2>
+                <H2>{formatMoney(produto.promocao)}</H2>
               )}
               <CreditPayment>
                 Ou em até 6x de
@@ -273,7 +286,7 @@ class Hero extends Component {
 
   render() {
     return (
-      <Container width="70vw" margin="50px 0px">
+      <Container ref={this.myRef} width="70vw" margin="50px 0px">
         {this.renderPhotos()}
         {this.renderDetalhes()}
       </Container>
@@ -286,4 +299,4 @@ const mapStateToProps = (state) => ({
   variacoes: state.produto.variacoes
 })
 
-export default connect(mapStateToProps)(Hero)
+export default connect(mapStateToProps)(withRouter(Hero))

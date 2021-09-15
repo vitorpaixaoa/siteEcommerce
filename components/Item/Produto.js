@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import Link from "next/link"
 import { baseImg } from "../../config"
+import router, { withRouter } from "next/router"
 import {
   Container,
   Content,
@@ -13,16 +14,24 @@ import { formatMoney } from "../../utils"
 import { TextComponent } from "../../pages/styles/Components/Components"
 import { fontSizes } from "../../pages/styles/theme"
 import { truncateString } from "../../utils/format"
+import { scrollTo } from "../../utils/scrollTo"
 class Produto extends Component {
+  componentDidUpdate(prevProps) {
+    if (!prevProps.produto && this.props.produto) {
+      const { fotos } = this.props.produto
+      this.setState({ foto: fotos[0], fotos })
+    }
+    if (!prevProps.variacoes && this.props.variacoes) {
+      const variacao = this.props.variacoes[0]
+      if (!variacao) return null
+      this.setState({ variacao: variacao._id, variacaoCompleta: variacao })
+    }
+  }
   render() {
-    const { item, porLinha, flexDirection, isSimpleProductShowcase } =
-      this.props
-
+    const { item, flexDirection, isSimpleProductShowcase, router } = this.props
     const { _id, titulo, preco, promocao, fotos } = item
-    console.log("item: ", item)
     const temPromo = promocao && preco !== promocao
     const productURL = baseImg + fotos[0]
-
     return (
       <Container
         key={_id}
@@ -32,28 +41,45 @@ class Produto extends Component {
       >
         <Content>
           <ProductTitle fontSize={isSimpleProductShowcase && 20}>
-            {isSimpleProductShowcase ? truncateString(titulo, 50) : titulo}
+            {titulo
+              ? isSimpleProductShowcase
+                ? truncateString(titulo, 50)
+                : titulo
+              : "Indisponível no momento"}
           </ProductTitle>
-          {temPromo ? (
-            <>
-              <PromotionalProduct> De {formatMoney(preco)} </PromotionalProduct>
+          {preco ? (
+            temPromo ? (
+              <>
+                <PromotionalProduct>
+                  {" "}
+                  De {formatMoney(preco)}{" "}
+                </PromotionalProduct>
+                <TextComponent fontSize={fontSizes.large} textAlign="center">
+                  {" "}
+                  Por {formatMoney(promocao)}{" "}
+                </TextComponent>
+              </>
+            ) : (
               <TextComponent fontSize={fontSizes.large} textAlign="center">
                 {" "}
-                Por {formatMoney(promocao)}{" "}
+                A partir de {formatMoney(promocao)}{" "}
               </TextComponent>
-            </>
+            )
           ) : (
-            <TextComponent textAlign="center">
-              {" "}
-              A partir de {formatMoney(promocao)}{" "}
-            </TextComponent>
+            "Indisponível no momento"
           )}
           <LinkDiv>
             <ul>
-              <li>
-                <Link href={`/produto/${titulo}?id=${_id}`}>Veja mais</Link>
-                <i class="fas fa-angle-right"></i>
-              </li>
+              {titulo && _id ? (
+                <li>
+                  <Link scroll={false} href={`/produto/${titulo}?id=${_id}`}>
+                    Veja mais
+                  </Link>
+                  <i class="fas fa-angle-right"></i>
+                </li>
+              ) : (
+                <span>Indisponível no momento</span>
+              )}
             </ul>
           </LinkDiv>
         </Content>
@@ -72,4 +98,4 @@ class Produto extends Component {
   }
 }
 
-export default Produto
+export default withRouter(Produto)
