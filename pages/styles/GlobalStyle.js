@@ -12,6 +12,11 @@ export const GlobalStyles = createGlobalStyle`
     sans-serif;
     -moz-osx-font-smoothing: grayscale;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 html,
 body{
     scroll-behavior: smooth;
