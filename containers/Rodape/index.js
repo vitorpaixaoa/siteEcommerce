@@ -4,11 +4,16 @@ import Paginas from "../../components/Listas/Paginas"
 import RedesSociais from "../../components/Listas/RedesSociais"
 import DadosDaLoja from "../../components/Item/DadosDaLoja"
 import { Container, Content } from "./styles"
+import { scrollTo } from "../../utils/scrollTo"
 class Rodape extends Component {
   render() {
     return (
       <Container>
         <Content>
+          <img
+            onClick={() => scrollTo("HeaderID")}
+            src="/static/img-site/LogoV1.svg"
+          />
           <Paginas />
           <RedesSociais />
           <DadosDaLoja />
@@ -18,7 +23,7 @@ class Rodape extends Component {
             textAlign: "center"
           }}
         >
-          <small>&copy; Loja Zellus - Moda e estilo.</small>
+          <small>&copy; Take </small>
         </div>
       </Container>
     )

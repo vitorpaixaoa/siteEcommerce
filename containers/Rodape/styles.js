@@ -9,6 +9,7 @@ export const Container = styled.footer`
   font-size: 12px;
   display: flex;
   padding: 10px 0px;
+  align-items: center;
   flex-direction: column;
   a {
     text-decoration: none;
@@ -22,9 +23,12 @@ export const Content = styled.div`
   display: flex;
   flex-direction: row;
   width: 50%;
-  justify-content: space-between;
-  margin-right: auto;
-  margin-left: auto;
+  justify-content: space-around;
   color: ${colors.darkGrey};
   font-size: 12px;
+  img {
+    max-width: 200px;
+    max-height: 200px;
+    cursor: pointer;
+  }
 `

@@ -12,7 +12,11 @@ class DadosDaLoja extends React.Component {
     const { nome, cnpj, email, endereco, telefones } = this.props.loja
 
     return (
-      <Container flexDirection="column" background={colors.lightGrey}>
+      <Container
+        alignItem="center"
+        flexDirection="column"
+        background={colors.lightGrey}
+      >
         <GroupComponent alignItem="center">
           <h2>Entre em Contato</h2>
           <br></br>
@@ -21,6 +25,7 @@ class DadosDaLoja extends React.Component {
           height={200}
           flexDirection="column"
           justifyContent="space-between"
+          alignItem="center"
         >
           <p>Nome: {nome}</p>
           <p>CNPJ: {cnpj}</p>

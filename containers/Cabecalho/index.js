@@ -17,7 +17,7 @@ class Cabecalho extends React.Component {
   renderCabecalhoNormal() {
     const { isOpenSearchBar } = this.state
     return (
-      <Container>
+      <Container id="HeaderID">
         {isOpenSearchBar ? (
           <>
             <CampoPesquisa />
