@@ -11,7 +11,6 @@ import callBaseData from "../utils/callBaseData"
 import { connect } from "react-redux"
 import actions from "../redux/actions"
 import { Container } from "./styles/Components/Components"
-//import { Container, Content } from "./styles/Home/styles"
 
 class Index extends Component {
   static async getInitialProps(ctx) {

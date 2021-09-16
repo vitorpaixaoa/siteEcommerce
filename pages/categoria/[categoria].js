@@ -8,6 +8,7 @@ import Rodape from "../../containers/Rodape"
 import actions from "../../redux/actions"
 import initialize from "../../utils/initialize"
 import callBaseData from "../../utils/callBaseData"
+import { FormatCategoryString } from "../../utils/format"
 
 class Categoria extends Component {
   static async getInitialProps(ctx) {

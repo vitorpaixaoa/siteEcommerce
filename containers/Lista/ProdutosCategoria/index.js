@@ -6,6 +6,7 @@ import Paginacao from "../../../components/Paginacao"
 import actions from "../../../redux/actions"
 import { H1 } from "./styles"
 import { Container } from "../../../pages/styles/Components/Components"
+import { FormatCategoryString } from "../../../utils/format"
 class ProdutosCategoria extends Component {
   state = { atual: 0, limite: 20 }
 
@@ -28,7 +29,9 @@ class ProdutosCategoria extends Component {
         alignItem="center"
         flexDirection="column"
       >
-        <H1 textAlign="center">{categoria ? categoria.nome : "-"}</H1>
+        <H1 textAlign="center">
+          {categoria ? FormatCategoryString(categoria.nome) : "-"}
+        </H1>
         <Produtos
           produtos={produtosCategoria ? produtosCategoria.docs : []}
           itensPorLinha={4}

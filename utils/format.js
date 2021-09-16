@@ -80,6 +80,23 @@ export const truncateString = (data, tam) => {
 
   return data.slice(0, tam) + "..."
 }
+
+export const FormatCategoryString = (string) => {
+  switch (string) {
+    case "iphone-novo":
+      return (string = "Novo")
+      break
+    case "iphone-usado":
+      return (string = "Usado")
+      break
+    case "iphone-condicionado":
+      return (string = "Condicionado")
+      break
+    default:
+      return string
+      break
+  }
+}
 export default {
   numberPattern,
   formatCEP,
@@ -88,5 +105,6 @@ export default {
   formatTelefone,
   formatNumber,
   formatCartao,
+  FormatCategoryString,
   truncateString
 }
