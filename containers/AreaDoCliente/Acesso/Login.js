@@ -7,7 +7,8 @@ import actions from '../../../redux/actions';
 
 import AlertGeral from '../../../components/Alert/Geral';
 
-import {LoginBox, Title, Button, ForgotPassword, LinkAcesso, Separator, CenterBox, FormBox} from './styles'
+import {LoginBox, Title, Button, ForgotPassword, LinkAcesso, Separator, FormBox} from './styles'
+import { CenterBox } from '../../../pages/styles/Components/Components';
 
 class LoginContainer extends Component {
     state ={
