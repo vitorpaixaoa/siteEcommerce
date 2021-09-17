@@ -3,6 +3,11 @@ import Logo from "../../components/Logo/Cabecalho.js"
 import CampoPesquisa from "../../components/Campos/Pesquisa"
 import CardCarrinho from "../../components/Cards/Carrinho"
 import Categorias from "../../components/Listas/Categorias"
+import Link from "next/link"
+import actions from "../../redux/actions"
+import initialize from "../../utils/initialize"
+import callBaseData from "../../utils/callBaseData"
+import { connect } from "react-redux"
 import {
   CategoryContainer,
   Container,
@@ -11,8 +16,28 @@ import {
   Options
 } from "./styles"
 class Cabecalho extends React.Component {
+  static async getInitialProps(ctx) {
+    initialize(ctx)
+    return callBaseData(
+      [
+        actions.fetchProdutosCategoria.bind(null, ctx.query.id),
+        actions.fetchCategoria.bind(null, ctx.query.id)
+      ],
+      ctx
+    )
+  }
   state = {
     isOpenSearchBar: false
+  }
+
+  returningXiaomiCategory() {
+    const { categorias } = this.props
+    let url = categorias
+      .filter((categoria) => categoria.nome.toLowerCase().includes("xiaomi"))
+      .map((categoria) => {
+        return `/categoria/${categoria.nome}?id=${categoria._id}`
+      })
+    return url
   }
   renderCabecalhoNormal() {
     const { isOpenSearchBar } = this.state
@@ -34,7 +59,24 @@ class Cabecalho extends React.Component {
           <Options isOpenSearchBar={isOpenSearchBar}>
             <Logo />
             <CategoryContainer>
-              <Categorias />
+              <ul>
+                <li>
+                  <a>iPhone</a>
+                  <div>
+                    <Categorias isiOSCategory />
+                  </div>
+                </li>
+                <li>
+                  <a href={this.returningXiaomiCategory()}>Xiaomi</a>
+                </li>
+                <li>
+                  <a>Acessórios</a>
+                  <Categorias />
+                </li>
+                <li>
+                  <a>Sobre a loja</a>
+                </li>
+              </ul>
             </CategoryContainer>
             <SearchImage
               onClick={() =>
@@ -66,5 +108,8 @@ class Cabecalho extends React.Component {
       : this.renderCabecalhoNormal()
   }
 }
+const mapStateToProps = (state) => ({
+  categorias: state.categoria.categorias
+})
 
-export default Cabecalho
+export default connect(mapStateToProps, actions)(Cabecalho)
