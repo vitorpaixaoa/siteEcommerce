@@ -4,33 +4,6 @@ export const LoginBox = styled.div``;
 
 export const FormBox = styled.div``;
 
-export const HorizontalBox = styled.div`
-    display: flex;
-    flex-direction: row;
-    max-width: ${(props) => props.maxWidth};
-    margin: 0 auto;
-`;
-
-export const Select = styled.select`
-    background-color: transparent;
-    width: 100%;
-    font-family: inherit;
-    cursor: inherit;
-    line-height: inherit;
-    font-size: 1rem;
-    margin: 0px 5px 0 0;
-    padding: 12px 8px;
-    border: 1px solid #d6d6d6;
-    border-radius: ${(props) =>
-        props.borderRadius ? props.borderRadius : "8px"};
-    transition: 0.2s;
-    outline: none;
-
-    &:focus {
-        border: 1px solid #0070c9;
-    }
-`;
-
 export const Title = styled.h2`
     margin: 24px 0;
     text-align: center;
@@ -77,11 +50,6 @@ export const Separator = styled.div`
     margin: 8px auto;
     height: 1px;
     background: #f0f0f0;
-`;
-
-export const CenterBox = styled.div`
-    display: flex;
-    justify-content: center;
 `;
 
 export const ForgotPassword = styled.a`

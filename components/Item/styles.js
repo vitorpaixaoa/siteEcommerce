@@ -1,12 +1,22 @@
 import styled from "styled-components"
 import { colors, fontSizes } from "../../pages/styles/theme"
 
+export const FreteOptions = styled.div`
+  margin: 12px 0;
+`
+export const ValueBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
+
 export const Container = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  align-items: ${({ alignItems = "center" }) => alignItems};
+  justify-content: ${({ justifyContent = "space-evenly" }) => justifyContent};
   width: 100%;
-  margin: 40px 0px 40px 0px;
+  margin: ${({ margin = "40px 0px 40px 0px" }) => margin};
   flex-direction: ${({ flexDirection = "row" }) => flexDirection};
 `
 export const Content = styled.div`

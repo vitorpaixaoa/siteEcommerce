@@ -85,7 +85,7 @@ class Produto extends Component {
         </Content>
         <ImageContainer
           width={isSimpleProductShowcase && "15vw"}
-          height={isSimpleProductShowcase && "50vh"}
+          height={'auto'}
           src={
             !productURL.includes("undefined")
               ? productURL

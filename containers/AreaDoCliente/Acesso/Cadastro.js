@@ -13,17 +13,13 @@ import {
 } from "../../../utils/format";
 import {validateCPF} from "../../../utils/validate";
 import axios from "axios";
-import {
-    Button,
-    CenterBox,
-    FormBox,
-    HorizontalBox,
-    LinkAcesso,
-    Select,
-    Subtitle,
-    Title,
-} from "./styles";
+import {Button, FormBox, LinkAcesso, Subtitle, Title} from "./styles";
 import {ErrorMessage, Form} from "../../../components/Inputs/styles";
+import {
+    Select,
+    CenterBox,
+    HorizontalBox,
+} from "../../../pages/styles/Components/Components";
 
 class CadastroContainer extends Component {
     state = {

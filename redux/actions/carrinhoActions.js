@@ -32,12 +32,15 @@ export const fetchProdutoCarrinho = (id,idxCarrinho) => dispatch => {
 };
 
 export const fetchVariacoesCarrinho = (id, produto, idxCarrinho) => dispatch => {
+    console.log('id: ', id)
     axios.get(`${API}/${versao}/api/variacoes/${id}?produto=${produto}&loja=${loja}`)
-    .then(response => dispatch({ 
+    .then(response => {
+        console.log('response: ', response.data)
+        dispatch({ 
             type: FETCH_VARIACAO_CARRINHO, 
             payload: response.data, 
             idxCarrinho 
-    }))
+    })})
     .catch(e => console.log(e));
 };
 
