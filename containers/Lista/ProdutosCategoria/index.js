@@ -4,8 +4,8 @@ import { connect } from "react-redux"
 import Produtos from "../../../components/Listas/Produtos"
 import Paginacao from "../../../components/Paginacao"
 import actions from "../../../redux/actions"
-import { H1 } from "./styles"
-import { Container } from "../../../pages/styles/Components/Components"
+import { Container, TextComponent } from "../../../pages/styles/Components/Components"
+import { fontSizes } from "../../../pages/styles/theme"
 class ProdutosCategoria extends Component {
   state = { atual: 0, limite: 20 }
 
@@ -28,7 +28,7 @@ class ProdutosCategoria extends Component {
         alignItem="center"
         flexDirection="column"
       >
-        <H1 textAlign="center">{categoria ? categoria.nome : "-"}</H1>
+        <TextComponent fontSize={fontSizes.largeTitle * 2} margin="64px 0 16px" textAlign="center">{categoria ? categoria.nome : "-"}</TextComponent>
         <Produtos
           produtos={produtosCategoria ? produtosCategoria.docs : []}
           itensPorLinha={4}
