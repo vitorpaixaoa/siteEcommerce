@@ -12,7 +12,7 @@ class CardCarrinho extends Component {
 
   render() {
     return (
-      <Container>
+      <>
         <Link href="/area-cliente">
           <Icon>
             <i class="far fa-user fa-1x"></i>
@@ -21,7 +21,7 @@ class CardCarrinho extends Component {
         <Link href="/carrinho">
           <Image alt="bag" src="/static/img-site/bag.svg" />
         </Link>
-      </Container>
+      </>
     )
   }
 }

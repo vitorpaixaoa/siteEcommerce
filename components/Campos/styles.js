@@ -7,13 +7,13 @@ export const SearchImage = styled.img`
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   cursor: pointer;
+  width: 100%;
 `
 export const InputDiv = styled.div`
   display: flex;
-  justify-content: center;
-  width: ${({ isOpenSearchBar }) => (isOpenSearchBar ? "50vw" : "100%")};
+  width: 100%;
   input {
     background-color: transparent;
     width: 100%;

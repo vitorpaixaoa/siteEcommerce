@@ -7,7 +7,6 @@ export const Container = styled.footer`
   background-color: ${colors.lightGrey};
   color: ${colors.darkGrey};
   font-size: 12px;
-  display: flex;
   padding: 10px 0px;
   bottom: 0;
   align-items: center;

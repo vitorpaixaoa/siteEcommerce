@@ -3,7 +3,6 @@ import Logo from "../../components/Logo/Cabecalho.js"
 import CampoPesquisa from "../../components/Campos/Pesquisa"
 import CardCarrinho from "../../components/Cards/Carrinho"
 import Categorias from "../../components/Listas/Categorias"
-import Link from "next/link"
 import actions from "../../redux/actions"
 import initialize from "../../utils/initialize"
 import callBaseData from "../../utils/callBaseData"
@@ -13,7 +12,9 @@ import {
   Container,
   SearchImage,
   Icon,
-  Options
+  Options,
+  SearchContainer,
+  IconDiv
 } from "./styles"
 class Cabecalho extends React.Component {
   static async getInitialProps(ctx) {
@@ -27,7 +28,8 @@ class Cabecalho extends React.Component {
     )
   }
   state = {
-    isOpenSearchBar: false
+    isOpenSearchBar: false,
+    isOpenMenu: false
   }
 
   returningXiaomiCategory() {
@@ -40,11 +42,11 @@ class Cabecalho extends React.Component {
     return url
   }
   renderCabecalhoNormal() {
-    const { isOpenSearchBar } = this.state
+    const { isOpenSearchBar, isOpenMenu } = this.state
     return (
-      <Container id="HeaderID">
+      <Container isOpen={isOpenMenu} className="HeaderID" id="HeaderID">
         {isOpenSearchBar ? (
-          <>
+          <SearchContainer>
             <CampoPesquisa />
             <Icon>
               <i
@@ -54,38 +56,53 @@ class Cabecalho extends React.Component {
                 class="fas fa-times fa-1x"
               ></i>
             </Icon>
-          </>
+          </SearchContainer>
         ) : (
-          <Options isOpenSearchBar={isOpenSearchBar}>
+          <>
             <Logo />
-            <CategoryContainer>
+            <CategoryContainer isOpen={isOpenMenu}>
+              <button
+                onClick={() => this.setState({ isOpenMenu: !isOpenMenu })}
+                className="hamburger"
+                id="hamburger"
+              >
+                <i className="fas fa-bars"></i>
+              </button>
               <ul>
-                <li>
-                  <a>iPhone</a>
-                  <div>
-                    <Categorias isiOSCategory />
-                  </div>
-                </li>
-                <li>
-                  <a href={this.returningXiaomiCategory()}>Xiaomi</a>
-                </li>
-                <li>
-                  <a>Acessórios</a>
-                  <Categorias />
-                </li>
-                <li>
-                  <a>Sobre a loja</a>
-                </li>
+                <IconDiv
+                  style={{
+                    width: "100%"
+                  }}
+                >
+                  <li>
+                    <a>iPhone</a>
+                    <div>
+                      <Categorias isiOSCategory />
+                    </div>
+                  </li>
+                  <li>
+                    <a href={this.returningXiaomiCategory()}>Xiaomi</a>
+                  </li>
+                  <li>
+                    <a>Acessórios</a>
+                    <Categorias />
+                  </li>
+                  <li>
+                    <a>Sobre a loja</a>
+                  </li>
+                </IconDiv>
+                <IconDiv>
+                  <SearchImage
+                    onClick={() =>
+                      this.setState({ isOpenSearchBar: !isOpenSearchBar })
+                    }
+                    src={"/static/img-site/search.svg"}
+                  />
+                  <CardCarrinho />
+                </IconDiv>
               </ul>
             </CategoryContainer>
-            <SearchImage
-              onClick={() =>
-                this.setState({ isOpenSearchBar: !isOpenSearchBar })
-              }
-              src={"/static/img-site/search.svg"}
-            />
-            <CardCarrinho />
-          </Options>
+          </>
         )}
       </Container>
     )

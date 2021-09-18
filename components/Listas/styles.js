@@ -5,7 +5,6 @@ export const CategoryItem = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  border: 1px solid green;
   span {
     font-size: 1rem;
     color: #c4c4c4;

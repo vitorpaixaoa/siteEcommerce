@@ -1,20 +1,38 @@
 import styled from "styled-components"
 import { colors } from "../../pages/styles/theme"
-
+export const IconDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    flex: 1;
+  }
+`
 export const CategoryContainer = styled.nav`
   display: flex;
   height: 100%;
   flex-direction: row;
-  width: 40%;
-  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  .hamburger {
+    background-color: red;
+    border: 0;
+    border: 1px solid red;
+    cursor: pointer;
+    align-items: center;
+    font-size: 20px;
+    display: flex;
+  }
+
   ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 100%;
+    padding: 24px 0 36px 0;
     li {
       font-size: 1rem;
-      color: #c4c4c4;
       padding: 0 1rem;
       cursor: pointer;
       transition: all ease-in-out 0.5s;
@@ -29,10 +47,12 @@ export const CategoryContainer = styled.nav`
       }
       a {
         list-style: none;
-        color: #f4f4f4;
+        color: #c4c4c4;
       }
       &:hover {
-        color: #f4f4f4;
+        a {
+          color: #f4f4f4;
+        }
         div {
           opacity: 1;
           display: flex;
@@ -52,6 +72,23 @@ export const CategoryContainer = styled.nav`
         }
       }
     }
+    @media (max-width: 767px) {
+      display: none;
+      flex-flow: column-reverse nowrap;
+      z-index: 900;
+      height: 50vh;
+      align-items: flex-start;
+      max-width: 250px;
+      justify-content: space-around;
+      position: fixed;
+      background-color: black;
+      top: 0;
+      right: 0;
+
+      img {
+        align-self: flex-start;
+      }
+    }
   }
 `
 
@@ -61,14 +98,25 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  max-height: 1920px;
   justify-content: center;
   background-color: rgba(0, 0, 0, 1);
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
 `
-
+export const SearchContainer = styled.div`
+  display: flex;
+  max-width: 800px;
+  justify-content: space-between;
+  width: 100%;
+`
 export const SearchImage = styled.img`
   width: 60px;
   height: 60px;
   cursor: pointer;
+  align-self: center;
+  display: flex;
 `
 export const Icon = styled.span`
   display: flex;
@@ -83,8 +131,7 @@ export const Options = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  transition: all ease-in 5s;
+  width: 100vw;
+  transition: transform 0.25s cubic-bezier(0.71, 0.21, 0.72, 0.7);
   opacity: ${({ isOpenSearchBar }) => (isOpenSearchBar ? 0 : 1)};
 `

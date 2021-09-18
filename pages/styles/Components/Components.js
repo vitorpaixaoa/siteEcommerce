@@ -2,57 +2,57 @@ import { colors, fontSizes, Weight } from "../theme"
 import styled from "styled-components"
 
 export const CenterBox = styled.div`
-    display: flex;
-    justify-content: center;
-`;
+  display: flex;
+  justify-content: center;
+`
 
 export const HorizontalBox = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: ${(props) => props.width};
-    max-width: ${(props) => props.maxWidth};
-    justify-content: ${(props) => props.justifyContent};
-    margin: ${({margin = "0 auto"}) => margin};
-`;
+  display: flex;
+  flex-direction: row;
+  width: ${(props) => props.width};
+  max-width: ${(props) => props.maxWidth};
+  justify-content: ${(props) => props.justifyContent};
+  margin: ${({ margin = "0 auto" }) => margin};
+`
 
 export const Select = styled.select`
-    background-color: transparent;
-    width: 100%;
-    font-family: inherit;
-    cursor: inherit;
-    line-height: inherit;
-    font-size: 1rem;
-    margin: 0px 5px 0 0;
-    padding: 12px 8px;
-    border: 1px solid #d6d6d6;
-    border-radius: ${(props) =>
-        props.borderRadius ? props.borderRadius : "8px"};
-    transition: 0.2s;
-    outline: none;
+  background-color: transparent;
+  width: 100%;
+  font-family: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  font-size: 1rem;
+  margin: 0px 5px 0 0;
+  padding: 12px 8px;
+  border: 1px solid #d6d6d6;
+  border-radius: ${(props) =>
+    props.borderRadius ? props.borderRadius : "8px"};
+  transition: 0.2s;
+  outline: none;
 
-    &:focus {
-        border: 1px solid #0070c9;
-    }
-`;
+  &:focus {
+    border: 1px solid #0070c9;
+  }
+`
 
 export const Button = styled.button`
-    width: ${({width = '100%'}) => width};
-    min-width: 196px;
-    font-size: ${({fontSize = '1rem'}) => fontSize};
-    padding: ${({padding = '12px 32px'}) => padding};
-    margin: ${({margin = '10px 0'}) => margin};
-    background: ${({background = '#000'}) => background};
-    color: ${({color = '#fff'}) => color};
-    cursor: pointer;
-    border-radius: ${({borderRadius = '8px'}) => borderRadius};
-    transition: 0.2s;
-    outline: none;
-    border: none;
+  width: ${({ width = "100%" }) => width};
+  min-width: 196px;
+  font-size: ${({ fontSize = "1rem" }) => fontSize};
+  padding: ${({ padding = "12px 32px" }) => padding};
+  margin: ${({ margin = "10px 0" }) => margin};
+  background: ${({ background = "#000" }) => background};
+  color: ${({ color = "#fff" }) => color};
+  cursor: pointer;
+  border-radius: ${({ borderRadius = "8px" }) => borderRadius};
+  transition: 0.2s;
+  outline: none;
+  border: none;
 
-    &:hover {
-        opacity: 0.8;
-    }
-`;
+  &:hover {
+    opacity: 0.8;
+  }
+`
 
 export const TextComponent = styled.span`
   font-size: ${({ fontSize = fontSizes.base }) => fontSize + "px"};
@@ -68,7 +68,7 @@ export const TextComponent = styled.span`
     }
   }};
   font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
+    sans-serif;
 `
 
 export const GroupComponent = styled.div`
@@ -116,6 +116,13 @@ export const Container = styled.div`
   align-items: ${({ alignItem = "flex-start" }) => alignItem};
   justify-content: ${({ justifyContent = "flex-start" }) => justifyContent};
   flex-wrap: ${({ wrap = "nowrap" }) => wrap};
+  .hamburger {
+    background-color: transparent;
+    border: 0;
+    color: #f4f4f4;
+    cursor: pointer;
+    font-size: 20px;
+  }
 `
 
 export const Divisor = styled.div`
