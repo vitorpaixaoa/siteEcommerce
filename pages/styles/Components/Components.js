@@ -60,6 +60,7 @@ export const TextComponent = styled.span`
   color: ${({ color = colors.black }) => color};
   margin: ${({ margin = "0px 0px 0px 0px" }) => margin};
   text-align: ${({ textAlign = "left" }) => textAlign};
+  cursor: ${({cursor = "default"}) => cursor };
   width: ${({ width = "100%" }) => {
     if (typeof width === "string") {
       return width
@@ -74,7 +75,7 @@ export const TextComponent = styled.span`
 export const GroupComponent = styled.div`
   flex-direction: ${({ flexDirection = "column" }) => flexDirection};
   align-items: ${({ alignItem = "flex-start" }) => alignItem};
-  justify-content: ${({ justifyContent = "flex-start" }) => justifyContent};
+  justify-content: ${({ justifyContent = "flex-start" }) => justifyContent}  ;
   margin-top: ${({ marginTop = 0 }) => marginTop + "px"};
   margin-left: ${({ marginLeft = 0 }) => marginLeft + "px"};
   border-bottom-width: ${({ borderBottomWidth = 0 }) =>
@@ -84,6 +85,7 @@ export const GroupComponent = styled.div`
   opacity: ${({ opacity = 1 }) => opacity};
   flex-wrap: ${({ flexWrap = "nowrap" }) => flexWrap};
   display: flex;
+  background-color: ${({backgroundColor = "transparent"}) => backgroundColor };
   width: ${({ width = "100%" }) => width};
   height: ${({ height = "100%" }) => {
     if (typeof height === "string") {
@@ -91,6 +93,9 @@ export const GroupComponent = styled.div`
     }
     return height + "px"
   }};
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 const isScrollDiv = (props) => {
   const isScrollDiv = "overflow:auto;background:#fff"
@@ -116,12 +121,11 @@ export const Container = styled.div`
   align-items: ${({ alignItem = "flex-start" }) => alignItem};
   justify-content: ${({ justifyContent = "flex-start" }) => justifyContent};
   flex-wrap: ${({ wrap = "nowrap" }) => wrap};
-  .hamburger {
-    background-color: transparent;
-    border: 0;
-    color: #f4f4f4;
-    cursor: pointer;
-    font-size: 20px;
+  max-width: 1920px;
+  min-width: 300px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
   }
 `
 

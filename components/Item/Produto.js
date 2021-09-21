@@ -40,7 +40,7 @@ class Produto extends Component {
         }
       >
         <Content>
-          <ProductTitle fontSize={isSimpleProductShowcase && 20}>
+          <ProductTitle fontSize={isSimpleProductShowcase && "1rem"}>
             {titulo
               ? isSimpleProductShowcase
                 ? truncateString(titulo, 50)
@@ -85,7 +85,7 @@ class Produto extends Component {
         </Content>
         <ImageContainer
           width={isSimpleProductShowcase && "15vw"}
-          height={'auto'}
+          height={"auto"}
           src={
             !productURL.includes("undefined")
               ? productURL

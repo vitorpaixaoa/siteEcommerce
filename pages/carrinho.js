@@ -21,7 +21,7 @@ class Carrinho extends Component {
   render() {
     return (
       <Layout title="Carrinho | Loja Zellus - Moda e estilo">
-        <Cabecalho simples />
+        <Cabecalho />
         <CarrinhoContainer />
         <Rodape />
       </Layout>

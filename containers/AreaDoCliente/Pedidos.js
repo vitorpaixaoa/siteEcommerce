@@ -6,7 +6,7 @@ import ListaPedidos from '../Lista/Pedidos';
 export default class PedidosContainer extends Component {
     render(){
         return(
-            <div className="Pedidos-Container container-big flex horizontal">
+            <div>
                 <MenuAreaDoCliente />
                 <ListaPedidos/>
             </div>

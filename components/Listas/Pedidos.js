@@ -1,40 +1,65 @@
-import React, { Component } from 'react';
+import React, { Component } from "react"
+import { Container } from "../../pages/styles/Components/Components"
 
-import Pedido from '../Item/PedidoCard';
+import Pedido from "../Item/PedidoCard"
 
 class Pedidos extends Component {
+  renderCorpo() {
+    const pedido = [
+      {
+        createdAt: "",
+        pagamento: "",
+        cancelado: "",
+        entrega: "",
+        _id: ""
+      },
+      {
+        createdAt: "",
+        pagamento: "",
+        cancelado: "",
+        entrega: "",
+        _id: ""
+      },{
+        createdAt: "",
+        pagamento: "",
+        cancelado: "",
+        entrega: "",
+        _id: ""
+      },
+      {
+        createdAt: "",
+        pagamento: "",
+        cancelado: "",
+        entrega: "",
+        _id: ""
+      },
+      {
+        createdAt: "",
+        pagamento: "",
+        cancelado: "",
+        entrega: "",
+        _id: ""
+      }, {
+        createdAt: "",
+        pagamento: "",
+        cancelado: "",
+        entrega: "",
+        _id: ""
+      }, {
+        createdAt: "",
+        pagamento: "",
+        cancelado: "",
+        entrega: "",
+        _id: ""
+      }
+    ]
+    const { pedidos } = this.props
+    return pedido.map((pedido) => <Pedido pedido={pedido} key={pedido._id} />)
+  }
 
-    renderCabecalho(){
-        return(
-            <div className=" menu-pedidos flex">
-                <div className="flex-1 flex ">
-                    <h3>DATA</h3>
-                </div>
-                <div className="flex-1 flex ">
-                    <h3>VALOR</h3>
-                </div>
-                <div className="flex-3 flex ">
-                    <h3>STATUS</h3>
-                </div>
-                <div className="flex-1 flex "> </div>
-            </div>
-        )
-    }
-
-    renderCorpo(){
-        const { pedidos } = this.props;
-        return pedidos.map((pedido) => (<Pedido pedido={pedido} key={pedido._id} />) )
-    }
-
-
-    render(){
-        return(
-            <div className="Pedidos-Lista">
-                { this.renderCabecalho() }
-                { this.renderCorpo() }
-            </div>
-        )
-    }
+  render() {
+    return <Container alignItem="center" wrap={'wrap'} >{this.renderCorpo()}</Container>
+  }
 }
 
-export default Pedidos;
+export default Pedidos

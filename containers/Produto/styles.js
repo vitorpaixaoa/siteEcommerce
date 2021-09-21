@@ -11,12 +11,20 @@ export const Img = styled.img`
   border-radius: 10px;
   padding: 10px;
 `
+
 export const MiniImageContainer = styled.div`
   display: flex;
   flex-direction: row;
+  @media (max-width: 768px) {
+    overflow: auto;
+    background: #fff;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
 `
 export const H1 = styled.h1`
-  font-size: ${fontSizes.largeTitle * 2}px;
+  font-size: 2rem;
   font-weight: 500;
   letter-spacing: 0.1rem;
   color: ${({ color = colors.black }) => color};
@@ -49,6 +57,10 @@ export const OptionContainer = styled.div`
   justify-content: flex-start;
   flex-wrap: wrap;
   width: 20vw;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-left: 1rem;
+  }
 `
 export const PromotionalProduct = styled.span`
   font-size: 1.1rem;

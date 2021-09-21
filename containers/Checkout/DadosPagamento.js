@@ -151,8 +151,8 @@ class DadosPagamento extends Component {
         const { CPF, CPFboleto } = this.props.form;
         const { erros } = this.state;
         return(
-            <div className="Dados-Pagamento">
-                <div className="flex-1">
+            <div>
+                <div>
                     <FormSimples 
                         name="CPF"
                         erro={erros.CPFboleto}

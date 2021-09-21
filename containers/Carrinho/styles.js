@@ -37,7 +37,6 @@ export const TitleBox = styled.div`
 
 export const QuantityBox = styled.div`
     width: 20%;
-
     input[type="number"] {
         width: 100%;
         outline: none;

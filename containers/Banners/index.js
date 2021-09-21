@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Container } from "../../pages/styles/Components/Components"
+import styled from "styled-components"
 
 const IMAGES = [
   "/static/banners/iphone11-gallery1-2019.jpeg",
@@ -7,7 +7,10 @@ const IMAGES = [
   "/static/banners/iphone11-gallery3-2019.jpeg",
   "/static/banners/iphone11-gallery4-2019.jpeg"
 ]
-
+export const Container = styled.div`
+  height: 100%;
+  width: 100vw;
+`
 class Banners extends Component {
   state = {
     img: IMAGES[0],
@@ -41,7 +44,7 @@ class Banners extends Component {
   }
 
   render() {
-    return <Container width="100vw">{this.renderBanners()}</Container>
+    return <Container>{this.renderBanners()}</Container>
   }
 }
 export default Banners

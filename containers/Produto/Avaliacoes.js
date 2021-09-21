@@ -154,7 +154,6 @@ class Avaliacoes extends Component {
           <GroupComponent>
             <Button
               onClick={() => this.submitAvaliacao()}
-              className="btn btn-primary btn-lg"
               ColorButton={colors.red}
               background={colors.red}
             >

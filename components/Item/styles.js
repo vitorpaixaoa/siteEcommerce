@@ -18,6 +18,9 @@ export const Container = styled.div`
   width: 100%;
   margin: ${({ margin = "40px 0px 40px 0px" }) => margin};
   flex-direction: ${({ flexDirection = "row" }) => flexDirection};
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 `
 export const Content = styled.div`
   display: flex;
@@ -27,10 +30,13 @@ export const Content = styled.div`
   li {
     list-style: none;
   }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `
 export const ProductTitle = styled.h3`
   font-weight: 500;
-  font-size: ${({ fontSize = 28 }) => fontSize + "px"};
+  font-size: ${({ fontSize = "1.5rem" }) => fontSize};
   margin: 0px 36px 10px 36px;
   color: ${colors.darkGrey};
 `
@@ -65,5 +71,26 @@ export const LinkDiv = styled.div`
     i {
       margin-left: 5px;
     }
+  }
+`
+export const OrderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: ${colors.lightGrey};
+  padding: 25px 40px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0.5rem;
+  -webkit-box-shadow: 0px 0px 20px -3px #c4c4c4;
+  box-shadow: 0px 0px 20px -3px #c4c4c4;
+  transition: all ease-in-out 0.3s;
+  &:hover{
+    -webkit-box-shadow: 0px 0px 0px 0px #c4c4c4;
+  box-shadow: 0px 0px 0px 0px #c4c4c4; 
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `

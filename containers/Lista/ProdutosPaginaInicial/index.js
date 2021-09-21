@@ -28,7 +28,6 @@ class ProdutosPaginaInicial extends Component {
         margin="0px 0px 50px 0px"
         flexDirection="column"
         alignItem="center"
-       
       >
         <TitlePage>Lançamentos</TitlePage>
         {this.props.produtos.docs ? (

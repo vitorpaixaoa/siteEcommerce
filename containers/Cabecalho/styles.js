@@ -18,7 +18,6 @@ export const CategoryContainer = styled.nav`
   .hamburger {
     background-color: red;
     border: 0;
-    border: 1px solid red;
     cursor: pointer;
     align-items: center;
     font-size: 20px;

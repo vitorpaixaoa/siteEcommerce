@@ -72,18 +72,17 @@ class Hero extends Component {
   renderPhotos() {
     return (
       <Container flexDirection="column" alignItem="center">
-        <div className="foto-principal flex-6 flex flex-center">
+        <div>
           <Img
             src={
               (baseImg + this.state.foto).includes("undefined")
                 ? "/static/img-site/SemImagem.jpg"
                 : baseImg + this.state.foto
             }
-            width="400px"
-            height="450px"
+            width="100%"
           />
         </div>
-        <MiniImageContainer>
+        <MiniImageContainer isScrollDiv>
           {this.state.fotos.map((foto, index) => (
             <Img
               border={
@@ -134,7 +133,11 @@ class Hero extends Component {
     if (!produto || !variacoes || variacoes.length === 0) return null
     return (
       <div>
-        <div>
+        <div
+          style={{
+            paddingLeft: window.screen.width <= 360 ? "1rem" : "0"
+          }}
+        >
           <TextComponent
             fontSize={fontSizes.large}
             color={colors.darkGrey}
@@ -178,16 +181,7 @@ class Hero extends Component {
         flexDirection="column"
       >
         <H1 margin="0px 0px 20px 0px">Comprar {produto.titulo}</H1>
-        {/* <div className="categoria">
-          <p>
-            Categoria:
-            <Link
-              href={`/categoria/${produto.categoria.nome}?id=${produto.categoria._id}`}
-            >
-              <span className="categoria-link"> {produto.categoria.nome}</span>
-            </Link>
-          </p>
-        </div> */}
+
         {this.renderVariacoes()}
         <Container
           height="50vh"

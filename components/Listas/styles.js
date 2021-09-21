@@ -21,7 +21,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
   flex-direction: column;
   height: 50vh;
   width: 100%;
@@ -31,6 +30,9 @@ export const SocialMediaContainer = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: center;
+  @media (max-width: 768px) {
+    margin: 1rem 0;
+  }
 `
 export const SocialMediaContent = styled.nav`
   display: flex;
