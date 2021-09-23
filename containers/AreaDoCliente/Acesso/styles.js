@@ -27,23 +27,6 @@ export const Subtitle = styled.h2`
     color: #494949;
 `;
 
-export const Button = styled.button`
-    font-size: 1.1rem;
-    padding: 12px 32px;
-    margin: 10px 0;
-    background: #000;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    border: 1px solid #999999;
-    border-radius: 8px;
-    transition: 0.2s;
-
-    &:hover {
-        opacity: 0.8;
-    }
-`;
-
 export const Separator = styled.div`
     width: 100%;
     max-width: 328px;
@@ -56,7 +39,7 @@ export const ForgotPassword = styled.a`
     margin-top: 12px;
     font-size: 14px;
     text-decoration: none;
-    color: #0070c9;
+    color: #FF2A6D;
 
     &:hover {
         text-decoration: underline;
@@ -74,7 +57,7 @@ export const LinkAcesso = styled.div`
 
     .click-text {
         cursor: pointer;
-        color: #0070c9;
+        color: #FF2A6D;
 
         &:hover {
             text-decoration: underline;

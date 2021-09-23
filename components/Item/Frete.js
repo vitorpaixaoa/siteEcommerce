@@ -58,7 +58,7 @@ class Frete extends Component {
                         padding="0 24px"
                         margin="12px 0"
                         width=""
-                        color="#0070c9"
+                        color="#FF2A6D"
                         onClick={() => this.calcularFrete()}
                     >
                         Calcular frete
@@ -80,7 +80,7 @@ class Frete extends Component {
                     padding="0"
                     margin="0"
                     background="transparent"
-                    color="#0070c9"
+                    color="#FF2A6D"
                     onClick={() => cleanFretes()}
                     className="limpar-CEP"
                 >

@@ -42,7 +42,7 @@ class Avaliacoes extends Component {
             <Container
               margin="0px 0px 10px 0px"
               //background={colors.lightGrey}
-              alignItem="center"
+              alignItems="center"
               padding="10px"
               key={avaliacao._id}
               flexDirection="column"
@@ -120,7 +120,7 @@ class Avaliacoes extends Component {
     return (
       <Container
         justifyContent="center"
-        alignItem="center"
+        alignItems="center"
         width="20%"
         flexDirection="column"
       >
@@ -187,7 +187,7 @@ class Avaliacoes extends Component {
     return (
       <Container
         margin="0px 0px 50px 0px"
-        alignItem="center"
+        alignItems="center"
         flexDirection="column"
       >
         <H2>Avaliações</H2>

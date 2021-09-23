@@ -71,8 +71,8 @@ class Hero extends Component {
 
   renderPhotos() {
     return (
-      <Container flexDirection="column" alignItem="center">
-        <div>
+      <Container flexDirection="column" alignItems="center">
+        <div className="foto-principal flex-6 flex flex-center">
           <Img
             src={
               (baseImg + this.state.foto).includes("undefined")
@@ -176,7 +176,7 @@ class Hero extends Component {
     return (
       <Container
         justifyContent="space-between"
-        alignItem="flex-start"
+        alignItems="flex-start"
         padding="0px 0px 0px 0px"
         flexDirection="column"
       >

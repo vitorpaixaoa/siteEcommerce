@@ -4,10 +4,10 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 64vw;
+    width: 100%;
     padding: 0 16px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 50px auto;
     transition: 0.2s;
 `;
 
@@ -29,10 +29,19 @@ export const ItemDetails = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+        justify-content: space-between;
+    }
 `;
 
 export const TitleBox = styled.div`
     width: 50%;
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
 `;
 
 export const QuantityBox = styled.div`
@@ -46,8 +55,12 @@ export const QuantityBox = styled.div`
         transition: 0.2s;
 
         &:focus {
-            border: 1px solid #0070c9;
+            border: 1px solid #ff2a6d;
         }
+    }
+
+    @media (max-width: 767px) {
+        width: 100%;
     }
 `;
 
@@ -57,6 +70,19 @@ export const PriceBox = styled.div`
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
+
+    span {
+        text-align: end;
+    }
+
+    @media (max-width: 767px) {
+        width: 100%;
+        align-items: flex-start;
+
+        span {
+            text-align: start;
+        }
+    }
 `;
 
 export const DadosDoCarrinhoContainer = styled.div`
@@ -64,6 +90,17 @@ export const DadosDoCarrinhoContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
+`;
+
+export const TextBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 `;
 
 export const DadosDoCarrinhoBox = styled.div`

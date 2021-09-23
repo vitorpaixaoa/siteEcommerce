@@ -14,7 +14,8 @@ import {
   Icon,
   Options,
   SearchContainer,
-  IconDiv
+  IconDiv,
+  CloseMenu
 } from "./styles"
 class Cabecalho extends React.Component {
   static async getInitialProps(ctx) {
@@ -62,9 +63,11 @@ class Cabecalho extends React.Component {
             <Logo />
             <CategoryContainer isOpen={isOpenMenu}>
               <button
-                onClick={() => this.setState({ isOpenMenu: !isOpenMenu })}
+                onClick={() => {
+                  this.setState({ isOpenMenu: !isOpenMenu })}}
                 className="hamburger"
                 id="hamburger"
+                type="button"
               >
                 <i className="fas fa-bars"></i>
               </button>
@@ -100,6 +103,17 @@ class Cabecalho extends React.Component {
                   />
                   <CardCarrinho />
                 </IconDiv>
+                <CloseMenu>
+                  <button
+                    onClick={() => {
+                      this.setState({ isOpenMenu: !isOpenMenu })}}
+                    className="closeMenu"
+                    id="closeMenu"
+                    type="button"
+                  >
+                    <i className="fas fa-times"></i>
+                  </button>
+                </CloseMenu>
               </ul>
             </CategoryContainer>
           </>

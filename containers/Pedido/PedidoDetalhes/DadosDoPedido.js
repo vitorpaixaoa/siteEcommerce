@@ -38,7 +38,7 @@ class DadosDoPedido extends Component {
         });
         return(
             <div className="flex-5">
-            <h4 className="headline">CARRINHO</h4>
+            <h4 className="headline">Carrinho</h4>
             <br/>
             <TabelaSimples
                 cabecalho={[ "Produto", "Preço Und.", "Quantidade", "Preço Total" ]}
@@ -53,7 +53,7 @@ class DadosDoPedido extends Component {
         const { entrega } = pedido;
         return(
             <div className="flex-3">
-                <h4 className="headline">DADOS DE ENTREGA</h4>
+                <h4 className="headline">Dados de Entrega</h4>
                 <br/>
                 <TextoDados chave="Endereço" valor={entrega.endereco.local} />
                 <TextoDados chave="Número" valor={entrega.endereco.numero} />
@@ -75,7 +75,7 @@ class DadosDoPedido extends Component {
         const { entrega, pagamento } = pedido;
         return(
             <div className="flex-5">
-                <h4 className="headline">DADOS DE PAGAMENTO</h4>
+                <h4 className="headline">Dados de Pagamento</h4>
                 <br/>
                 <TextoDados 
                     chave="Taxa de Entrega" 

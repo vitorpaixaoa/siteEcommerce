@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import ListaDeProdutos from '../Carrinho/ListaDeProdutos';
+import { Title } from '../Carrinho/styles';
 
 class DadosPedido extends Component {
     render(){
         return(
             <div className="Dados-Pedido-Container">
-                <h2>DADOS DO PEDIDO</h2>
-                <br/>
+                <Title>Dados do pedido</Title>
                 <ListaDeProdutos semAlteracoes />
                 <br/>
                 <br/>

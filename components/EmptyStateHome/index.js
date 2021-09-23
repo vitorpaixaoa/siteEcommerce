@@ -10,9 +10,9 @@ export default class EmptyStateHome extends Component {
     const { message, secundaryMessage } = this.props
     const imgPath = "/static/img-site/Manutencao.svg"
     return (
-      <Container flexDirection="column" alignItem="center" padding="16px">
+      <Container flexDirection="column" alignItems="center" padding="16px">
         <Image src={imgPath} />
-        <GroupComponent marginTop={16} alignItem="center">
+        <GroupComponent marginTop={16} alignItems="center">
           <H1 color={colors.black} margin="0px 0px 8px 0px" textAlign="center">
             {message}
           </H1>

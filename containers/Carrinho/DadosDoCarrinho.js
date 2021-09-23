@@ -12,7 +12,7 @@ import {
     HorizontalBox,
     TextComponent,
 } from "../../pages/styles/Components/Components";
-import {DadosDoCarrinhoBox, DadosDoCarrinhoContainer} from "./styles";
+import {DadosDoCarrinhoBox, DadosDoCarrinhoContainer, TextBox} from "./styles";
 
 class DadosDoCarrinho extends Component {
     renderDadosDoCarrinho() {
@@ -24,21 +24,7 @@ class DadosDoCarrinho extends Component {
         );
         return (
             <DadosDoCarrinhoBox>
-                <HorizontalBox width="100%" justifyContent="space-between">
-                    <div>
-                        <TextComponent fontSize={16}>
-                            Valor do Pedido:
-                        </TextComponent>
-                    </div>
-                    <div>
-                        <TextComponent fontSize={16}>
-                            {formatMoney(valorTotal)}
-                        </TextComponent>
-                    </div>
-                </HorizontalBox>
-                <Divisor background="#d2d2d7" height={1} margin="2rem 0" />
-                <Frete />
-                <HorizontalBox margin="16px 0" width="100%" justifyContent="space-between">
+                <TextBox>
                     <div>
                         <TextComponent fontWeight={600} fontSize={24}>
                             Valor total:
@@ -58,7 +44,7 @@ class DadosDoCarrinho extends Component {
                             )}
                         </TextComponent>
                     </div>
-                </HorizontalBox>
+                </TextBox>
                 <Link href="/checkout">
                     <Button width="70%" background="#FF2A6D">
                         <span>Finalizar Pedido</span>
