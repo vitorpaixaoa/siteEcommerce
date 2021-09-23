@@ -8,9 +8,10 @@ class CardCarrinho extends Component {
 
   componentDidMount() {
     this.setState({ cardQtd: getCountItemsCart() })
+   
   }
-
   render() {
+    console.log('cardQtd', this.state.cardQtd)
     return (
       <>
         <Link href="/area-cliente">
@@ -19,7 +20,13 @@ class CardCarrinho extends Component {
           </Icon>
         </Link>
         <Link href="/carrinho">
-          <Image alt="bag" src="/static/img-site/bag.svg" />
+            
+          <Image alt="bag" src="/static/img-site/bag.svg">
+          <span style={{
+              color:"white",
+              fontSize:'10px',
+            }}>{this.state.cardQtd}</span>
+          </Image>
         </Link>
       </>
     )
