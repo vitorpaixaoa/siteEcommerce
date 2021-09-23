@@ -107,6 +107,9 @@ export const Container = styled.div`
   width: ${({ width = "100%" }) => {
     return width
   }};
+  max-width: ${({ maxWidth = "100%" }) => {
+    return maxWidth
+  }};
   margin: ${({ margin = "0px 0px 0px 0px" }) => margin};
   padding: ${({ padding = "0px 0px 0px 0px" }) => padding};
   background-color: ${({ background = colors.white }) => background};

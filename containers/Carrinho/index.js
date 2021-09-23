@@ -8,7 +8,7 @@ import DadosDoCarrinho from "./DadosDoCarrinho";
 import {Container, Title} from "./styles";
 import {Button} from "../../pages/styles/Components/Components";
 import Link from "next/link";
-import { formatMoney } from "../../utils";
+import {formatMoney} from "../../utils";
 
 class CarrinhoContainer extends Component {
     constructor(props) {
@@ -58,21 +58,33 @@ class CarrinhoContainer extends Component {
     }
 
     render() {
+        console.log(this.props.carrinho);
         return (
             <Container>
-                <Title>Estes são os pedidos no seu carrinho {formatMoney(this.state.valorTotal)}</Title>
-                <Link href="/checkout">
-                    <Button
-                        padding="8px 32px"
-                        width="20%"
-                        background="#FF2A6D"
-                    >
-                        <span>Finalizar Pedido</span>
-                    </Button>
-                </Link>
-                <br />
-                <ListaDeProdutos />
-                <DadosDoCarrinho />
+                {this.props.carrinho && this.props.carrinho.length > 0 ? (
+                    <>
+                        <Title>
+                            Estes são os pedidos no seu carrinho{" "}
+                            {formatMoney(this.state.valorTotal)}
+                        </Title>
+                        <Link href="/checkout">
+                            <Button
+                                padding="8px 32px"
+                                width="20%"
+                                background="#FF2A6D"
+                            >
+                                <span>Finalizar Pedido</span>
+                            </Button>
+                        </Link>
+                        <br />
+                        <ListaDeProdutos />
+                        <DadosDoCarrinho />
+                    </>
+                ) : (
+                    <>
+                        <Title>Seu carrinho ainda está vazio!</Title>
+                    </>
+                )}
             </Container>
         );
     }

@@ -10,6 +10,7 @@ import CheckoutButton from "./CheckoutButton";
 import {connect} from "react-redux";
 import actions from "../../redux/actions";
 import {Container} from "../../pages/styles/Components/Components";
+import { Title } from "../Carrinho/styles";
 class CheckoutContainer extends Component {
     state = {
         permissaoInicial: false,
@@ -27,9 +28,9 @@ class CheckoutContainer extends Component {
                 backgroundColor="red"
                 flexDirection="column"
                 margin="96px 0 196px 0"
+                padding="0 12px"
             >
-                <h2>Falta pouco para concluir seu pedido</h2>
-                <br />
+                <Title>Falta pouco para concluir seu pedido</Title>
                 <div>
                     <DadosCliente
                         usuario={usuario}

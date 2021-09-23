@@ -109,7 +109,7 @@ class CheckoutButton extends Component {
             <div className="flex flex-right">
                 <AlertGeral aviso={this.state.aviso} />
                 <Button 
-                    className="btn btn-cta btn-success"
+                    background="#FF2A6D"
                     disabled={this.state.disabled} 
                     onClick={() => this.handleSubmit()} >
                     <span>{ this.state.disabled ? "Enviando pedido..." : "Concluir pedido"}</span>
