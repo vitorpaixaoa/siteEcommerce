@@ -29,7 +29,7 @@ class ProdutosPaginaInicial extends Component {
         flexDirection="column"
         alignItems="center"
        
-      >
+      > 
         <TitlePage>Lançamentos</TitlePage>
         {this.props.produtos.docs ? (
           <Produtos
