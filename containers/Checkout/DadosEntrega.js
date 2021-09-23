@@ -14,6 +14,7 @@ import {
     Select,
 } from "../../pages/styles/Components/Components";
 import {Form} from "../../components/Inputs/styles";
+import { Title } from "../Carrinho/styles";
 
 class DadosEntregaContainer extends Component {
     state = {
@@ -145,9 +146,9 @@ class DadosEntregaContainer extends Component {
         } = this.props.form;
         const {erros} = this.state;
         return (
-            <div>
+            <Container maxWidth="768px" margin="24px 0" flexDirection="column" alignItems="center">
                 <Container margin="24px 0" flexDirection="column" alignItems="center">
-                    <h2>Dados de Entrega</h2>
+                    <Title>Dados de Entrega</Title>
                 </Container>
                 <FormSimples
                     borderRadius="8px 8px 0 0"
@@ -160,7 +161,7 @@ class DadosEntregaContainer extends Component {
                         this.onChangeCEP("CEP", formatCEP(e.target.value))
                     }
                 />
-                <HorizontalBox maxWidth="512px">
+                <HorizontalBox width="100%">
                     <FormSimples
                         width="100%"
                         borderRadius="0"
@@ -185,7 +186,7 @@ class DadosEntregaContainer extends Component {
                         }
                     />
                 </HorizontalBox>
-                <HorizontalBox maxWidth="512px">
+                <HorizontalBox width="100%">
                     <FormSimples
                         width="100%"
                         borderRadius="0"
@@ -209,7 +210,7 @@ class DadosEntregaContainer extends Component {
                         }
                     />
                 </HorizontalBox>
-                <HorizontalBox margin="" maxWidth="512px">
+                <HorizontalBox width="100%">
                     <FormSimples
                         width="100%"
                         borderRadius="0 0 0 8px"
@@ -258,7 +259,7 @@ class DadosEntregaContainer extends Component {
                         &nbsp;Os dados de entrega são iguais aos de cobrança.
                     </label>
                 </div>
-            </div>
+            </Container>
         );
     }
 
@@ -268,9 +269,9 @@ class DadosEntregaContainer extends Component {
             this.props.form.dadosCobranca;
         const {erros} = this.state;
         return (
-            <div>
+            <Container maxWidth="768px" margin="24px 0" flexDirection="column" alignItems="center">
                 <CenterBox>
-                    <h2>Dados de Cobrança</h2>
+                    <Title>Dados de Cobrança</Title>
                 </CenterBox>
                 <FormSimples
                     width="100%"
@@ -287,7 +288,7 @@ class DadosEntregaContainer extends Component {
                         )
                     }
                 />
-                <HorizontalBox margin="" maxWidth="512px">
+                <HorizontalBox width="100%">
                     <FormSimples
                         width="100%"
                         borderRadius="0"
@@ -319,7 +320,7 @@ class DadosEntregaContainer extends Component {
                         }
                     />
                 </HorizontalBox>
-                <HorizontalBox margin="" maxWidth="512px">
+                <HorizontalBox width="100%">
                     <FormSimples
                         width="100%"
                         borderRadius="0"
@@ -351,7 +352,7 @@ class DadosEntregaContainer extends Component {
                         }
                     />
                 </HorizontalBox>
-                <HorizontalBox margin="" maxWidth="512px">
+                <HorizontalBox width="100%">
                     <FormSimples
                         width="100%"
                         borderRadius="8px 0 0 8px"
@@ -393,7 +394,7 @@ class DadosEntregaContainer extends Component {
                         )}
                     </Form>
                 </HorizontalBox>
-            </div>
+            </Container>
         );
     }
 
@@ -401,7 +402,7 @@ class DadosEntregaContainer extends Component {
         const {dadosEntregaIgualCobranca} = this.props.form;
 
         return (
-            <Container flexDirection="column">
+            <Container flexDirection="column" alignItems="center" >
                 {this.renderDadosEntrega()}
                 {!dadosEntregaIgualCobranca && this.renderDadosCobranca()}
             </Container>

@@ -59,6 +59,10 @@ export const QuantityBox = styled.div`
             border: 1px solid #ff2a6d;
         }
     }
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
 `;
 
 export const PriceBox = styled.div`

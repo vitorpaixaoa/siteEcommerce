@@ -13,6 +13,7 @@ import {
     Container,
     HorizontalBox,
 } from "../../pages/styles/Components/Components";
+import { Title } from "../Carrinho/styles";
 
 class DadosClienteContainer extends Component {
     state = {
@@ -109,7 +110,7 @@ class DadosClienteContainer extends Component {
         const {nome, CPF, dataDeNascimento, telefone} = this.props.form;
         const {erros} = this.state;
         return (
-            <Container margin="24px 0" flexDirection="column" alignItems="center">
+            <Container maxWidth="768px" margin="24px 0" flexDirection="column" alignItems="center">
                 <FormSimples
                     borderRadius="8px 8px 0 0"
                     width="100%"
@@ -130,7 +131,7 @@ class DadosClienteContainer extends Component {
                         this.onChange("CPF", e, formatCPF(e.target.value))
                     }
                 />
-                <HorizontalBox maxWidth="512px">
+                <HorizontalBox width="100%">
                     <FormSimples
                         borderRadius="0 0 0 8px"
                         width="100%"
@@ -174,7 +175,7 @@ class DadosClienteContainer extends Component {
                 flexDirection="column"
             >
                 <div>
-                    <h2>Dados do Cliente</h2>
+                    <Title>Dados do Cliente</Title>
                 </div>
                 {!this.props.usuario && this.renderDadosRegistro()}
                 {this.renderDadosUsuario()}
