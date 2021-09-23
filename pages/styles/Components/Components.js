@@ -31,13 +31,13 @@ export const Select = styled.select`
   outline: none;
 
   &:focus {
-    border: 1px solid #0070c9;
+    border: 1px solid #FF2A6D;
   }
 `
 
 export const Button = styled.button`
   width: ${({ width = "100%" }) => width};
-  min-width: 196px;
+  min-width: ${({ minWidth = "196px" }) => minWidth};
   font-size: ${({ fontSize = "1rem" }) => fontSize};
   padding: ${({ padding = "12px 32px" }) => padding};
   margin: ${({ margin = "10px 0" }) => margin};
@@ -113,9 +113,16 @@ export const Container = styled.div`
   opacity: ${({ opacity = 1 }) => opacity};
   display: flex;
   flex-direction: ${({ flexDirection = "row" }) => flexDirection};
-  align-items: ${({ alignItem = "flex-start" }) => alignItem};
+  align-items: ${({ alignItems = "flex-start" }) => alignItems};
   justify-content: ${({ justifyContent = "flex-start" }) => justifyContent};
   flex-wrap: ${({ wrap = "nowrap" }) => wrap};
+  .closeMenu {
+    background-color: transparent;
+    border: 0;
+    color: #f4f4f4;
+    cursor: pointer;
+    font-size: 20px;
+  }
   .hamburger {
     background-color: transparent;
     border: 0;

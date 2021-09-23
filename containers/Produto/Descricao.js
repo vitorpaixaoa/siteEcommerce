@@ -13,7 +13,7 @@ class Descricao extends React.Component {
     const { produto } = this.props
     return (
       <Container margin="0px 0px 50px 0px" width="70%" flexDirection="column">
-        <GroupComponent padding="0px 0px 25px 0px" alignItem="center">
+        <GroupComponent padding="0px 0px 25px 0px" alignItems="center">
           <H2 textAlign="center">Descrição</H2>
         </GroupComponent>
         {produto.descricao.split("\n").map((item, idx) => (

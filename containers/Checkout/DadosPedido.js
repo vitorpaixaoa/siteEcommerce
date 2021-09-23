@@ -5,7 +5,7 @@ class DadosPedido extends Component {
     render(){
         return(
             <div className="Dados-Pedido-Container">
-                <h2>DADOS DO PEDIDO</h2>
+                <h2>Dados do pedido</h2>
                 <br/>
                 <ListaDeProdutos semAlteracoes />
                 <br/>

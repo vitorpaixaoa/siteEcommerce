@@ -1,57 +1,69 @@
-import React, { Component } from 'react';
+import React, {Component} from "react";
 
-import DadosCliente from './DadosCliente';
-import DadosEntrega from './DadosEntrega';
-import SubmitDadosCliente from './SubmitDadosCliente';
-import DadosFrete from './DadosFrete';
-import DadosPagamento from './DadosPagamento';
-import DadosPedido from './DadosPedido';
-import CheckoutButton from './CheckoutButton';import { connect } from 'react-redux';
-import actions from '../../redux/actions';
-;
-
+import DadosCliente from "./DadosCliente";
+import DadosEntrega from "./DadosEntrega";
+import SubmitDadosCliente from "./SubmitDadosCliente";
+import DadosFrete from "./DadosFrete";
+import DadosPagamento from "./DadosPagamento";
+import DadosPedido from "./DadosPedido";
+import CheckoutButton from "./CheckoutButton";
+import {connect} from "react-redux";
+import actions from "../../redux/actions";
+import {Container} from "../../pages/styles/Components/Components";
 class CheckoutContainer extends Component {
-
-    state={
+    state = {
         permissaoInicial: false,
-        permissaoCheckout: false
+        permissaoCheckout: false,
     };
 
-    render(){
-        const { permissaoCheckout, permissaoInicial} = this.state;
-        const { usuario, freteSelecionado } = this.props;
-        return(
-            <div className="Checkout container">
-                <h2>
-                    CONCLUINDO SEU PEDIDO
-                </h2>
-                <br/>
-                <DadosCliente 
-                    usuario={usuario} 
-                    permissaoInicial={permissaoInicial}
-                    permitir={() => this.setState({ permissaoInicial: true })} />
+    render() {
+        const {permissaoCheckout, permissaoInicial} = this.state;
+        const {usuario, freteSelecionado} = this.props;
+        return (
+            <Container
+                justifyContent="center"
+                alignItems="center"
+                width="100%"
+                backgroundColor="red"
+                flexDirection="column"
+                margin="96px 0 196px 0"
+            >
+                <h2>Falta pouco para concluir seu pedido</h2>
+                <br />
+                <div>
+                    <DadosCliente
+                        usuario={usuario}
+                        permissaoInicial={permissaoInicial}
+                        permitir={() => this.setState({permissaoInicial: true})}
+                    />
 
-                 { ( permissaoInicial || usuario )  && <DadosEntrega />}
+                    {(permissaoInicial || usuario) && <DadosEntrega />}
 
-                {
-                    ( permissaoInicial || usuario )  && 
-                    <SubmitDadosCliente permitir={() => this.setState({ permissaoCheckout: true  })} />
-                
-                }
-                {  permissaoCheckout && <DadosFrete />}
-                
-                {  permissaoCheckout && freteSelecionado && <DadosPagamento />}
-                {  permissaoCheckout && freteSelecionado && <DadosPedido />}
-                {  permissaoCheckout && freteSelecionado && <CheckoutButton />}
-                
-            </div>
-        )
+                    {(permissaoInicial || usuario) && (
+                        <SubmitDadosCliente
+                            permitir={() =>
+                                this.setState({permissaoCheckout: true})
+                            }
+                        />
+                    )}
+                    {permissaoCheckout && <DadosFrete />}
+
+                    {permissaoCheckout && freteSelecionado && (
+                        <DadosPagamento />
+                    )}
+                    {permissaoCheckout && freteSelecionado && <DadosPedido />}
+                    {permissaoCheckout && freteSelecionado && (
+                        <CheckoutButton />
+                    )}
+                </div>
+            </Container>
+        );
     }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     usuario: state.auth.usuario,
-    freteSelecionado: state.carrinho.freteSelecionado
-})
+    freteSelecionado: state.carrinho.freteSelecionado,
+});
 
 export default connect(mapStateToProps, actions)(CheckoutContainer);

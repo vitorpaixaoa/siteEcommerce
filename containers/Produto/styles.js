@@ -85,12 +85,12 @@ export const LinkDiv = styled.div`
     padding-top: 10px;
     display: flex;
     align-items: center;
-    color: #06c;
+    color: #FF2A6D;
     text-decoration: none;
     font-size: 0.8rem;
     li a {
       padding-top: 40px;
-      color: #06c;
+      color: #FF2A6D;
       text-decoration: none;
     }
     i {

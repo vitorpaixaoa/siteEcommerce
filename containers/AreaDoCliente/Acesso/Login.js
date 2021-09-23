@@ -7,8 +7,8 @@ import actions from '../../../redux/actions';
 
 import AlertGeral from '../../../components/Alert/Geral';
 
-import {LoginBox, Title, Button, ForgotPassword, LinkAcesso, Separator, FormBox} from './styles'
-import { CenterBox } from '../../../pages/styles/Components/Components';
+import {LoginBox, Title, ForgotPassword, LinkAcesso, Separator, FormBox} from './styles'
+import { Button, CenterBox } from '../../../pages/styles/Components/Components';
 
 class LoginContainer extends Component {
     state ={
@@ -66,7 +66,7 @@ class LoginContainer extends Component {
                     <br/><br/>
                     <AlertGeral aviso={aviso} />
                     <CenterBox>
-                        <Button onClick={() => this.handleSubmit()} >Entrar</Button>
+                        <Button width="" background="#FF2A6D" onClick={() => this.handleSubmit()} >Entrar</Button>
                     </CenterBox>
 
                     <Separator/>

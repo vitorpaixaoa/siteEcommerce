@@ -109,16 +109,17 @@ class ListaDeProdutos extends Component {
                             )}
                         </QuantityBox>
                         <PriceBox>
-                            <TextComponent textAlign="end" fontSize={24} fontWeight={500}>
+                            <TextComponent fontSize={24} fontWeight={500}>
                                 {formatMoney(precoUnitario * quantidade)}
                             </TextComponent>
                             {!semAlteracoes && (
                                 <Button
                                     background="transparent"
-                                    color="#06c"
+                                    color="#FF2A6D"
                                     padding="0"
                                     margin="0"
                                     width=""
+                                    minWidth=""
                                     onClick={() =>
                                         this.removeProdutoCarrinho(index)
                                     }
@@ -142,7 +143,7 @@ class ListaDeProdutos extends Component {
     render() {
         const {semAlteracoes, carrinho} = this.props;
         return (
-            <div className="Lista-De-Produtos flex vertical">
+            <div>
                 {/* {this.renderCabecalhoCarrinho(semAlteracoes)} */}
                 {carrinho && this.renderProdutos(semAlteracoes)}
                 <Divisor background="#d2d2d7" height={1} margin="4rem 0" />

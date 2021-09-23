@@ -19,7 +19,7 @@ export default class Checkout extends Component {
         return(
             <Layout title="Checkout | Loja Zellus - Moda e Estilo" 
             pagSeguro >
-                <Cabecalho simples />
+                <Cabecalho />
                 <CheckoutContainer />
                 <Rodape />
             </Layout>

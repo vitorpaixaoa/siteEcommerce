@@ -13,11 +13,11 @@ class DadosDaLoja extends React.Component {
 
     return (
       <Container
-        alignItem="center"
+        alignItems="center"
         flexDirection="column"
         background={colors.lightGrey}
       >
-        <GroupComponent alignItem="center">
+        <GroupComponent alignItems="center">
           <h2>Entre em Contato</h2>
           <br></br>
         </GroupComponent>
@@ -25,7 +25,7 @@ class DadosDaLoja extends React.Component {
           height={200}
           flexDirection="column"
           justifyContent="space-between"
-          alignItem="center"
+          alignItems="center"
         >
           <p>Nome: {nome}</p>
           <p>CNPJ: {cnpj}</p>

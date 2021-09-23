@@ -13,12 +13,13 @@ import {
 } from "../../../utils/format";
 import {validateCPF} from "../../../utils/validate";
 import axios from "axios";
-import {Button, FormBox, LinkAcesso, Subtitle, Title} from "./styles";
+import {FormBox, LinkAcesso, Subtitle, Title} from "./styles";
 import {ErrorMessage, Form} from "../../../components/Inputs/styles";
 import {
     Select,
     CenterBox,
     HorizontalBox,
+    Button,
 } from "../../../pages/styles/Components/Components";
 
 class CadastroContainer extends Component {
@@ -335,7 +336,7 @@ class CadastroContainer extends Component {
                     <br />
                     <AlertGeral aviso={aviso} />
                     <CenterBox>
-                        <Button onClick={() => this.handleSubmit()}>
+                        <Button width="" background="#FF2A6D" onClick={() => this.handleSubmit()}>
                             Cadastrar
                         </Button>
                     </CenterBox>

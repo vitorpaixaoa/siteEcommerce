@@ -25,8 +25,9 @@ class ProdutosCategoria extends Component {
     return (
       <Container
         justifyContent="center"
-        alignItem="center"
+        alignItems="center"
         flexDirection="column"
+        margin="50px 0 0 0"
       >
         <TextComponent fontSize={fontSizes.largeTitle * 2} margin="64px 0 16px" textAlign="center">{categoria ? categoria.nome : "-"}</TextComponent>
         <Produtos

@@ -4,6 +4,8 @@ import {Input, Form, ErrorMessage} from "./styles";
 export default class FormSimples extends Component {
     render() {
         const {
+            width,
+            maxWidth,
             value,
             name,
             placeholder,
@@ -14,7 +16,7 @@ export default class FormSimples extends Component {
             borderRadius,
         } = this.props;
         return (
-            <Form>
+            <Form width={width} maxWidth={maxWidth} >
                 {label && <label>{label}</label>}
                 <Input
                     borderRadius={borderRadius}

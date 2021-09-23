@@ -9,7 +9,7 @@ import { Container } from "../../pages/styles/Components/Components"
 export default class ProdutoContainer extends Component {
   render() {
     return (
-      <Container flexDirection="column" alignItem="center">
+      <Container margin="50px 0 0 0" flexDirection="column" alignItems="center">
         <Hero />
         <Descricao />
         <Avaliacoes />

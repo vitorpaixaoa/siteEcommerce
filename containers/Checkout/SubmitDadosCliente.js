@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import AlertGeral from '../../components/Alert/Geral';
+import { Button, Container } from '../../pages/styles/Components/Components';
 import actions from '../../redux/actions';
 
 import { validateCPF } from '../../utils/validate';
@@ -53,17 +54,19 @@ class SubmitDadosCliente extends Component {
         
     }
     render(){
+        console.log(this.props)
         return(
-            <div>
+            <Container justifyContent="center" >
                 <AlertGeral aviso={this.state.aviso} />
                 <div className="flex flex-right">
-                    <button 
-                        className="btn btn-success btn-cta" 
+                    <Button 
+                        width=""
+                        background="#FF2A6D"
                         onClick={()=> this.handleSubmit()}>
-                        CONTINUAR PEDIDO 
-                    </button>
+                        Continuar pedido 
+                    </Button>
                 </div>
-            </div>
+            </Container>
         )
     }
 }

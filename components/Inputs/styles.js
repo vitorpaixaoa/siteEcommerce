@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const Form = styled.form`
     position: relative;
+    width: ${({width}) => width};
+    max-width: ${({maxWidth}) => maxWidth};
 `;
 
 export const ErrorMessage = styled.small`
@@ -23,6 +25,6 @@ export const Input = styled.input`
     outline: none;
 
     &:focus {
-        border: 1px solid #0070c9;
+        border: 1px solid #FF2A6D;
     }
 `;
