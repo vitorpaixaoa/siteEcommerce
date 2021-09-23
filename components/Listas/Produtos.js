@@ -25,7 +25,7 @@ class Produtos extends Component {
       <Container
         flexDirection={isSimpleProductShowcase ? "row" : "column"}
         width={isSimpleProductShowcase ? "80%" : "60%"}
-        alignItem="center"
+        alignItems="center"
         isScrollDiv={isSimpleProductShowcase}
       >
         {produtos.map((item, index) => {

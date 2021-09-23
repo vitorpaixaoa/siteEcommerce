@@ -22,7 +22,7 @@ class ProdutosRelacionados extends Component {
   render() {
     const { produtosCategoria } = this.props
     return (
-      <Container flexDirection="column" alignItem="center">
+      <Container flexDirection="column" alignItems="center">
         <H2 margin="0px 0px 50px 0px">Produtos Relacionados</H2>
         <Produtos
           isSimpleProductShowcase={true}

@@ -8,7 +8,7 @@ import {
 const Beneficios = () => (
   <Container flexDirection="row" justifyContent="space-around">
     <GroupComponent
-      alignItem="center"
+      alignItems="center"
       justifyContent="center"
       flexDirection="row"
       width="100vw"

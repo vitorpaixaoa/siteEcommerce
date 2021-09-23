@@ -7,7 +7,7 @@ import {
 import { colors } from "../../pages/styles/theme"
 const Paginas = () => (
   <Container
-    alignItem="center"
+    alignItems="center"
     flexDirection="column"
     background={colors.lightGrey}
   >
@@ -17,7 +17,7 @@ const Paginas = () => (
       height={100}
       flexDirection="column"
       justifyContent="space-between"
-      alignItem="center"
+      alignItems="center"
     >
       <Link href="/">
         <span>Página Inicial</span>

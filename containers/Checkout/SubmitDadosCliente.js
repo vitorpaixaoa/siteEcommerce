@@ -1,8 +1,11 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 
-import AlertGeral from "../../components/Alert/Geral"
-import actions from "../../redux/actions"
+import AlertGeral from '../../components/Alert/Geral';
+import { Button, Container } from '../../pages/styles/Components/Components';
+import actions from '../../redux/actions';
+
+import { validateCPF } from '../../utils/validate';
 
 import { validateCPF } from "../../utils/validate"
 import Button from "../../components/Button"
@@ -57,32 +60,31 @@ class SubmitDadosCliente extends Component {
     if (!estado) temErro = true
     if (!CEP || CEP.length !== 9) temErro = true
 
-    return !temErro
-  }
-  handleSubmit() {
-    if (!this.validate()) return null
-    const { token, form, cliente } = this.props
-    if (!token) this.props.newCliente(form, this.callback)
-    else this.props.updateCliente(form, cliente._id, token, this.callback)
-  }
-  render() {
-    return (
-      <div>
-        <AlertGeral aviso={this.state.aviso} />
-        <div>
-          <Button
-            ColorButton={colors.red}
-            background={colors.red}
-            onSubmit={() => this.handleSubmit()}
-          >
-            <TextComponent fontWeight="700" color={colors.white}>
-              Continuar pedido
-            </TextComponent>
-          </Button>
-        </div>
-      </div>
-    )
-  }
+        return !temErro; 
+    }
+    handleSubmit(){
+        if(!this.validate()) return null;
+        const { token, form, cliente } = this.props;
+        if(!token) this.props.newCliente(form, this.callback);
+        else this.props.updateCliente(form, cliente._id, token, this.callback);
+        
+    }
+    render(){
+        console.log(this.props)
+        return(
+            <Container justifyContent="center" >
+                <AlertGeral aviso={this.state.aviso} />
+                <div className="flex flex-right">
+                    <Button 
+                        width=""
+                        background="#FF2A6D"
+                        onClick={()=> this.handleSubmit()}>
+                        Continuar pedido 
+                    </Button>
+                </div>
+            </Container>
+        )
+    }
 }
 
 const mapStateToProps = (state) => ({

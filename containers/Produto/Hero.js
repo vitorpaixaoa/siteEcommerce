@@ -176,7 +176,7 @@ class Hero extends Component {
     return (
       <Container
         justifyContent="space-between"
-        alignItem="flex-start"
+        alignItems="flex-start"
         padding="0px 0px 0px 0px"
         flexDirection="column"
       >

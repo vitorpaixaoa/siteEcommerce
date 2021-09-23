@@ -37,7 +37,7 @@ class Banners extends Component {
   renderBanners() {
     const { img } = this.state
     return (
-      <Container>
+      <Container margin="50px 0 0 0" >
         <img src={img} className="banner" alt="banner" width="100%" />
       </Container>
     )

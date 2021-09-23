@@ -257,7 +257,7 @@ class DadosPagamento extends Component {
         const { tipoPagamentoSelecionado } = this.props ;
         return(
             <div className="Dados-Pagamento-Container">
-                <h2>DADOS DE PAGAMENTO</h2>
+                <h2>Dados de pagamento</h2>
                 <br/>
                 { this.renderOpcoesPagamento()}
                 <br/>

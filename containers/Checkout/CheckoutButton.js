@@ -5,6 +5,7 @@ import { getCart } from '../../utils/cart';
 import AlertGeral from '../../components/Alert/Geral';
 
 import { validateCPF } from '../../utils/validate'
+import { Button } from '../../pages/styles/Components/Components';
 
 class CheckoutButton extends Component {
     state={
@@ -107,12 +108,12 @@ class CheckoutButton extends Component {
         return(
             <div className="flex flex-right">
                 <AlertGeral aviso={this.state.aviso} />
-                <button 
+                <Button 
                     className="btn btn-cta btn-success"
                     disabled={this.state.disabled} 
                     onClick={() => this.handleSubmit()} >
-                    <span>{ this.state.disabled ? "ENVIANDO PEDIDO..." : "CONCLUIR PEDIDO"}</span>
-                </button>
+                    <span>{ this.state.disabled ? "Enviando pedido..." : "Concluir pedido"}</span>
+                </Button>
             </div>
         )
     }

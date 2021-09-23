@@ -35,7 +35,7 @@ class Index extends Component {
     const { isOpen } = this.state
     return (
       <Container
-        alignItem="center"
+        alignItems="center"
         justifyContent="center"
         flexDirection="column"
       >
