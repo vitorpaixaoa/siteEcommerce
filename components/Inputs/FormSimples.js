@@ -16,7 +16,7 @@ export default class FormSimples extends Component {
             borderRadius,
         } = this.props;
         return (
-            <Form width={width} maxWidth={maxWidth} >
+            <Form onSubmit={(e) => {console.log(e)}} width={width} maxWidth={maxWidth} >
                 {label && <label>{label}</label>}
                 <Input
                     borderRadius={borderRadius}

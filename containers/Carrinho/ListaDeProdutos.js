@@ -80,7 +80,6 @@ class ListaDeProdutos extends Component {
                 : item.produto.fotos[0];
         const nome = item.produto.titulo + " - " + item.variacao.nome;
         const {quantidade, precoUnitario} = item;
-        console.log('ok', item)
         return (
             <>
                 <Divisor background="#d2d2d7" height={1} margin="4rem 0" />
@@ -154,7 +153,6 @@ class ListaDeProdutos extends Component {
 
     render() {
         const {semAlteracoes, carrinho} = this.props;
-        console.log('eeeei',this.props)
         return (
             <div>
                 {/* {this.renderCabecalhoCarrinho(semAlteracoes)} */}

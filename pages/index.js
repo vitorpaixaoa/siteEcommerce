@@ -10,7 +10,7 @@ import initialize from "../utils/initialize"
 import callBaseData from "../utils/callBaseData"
 import { connect } from "react-redux"
 import actions from "../redux/actions"
-import { Container } from "./styles/Components/Components"
+import { Container, Divisor } from "./styles/Components/Components"
 import styled from "styled-components"
 export const ExternalContent = styled.div`
   display: flex;
@@ -40,6 +40,7 @@ class Index extends Component {
         flexDirection="column"
       >
         <Cabecalho />
+        <Divisor height="50px" />
         <Banners />
         <Beneficios />
         <ProdutosPaginaInicial />

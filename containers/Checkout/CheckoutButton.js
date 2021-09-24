@@ -5,7 +5,7 @@ import { getCart } from '../../utils/cart';
 import AlertGeral from '../../components/Alert/Geral';
 
 import { validateCPF } from '../../utils/validate'
-import { Button } from '../../pages/styles/Components/Components';
+import { Button, CenterBox } from '../../pages/styles/Components/Components';
 
 class CheckoutButton extends Component {
     state={
@@ -92,7 +92,6 @@ class CheckoutButton extends Component {
         this.props.novoPedido(
             form, freteSelecionado, tipoPagamentoSelecionado, valorTotal, token, senderHash,
             carrinho, (error) => {
-                console.log('pedido finalizado')
                 if(error){
                     this.setState({ aviso: {status: false, message: error.message} })
                 }
@@ -106,15 +105,16 @@ class CheckoutButton extends Component {
 
     render(){
         return(
-            <div className="flex flex-right">
+            <CenterBox>
                 <AlertGeral aviso={this.state.aviso} />
-                <Button 
+                <Button
+                    width=""
                     background="#FF2A6D"
                     disabled={this.state.disabled} 
                     onClick={() => this.handleSubmit()} >
                     <span>{ this.state.disabled ? "Enviando pedido..." : "Concluir pedido"}</span>
                 </Button>
-            </div>
+            </CenterBox>
         )
     }
 }

@@ -7,8 +7,11 @@ import {formatCartao, formatCPF, formatNumber} from "../../utils/format";
 import {validateCPF} from "../../utils/validate";
 
 import {formatMoney} from "../../utils";
-import {CenterBox, HorizontalBox} from "../../pages/styles/Components/Components";
-import { Title } from "../Carrinho/styles";
+import {
+    CenterBox,
+    HorizontalBox,
+} from "../../pages/styles/Components/Components";
+import {Title} from "../Carrinho/styles";
 class DadosPagamento extends Component {
     state = {
         erros: {},
@@ -153,26 +156,18 @@ class DadosPagamento extends Component {
         const erros = {};
 
         if (tipoPagamentoSelecionado === "boleto") {
-            if (!CPFboleto && !CPF)
-                erros.CPFboleto = "*";
+            if (!CPFboleto && !CPF) erros.CPFboleto = "*";
             if (CPFboleto && CPFboleto.length !== 14 && !validateCPF(CPFboleto))
                 erros.CPFboleto = "*";
         } else {
             if (!numeroCartao || numeroCartao.length !== 19)
                 erros.numeroCartao = "*";
-            if (!nomeCartao)
-                erros.nomeCartao =
-                    "*";
-            if (!mesCartao || mesCartao.length !== 2)
-                erros.mesCartao = "*";
-            if (!anoCartao || anoCartao.length !== 4)
-                erros.anoCartao = "*";
+            if (!nomeCartao) erros.nomeCartao = "*";
+            if (!mesCartao || mesCartao.length !== 2) erros.mesCartao = "*";
+            if (!anoCartao || anoCartao.length !== 4) erros.anoCartao = "*";
             if (!parcelasCartaoSelecionada)
-                erros.parcelasCartaoSelecionada =
-                    "*";
-            if (!CVVCartao || CVVCartao.length < 3)
-                erros.CVVCartao =
-                    "*";
+                erros.parcelasCartaoSelecionada = "*";
+            if (!CVVCartao || CVVCartao.length < 3) erros.CVVCartao = "*";
         }
         this.setState({erros});
         return !(Object.keys(erros).length > 0);
@@ -180,13 +175,13 @@ class DadosPagamento extends Component {
     onChange = (field, value) =>
         this.props.setForm({[field]: value}).then(() => this.validate());
 
-    renderPagamentoBoleto(){ 
-        const { CPF, CPFboleto } = this.props.form;
-        const { erros } = this.state;
-        return(
+    renderPagamentoBoleto() {
+        const {CPF, CPFboleto} = this.props.form;
+        const {erros} = this.state;
+        return (
             <div>
                 <div>
-                    <FormSimples 
+                    <FormSimples
                         name="CPF"
                         erro={erros.CPFboleto}
                         value={CPFboleto || ""}
