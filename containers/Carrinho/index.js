@@ -40,12 +40,26 @@ class CarrinhoContainer extends Component {
                 valorTotal: valor,
             });
         }
+        if (
+            carrinho &&
+            carrinho[0] &&
+            carrinho[0].produto &&
+            !carrinho[0].produto._id
+        ) {
+            carrinho.forEach((item, idx) => {
+                this.props.fetchProdutoCarrinho(item.produto, idx);
+                this.props.fetchVariacoesCarrinho(
+                    item.variacao._id || item.variacao,
+                    item.produto,
+                    idx
+                );
+            });
+        }
     }
 
     render() {
-        console.log(this.props.carrinho);
         return (
-            <Container>
+            <Container margin="50px 0 0 0">
                 {this.props.carrinho && this.props.carrinho.length > 0 ? (
                     <>
                         <Title>

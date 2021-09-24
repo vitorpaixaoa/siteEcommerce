@@ -19,7 +19,7 @@ class ClienteLogin extends Component {
             <div className="flex-1">
                 <h2>Comprar como visitante / Realizar registro</h2>
                 <br />
-                <Button padding="8px 16px" width="" onClick={() => this.props.permitir()}>Continuar</Button>
+                <Button background="#FF2A6D" padding="8px 16px" width="" onClick={() => this.props.permitir()}>Continuar</Button>
             </div>
         );
     }
@@ -74,7 +74,7 @@ class ClienteLogin extends Component {
                 />
                 <br />
                 <CenterBox>
-                    <Button width="" onClick={() => this.handleSubmit()}>Entrar</Button>
+                    <Button background="#FF2A6D" width="" onClick={() => this.handleSubmit()}>Entrar</Button>
                 </CenterBox>
             </>
         );

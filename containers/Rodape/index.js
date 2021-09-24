@@ -15,9 +15,12 @@ class Rodape extends Component {
             src="/static/img-site/LogoV1.svg"
           />
           <Paginas />
+          <br/>
           <RedesSociais />
+          <br/>
           <DadosDaLoja />
         </Content>
+        <br/>
         <div
           style={{
             textAlign: "center"

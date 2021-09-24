@@ -63,6 +63,10 @@ class ListaDeProdutos extends Component {
     };
 
     renderProduto(item, semAlteracoes, index) {
+        console.log(!item.variacao ||
+            !item.variacao._id ||
+            !item.produto ||
+            !item.produto._id)
         if (
             !item.variacao ||
             !item.variacao._id ||
@@ -76,6 +80,7 @@ class ListaDeProdutos extends Component {
                 : item.produto.fotos[0];
         const nome = item.produto.titulo + " - " + item.variacao.nome;
         const {quantidade, precoUnitario} = item;
+        console.log('ok', item)
         return (
             <>
                 <Divisor background="#d2d2d7" height={1} margin="4rem 0" />
@@ -137,7 +142,11 @@ class ListaDeProdutos extends Component {
             </>
         );
     }
+
     renderProdutos(semAlteracoes) {
+        this.props.carrinho.map((item, index) =>
+            console.log(item)
+        );
         return this.props.carrinho.map((item, index) =>
             this.renderProduto(item, semAlteracoes, index)
         );
@@ -145,6 +154,7 @@ class ListaDeProdutos extends Component {
 
     render() {
         const {semAlteracoes, carrinho} = this.props;
+        console.log('eeeei',this.props)
         return (
             <div>
                 {/* {this.renderCabecalhoCarrinho(semAlteracoes)} */}

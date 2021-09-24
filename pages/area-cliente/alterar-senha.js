@@ -8,6 +8,7 @@ import actions from '../../redux/actions';
 
 import initialize from '../../utils/initialize';
 import callBaseData from '../../utils/callBaseData';
+import { Divisor } from '../styles/Components/Components';
 
 class AlterarSenha extends Component {
 
@@ -24,6 +25,7 @@ class AlterarSenha extends Component {
         return(
             <Layout title="Meus Dados | Loja Zellus - Moda e estilo">
                 <Cabecalho />
+                <Divisor height="50px" />
                 <AlterarSenhaContainer />
                 <Rodape/>
             </Layout>

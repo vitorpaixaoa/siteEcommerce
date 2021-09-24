@@ -4,6 +4,7 @@ import Rodape from '../containers/Rodape';
 import Cabecalho from '../containers/Cabecalho';
 
 import SucessoContainer from '../containers/Sucesso';
+import { Divisor } from './styles/Components/Components';
 
 export default class Sucesso extends Component {
 
@@ -11,8 +12,7 @@ export default class Sucesso extends Component {
         return(
             <Layout title="Loja Zellus - Moda e estilo." > 
                 <Cabecalho  />
-            <br/>
-            <br/>
+                <Divisor height="50px" />
                 <SucessoContainer />
                 <Rodape />
             </Layout>

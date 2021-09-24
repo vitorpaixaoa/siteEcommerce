@@ -20,7 +20,8 @@ export default class ProdutoContainer extends Component {
       <Container
         padding={this.state.windowScreenWidth <= 360 && "0 1rem 0 1rem"}
         flexDirection="column"
-        alignItem="center"
+        alignItems="center"
+        margin="50px 0 0 0"
       >
         <Hero />
         <Descricao />

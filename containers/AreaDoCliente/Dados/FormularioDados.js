@@ -141,7 +141,7 @@ class FormularioDados extends Component {
 
     return (
       <GroupComponent
-        alignItem="center"
+        alignItems="center"
         justifyContent="space-around"
         flexDirection="column"
         padding="50px"

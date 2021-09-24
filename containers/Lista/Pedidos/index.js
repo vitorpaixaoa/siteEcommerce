@@ -38,7 +38,7 @@ class ListaPedidos extends Component {
     const { pedidos } = this.props
     return (
       <GroupComponent
-        alignItem="center"
+        alignItems="center"
         justifyContent="space-around"
         flexDirection="column"
         padding="50px"

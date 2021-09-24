@@ -8,6 +8,7 @@ import initialize from '../../utils/initialize';
 import callBaseData from '../../utils/callBaseData';
 import { connect } from 'react-redux';
 import actions from '../../redux/actions';
+import { Divisor } from '../styles/Components/Components';
 
 
 class AreaDoCliente extends Component {
@@ -25,6 +26,7 @@ class AreaDoCliente extends Component {
         return(
             <Layout title="Minha Conta | Loja Zellus - Moda e estilo.">
                 <Cabecalho />
+                <Divisor height="50px" />
                 <AreaDoClienteContainer/>
                 <Rodape/>
             </Layout>

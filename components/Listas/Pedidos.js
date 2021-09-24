@@ -58,7 +58,7 @@ class Pedidos extends Component {
   }
 
   render() {
-    return <Container alignItem="center" wrap={'wrap'} >{this.renderCorpo()}</Container>
+    return <Container alignItems="center" wrap={'wrap'} >{this.renderCorpo()}</Container>
   }
 }
 

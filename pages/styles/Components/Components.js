@@ -74,7 +74,7 @@ export const TextComponent = styled.span`
 
 export const GroupComponent = styled.div`
     flex-direction: ${({flexDirection = "column"}) => flexDirection};
-    align-items: ${({alignItem = "flex-start"}) => alignItem};
+    align-items: ${({alignItems = "flex-start"}) => alignItems};
     justify-content: ${({justifyContent = "flex-start"}) => justifyContent};
     margin-top: ${({marginTop = 0}) => marginTop + "px"};
     margin-left: ${({marginLeft = 0}) => marginLeft + "px"};
@@ -95,6 +95,7 @@ export const GroupComponent = styled.div`
     }};
     @media (max-width: 768px) {
         flex-direction: column;
+        align-items: center;
     }
 `;
 const isScrollDiv = (props) => {

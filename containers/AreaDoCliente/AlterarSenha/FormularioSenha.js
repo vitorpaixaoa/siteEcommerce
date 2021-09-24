@@ -60,7 +60,7 @@ class FormularioSenha extends Component {
     const { senhaAntiga, novaSenha, confirmarNovaSenha, erros } = this.state
     return (
       <GroupComponent
-        alignItem="center"
+        alignItems="center"
         justifyContent="space-around"
         flexDirection="column"
         padding="50px"

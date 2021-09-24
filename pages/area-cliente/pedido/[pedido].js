@@ -8,6 +8,7 @@ import Rodape from '../../../containers/Rodape';
 import actions from '../../../redux/actions';
 import initialize from '../../../utils/initialize';
 import callBaseData from '../../../utils/callBaseData';
+import { Divisor } from '../../styles/Components/Components';
 
  class Pedido extends Component {
 
@@ -30,6 +31,7 @@ import callBaseData from '../../../utils/callBaseData';
         return(
             <Layout title="Pedido | Loja Zellus - Moda e estilo.">
                 <Cabecalho />
+                <Divisor height="50px" />
                 <PedidoContainer query={query}/>
                 <Rodape/>
             </Layout>

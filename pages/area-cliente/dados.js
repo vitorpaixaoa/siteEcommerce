@@ -7,6 +7,7 @@ import initialize from '../../utils/initialize';
 import callBaseData from '../../utils/callBaseData';
 import { connect } from 'react-redux';
 import actions from '../../redux/actions';
+import { Divisor } from '../styles/Components/Components';
 
 
  class DadosDoCliente extends Component {
@@ -24,6 +25,7 @@ import actions from '../../redux/actions';
         return(
             <Layout title="Meus Dados | Loja Zellus - Moda e estilo">
                 <Cabecalho />
+                <Divisor height="50px" />
                 <DadosContainer />
                 <Rodape/>
             </Layout>

@@ -29,7 +29,7 @@ class MenuAreaDoCliente extends Component {
     const { cliente } = this.props
     return (
       <GroupComponent
-        alignItem="center"
+        alignItems="center"
         justifyContent="space-around"
         flexDirection="row"
         padding="50px"
